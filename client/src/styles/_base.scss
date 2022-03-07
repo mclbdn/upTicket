@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;800;900&family=Open+Sans:wght@300;400;500;700;800&display=swap');
+
+// RESETS START
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+// RESETS END
+
+// COLORS START
+
+$dark-blue-color: #292B4D;
+$off-white-color: #F2F4F7;
+$blue-color: #5C64F2;
+$light-blue-color: #79A2F2;
+$pink-color: #F272AE;
+$yellow-color: #F2CD5E;
+$red-color: F2594B;
+
+// COLORS END

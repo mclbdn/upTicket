@@ -1,0 +1,67 @@
+.hero-section {
+  height: 402px;
+  background-image: url("../assets/hero-image.jpg");
+  background-position: 25% 75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  nav {
+    padding-top: 30px;
+    margin: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .logo-link {
+      font-family: "Barlow", sans-serif;
+      text-decoration: none;
+      font-size: 25px;
+      line-height: 25px;
+      font-weight: 800;
+
+      &:visited {
+        text-decoration: none;
+      }
+
+      .blue-text-span {
+        color: $blue-color;
+      }
+
+      .off-white-text-span {
+        color: $off-white-color;
+      }
+    }
+
+    .hamburger-menu {
+      font-size: 25px;
+      color: $off-white-color;
+    }
+  }
+
+  .text-wrapper {
+    width: 100%;
+    background-color: rgba($color: $dark-blue-color, $alpha: 0.5);
+    position: absolute;
+    bottom: 0;
+    top: 150px;
+
+    h1 {
+      font-family: "Barlow", sans-serif;
+      margin-top: 20px;
+      margin-left: 20px;
+      color: $off-white-color;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 95%;
+      width: 335px;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-left: 20px;
+      color: $off-white-color;
+      line-height: 163%;
+      width: 274px;
+    }
+  }
+}
