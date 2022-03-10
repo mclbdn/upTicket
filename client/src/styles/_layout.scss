@@ -1,3 +1,9 @@
+body {
+  background-color: $off-white-color;
+}
+
+// HERO START
+
 .hero-section {
   height: 402px;
   background-image: url("../assets/hero-image.jpg");
@@ -5,12 +11,30 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  overflow: hidden;
+
+  .check-circle {
+    display: none;
+  }
+
+  .graph-image {
+    display: none;
+  }
 
   nav {
     padding-top: 30px;
     margin: 0 20px 0 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    ul {
+      display: none;
+    }
+
+    .auth-buttons {
+      display: none;
+    }
 
     .logo-link {
       font-family: "Barlow", sans-serif;
@@ -54,14 +78,314 @@
       font-weight: 800;
       line-height: 95%;
       width: 335px;
+
+      .yellow-text-span {
+        color: $yellow-color;
+      }
     }
 
     p {
       margin-top: 20px;
+      margin-bottom: 20px;
       margin-left: 20px;
       color: $off-white-color;
       line-height: 163%;
       width: 274px;
+      font-size: 15px;
+    }
+
+    .cta-button-hero {
+      border-radius: 10px;
+      margin-left: 20px;
+      width: 170px;
+      height: 39px;
+      background-color: $yellow-color;
+
+      a {
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        line-height: 39px;
+        font-size: 15px;
+        font-weight: bold;
+        color: $dark-blue-color;
+      }
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .hero-section {
+    height: 607px;
+
+    .graph-image {
+      position: absolute;
+      display: block;
+      top: 216px;
+      height: 309px;
+      left: 73%;
+      box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .check-circle {
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      left: 71%;
+      top: 260px;
+    }
+
+    nav {
+      ul {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        margin: 0 auto;
+
+        li {
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            color: $off-white-color;
+            font-weight: 500;
+          }
+        }
+      }
+      .hamburger-menu {
+        display: none;
+      }
+
+      .auth-buttons {
+        display: flex;
+
+        .auth-btn {
+          width: 90px;
+          height: 40px;
+          font-size: 15px;
+          border-radius: 10px;
+          text-align: center;
+          line-height: 40px;
+
+          a {
+            text-decoration: none;
+          }
+        }
+
+        .login-btn {
+          font-weight: 600;
+          border: 1px solid $yellow-color;
+
+          a {
+            color: $off-white-color;
+          }
+        }
+
+        .sign-up-btn {
+          font-weight: 700;
+          background-color: $yellow-color;
+          margin-left: 30px;
+
+          a {
+            color: $dark-blue-color;
+          }
+        }
+      }
+    }
+
+    .text-wrapper {
+      width: 497px;
+      height: 309px;
+      top: 216px;
+      bottom: 82px;
+
+      h1 {
+        width: 459px;
+        font-size: 45px;
+      }
+
+      p {
+        width: 377px;
+        margin-bottom: 30px;
+      }
+
+      .cta-button-hero {
+        width: 187.39px;
+        height: 53px;
+
+        a {
+          line-height: 53px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-section {
+    height: 800px;
+
+    .graph-image {
+      position: absolute;
+      display: block;
+      top: 293px;
+      height: 327px;
+      left: 75%;
+    }
+
+    .check-circle {
+      width: 55px;
+      height: 55px;
+      left: 73.25%;
+      top: 330px;
+    }
+
+    nav {
+      margin: 0 140px 0 140px;
+      ul {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        margin: 0 auto;
+
+        li {
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            color: $off-white-color;
+            font-weight: 500;
+          }
+        }
+      }
+      .hamburger-menu {
+        display: none;
+      }
+
+      .auth-buttons {
+        display: flex;
+
+        .auth-btn {
+          width: 90px;
+          height: 40px;
+          font-size: 15px;
+          border-radius: 10px;
+          text-align: center;
+          line-height: 40px;
+
+          a {
+            text-decoration: none;
+          }
+        }
+
+        .login-btn {
+          font-weight: 600;
+          border: 1px solid $yellow-color;
+
+          a {
+            color: $off-white-color;
+          }
+        }
+
+        .sign-up-btn {
+          font-weight: 700;
+          background-color: $yellow-color;
+          margin-left: 30px;
+
+          a {
+            color: $dark-blue-color;
+          }
+        }
+      }
+    }
+
+    .text-wrapper {
+      width: 705px;
+      height: 327px;
+      top: 293px;
+      bottom: 82px;
+
+      h1 {
+        width: 459px;
+        font-size: 55px;
+        margin-left: 140px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-left: 140px;
+      }
+
+      .cta-button-hero {
+        margin-left: 140px;
+      }
+    }
+  }
+}
+
+// HERO END
+
+// FEATURES START
+
+.features-section {
+  .single-feature {
+    margin: 60px 20px 0px;
+
+    h2 {
+      line-height: 100%;
+      color: $dark-blue-color;
+      font-family: "Barlow", sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+
+      .light-blue-text-span {
+        color: $light-blue-color;
+      }
+
+      .pink-text-span {
+        color: $pink-color;
+      }
+
+      .blue-text-span {
+        color: $blue-color;
+      }
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      line-height: 163%;
+    }
+
+    .feature-img {
+      border-radius: 5px;
+      box-shadow: 0px 7.00837px 2.80335px rgba(0, 0, 0, 0.1);
+      background-repeat: no-repeat;
+      overflow: hidden;
+      height: 210px;
+      border-radius: 5px;
+      box-shadow: 0px 7.00837px 2.80335px rgba(0, 0, 0, 0.1)
+    }
+
+    .feature-img-simple {
+      background-image: url("../assets/simple-feature-image.jpg");
+      background-position: 60% 60%;
+      background-size: 525px;
+    }
+
+    .feature-img-free {
+      background-image: url("../assets/free-feature-image.jpg");
+      background-position: 35% 60%;
+      background-size: 600px;
+    }
+
+    .feature-img-speed {
+      background-image: url("../assets/speed-feature-image.jpg");
+      background-position: 35% 60%;
+      background-size: 700px;
+    }
+  }
+}
+
+// FEATURES END
