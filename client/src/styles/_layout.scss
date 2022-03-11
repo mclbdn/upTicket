@@ -364,26 +364,118 @@ body {
       background-repeat: no-repeat;
       overflow: hidden;
       height: 210px;
-      border-radius: 5px;
-      box-shadow: 0px 7.00837px 2.80335px rgba(0, 0, 0, 0.1)
+      position: relative;
+      background-size: cover;
     }
 
     .feature-img-simple {
       background-image: url("../assets/simple-feature-image.jpg");
       background-position: 60% 60%;
-      background-size: 525px;
+
+      img {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+      }
     }
 
     .feature-img-free {
       background-image: url("../assets/free-feature-image.jpg");
       background-position: 35% 60%;
-      background-size: 600px;
+
+      img {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        box-shadow: 0px 7.00837px 2.80335px rgba(0, 0, 0, 0.1);
+      }
     }
 
     .feature-img-speed {
       background-image: url("../assets/speed-feature-image.jpg");
       background-position: 35% 60%;
-      background-size: 700px;
+
+      img {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        box-shadow: 0px 7.00837px 2.80335px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .features-section {
+    .single-feature {
+      margin: 120px 40px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .feature-texts {
+        width: 46%;
+
+        h2 {
+          width: 330px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+
+      .feature-img {
+        width: 46%;
+        height: 342px;
+      }
+    }
+
+    .feature-reversed {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .features-section {
+    .single-feature {
+      margin: 120px 140px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .feature-texts {
+        width: 46%;
+
+        h2 {
+          font-size: 35px;
+          min-width: 390px;
+        }
+
+        p {
+          font-size: 20px;
+          margin-top: 40px;
+          max-width: 466px;
+        }
+      }
+
+      .feature-img {
+        width: 46%;
+        height: 400px;
+        overflow: visible;
+      }
+
+      .feature-img-simple {
+        img {
+          width: 250px;
+          height: 195px;
+          top: -65px;
+          left: -50px;
+        }
+      }
+    }
+
+    .feature-reversed {
+      flex-direction: row-reverse;
     }
   }
 }
