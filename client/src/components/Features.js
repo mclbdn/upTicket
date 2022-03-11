@@ -50,7 +50,7 @@ const Features = () => {
           <img draggable="false" src={overall_statistics} alt="" />
         </div>
       </div>
-      <hr />
+      <hr className="divider" />
     </section>
   );
 };

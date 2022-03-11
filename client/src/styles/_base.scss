@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;800;900&family=Open+Sans:wght@300;400;500;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;800;900&family=Open+Sans:wght@300;400;500;700;800&display=swap");
 
 // RESETS START
 
@@ -21,7 +21,7 @@ body,
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 img,
@@ -59,12 +59,37 @@ h6 {
 
 // COLORS START
 
-$dark-blue-color: #292B4D;
-$off-white-color: #F2F4F7;
-$blue-color: #5C64F2;
-$light-blue-color: #79A2F2;
-$pink-color: #F272AE;
-$yellow-color: #F2CD5E;
-$red-color: #F2594B;
+$dark-blue-color: #292b4d;
+$off-white-color: #f2f4f7;
+$blue-color: #5c64f2;
+$light-blue-color: #79a2f2;
+$pink-color: #f272ae;
+$yellow-color: #f2cd5e;
+$red-color: #f2594b;
 
 // COLORS END
+
+// DIVIDER START
+.divider {
+  width: 187.5px;
+  border-top: 1px solid $dark-blue-color;
+  margin: 60px auto;
+}
+
+@media screen and(min-width:768px) {
+  .divider {
+    width: 512px;
+    border-top: 1px solid $dark-blue-color;
+    margin: 120px auto;
+  }
+}
+
+@media screen and(min-width:1440px) {
+  .divider {
+    width: 580px;
+    border-top: 1px solid $dark-blue-color;
+    margin: 120px auto;
+  }
+}
+
+// DIVIDER END
