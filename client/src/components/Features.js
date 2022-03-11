@@ -50,6 +50,8 @@ const Features = () => {
           <img src={overall_statistics} alt="" />
         </div>
       </div>
+      <hr />
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum perspiciatis nesciunt reiciendis voluptatum nihil fugit velit architecto, alias suscipit eius nulla deserunt error impedit placeat eaque porro voluptatibus inventore autem consectetur. Illum, eos. Vero enim vitae expedita tempora temporibus illum, odit maiores excepturi optio, sunt debitis architecto amet aperiam. Nobis, nemo facilis. Id error vero voluptatibus modi reiciendis ipsa mollitia, assumenda magni harum aliquam ratione odit, praesentium, voluptatum dignissimos obcaecati saepe repudiandae ipsum voluptatem? Vero laborum quidem quasi accusantium rerum quas veritatis, enim ab adipisci excepturi molestiae reprehenderit minima. Voluptatum ad autem vitae ducimus maxime! Amet, numquam nobis? Consectetur, necessitatibus?</p>
     </section>
   );
 };
