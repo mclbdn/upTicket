@@ -18,7 +18,7 @@ const Features = () => {
           </p>
         </div>
         <div className="feature-img feature-img-simple">
-          <img src={assigned_tickets} alt="" />
+          <img draggable="false" src={assigned_tickets} alt="" />
         </div>
       </div>
       <div className="single-feature feature-reversed">
@@ -33,7 +33,7 @@ const Features = () => {
           </p>
         </div>
         <div className="feature-img feature-img-free">
-          <img src={unresolved_tickets} alt="" />
+          <img draggable="false" src={unresolved_tickets} alt="" />
         </div>
       </div>
       <div className="single-feature">
@@ -47,11 +47,10 @@ const Features = () => {
           </p>
         </div>
         <div className="feature-img feature-img-speed">
-          <img src={overall_statistics} alt="" />
+          <img draggable="false" src={overall_statistics} alt="" />
         </div>
       </div>
       <hr />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum perspiciatis nesciunt reiciendis voluptatum nihil fugit velit architecto, alias suscipit eius nulla deserunt error impedit placeat eaque porro voluptatibus inventore autem consectetur. Illum, eos. Vero enim vitae expedita tempora temporibus illum, odit maiores excepturi optio, sunt debitis architecto amet aperiam. Nobis, nemo facilis. Id error vero voluptatibus modi reiciendis ipsa mollitia, assumenda magni harum aliquam ratione odit, praesentium, voluptatum dignissimos obcaecati saepe repudiandae ipsum voluptatem? Vero laborum quidem quasi accusantium rerum quas veritatis, enim ab adipisci excepturi molestiae reprehenderit minima. Voluptatum ad autem vitae ducimus maxime! Amet, numquam nobis? Consectetur, necessitatibus?</p>
     </section>
   );
 };
