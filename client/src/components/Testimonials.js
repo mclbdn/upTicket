@@ -36,7 +36,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="testimonials-section">
+    <section className="testimonials-section" id="testimonials">
       <h2>
         Our goal is to make work within{" "}
         <span className="red-text-span">small startups</span> simpler

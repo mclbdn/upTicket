@@ -5,7 +5,7 @@ import overall_statistics from "../assets/overall-statistics.svg";
 
 const Features = () => {
   return (
-    <section className="features-section">
+    <section className="features-section" id="features">
       <div className="single-feature">
         <div className="feature-texts">
           <h2>

@@ -21,6 +21,74 @@ body {
     display: none;
   }
 
+  .menu {
+    width: 0%;
+    height: 100%;
+    background-color: rgba($color: $dark-blue-color, $alpha: 0.99);
+    position: absolute;
+    z-index: 1;
+    animation: open ease-in 0.3s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      margin-top: 90px;
+      overflow: hidden;
+
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        color: $off-white-color;
+        font-weight: 500;
+        font-size: 15px;
+        white-space: nowrap;
+      }
+
+      .auth-btn {
+        width: 90px;
+        height: 40px;
+        font-size: 15px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 40px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .login-btn {
+        font-weight: 600;
+        border: 1px solid $yellow-color;
+
+        a {
+          color: $off-white-color;
+        }
+      }
+
+      .sign-up-btn {
+        font-weight: 700;
+        background-color: $yellow-color;
+
+        a {
+          color: $dark-blue-color;
+        }
+      }
+    }
+  }
+
+  @keyframes open {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
   nav {
     padding-top: 30px;
     margin: 0 20px 0 20px;
@@ -42,6 +110,7 @@ body {
       font-size: 25px;
       line-height: 25px;
       font-weight: 800;
+      z-index: 1000;
 
       &:visited {
         text-decoration: none;
@@ -59,6 +128,8 @@ body {
     .hamburger-menu {
       font-size: 25px;
       color: $off-white-color;
+      cursor: pointer;
+      z-index: 10;
     }
   }
 
@@ -146,10 +217,11 @@ body {
         li {
           list-style: none;
 
-          a {
+          .nav-link {
             text-decoration: none;
             color: $off-white-color;
             font-weight: 500;
+            cursor: pointer;
           }
         }
       }
@@ -252,7 +324,7 @@ body {
         li {
           list-style: none;
 
-          a {
+          .nav-link {
             text-decoration: none;
             color: $off-white-color;
             font-weight: 500;
@@ -800,7 +872,6 @@ body {
     }
   }
 }
-
 
 @media screen and (min-width: 1440px) {
   .faq-section {
