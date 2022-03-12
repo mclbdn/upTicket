@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import graph from "../assets/graphic.svg";
 import check_circle from "../assets/check-circle.svg";
 import { Link } from "react-scroll";
@@ -137,11 +137,20 @@ const Hero = () => {
             </Link>
           </li>
         </ul>
-        <FontAwesomeIcon
-          icon={faBars}
-          className="hamburger-menu"
-          onClick={handleHamburgerClick}
-        />
+        {isHamburgerOpen ? (
+          <FontAwesomeIcon
+            icon={faX}
+            className="hamburger-menu"
+            onClick={handleHamburgerClick}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faBars}
+            className="hamburger-menu"
+            onClick={handleHamburgerClick}
+          />
+        )}
+
         <div className="auth-buttons">
           <div className="login-btn auth-btn">
             <a href="">Log In</a>

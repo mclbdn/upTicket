@@ -30,6 +30,7 @@ body {
     animation: open ease-in 0.3s;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
+    transition: width ease-in-out 5s;
 
     ul {
       display: flex;
@@ -88,6 +89,8 @@ body {
       width: 100%;
     }
   }
+
+  
 
   nav {
     padding-top: 30px;
@@ -188,6 +191,10 @@ body {
 @media screen and (min-width: 768px) {
   .hero-section {
     height: 607px;
+
+    .menu {
+      display: none;
+    }
 
     .graph-image {
       position: absolute;
