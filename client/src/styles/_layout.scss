@@ -739,6 +739,9 @@ body {
       position: relative;
       overflow: hidden;
       transition: height ease-in-out 0.3s;
+      -moz-transition: height ease-in-out 0.3s;
+      -webkit-transition: height ease-in-out 0.3s;
+      -o-transition: height ease-in-out 0.3s;
 
       h3 {
         color: $dark-blue-color;
@@ -748,12 +751,13 @@ body {
         margin-top: 20px;
       }
 
-      .plus-minus-icon {
+      .plus-icon {
         margin-right: 20px;
         color: $dark-blue-color;
       }
 
       .faq-text {
+        color: $dark-blue-color;
         position: absolute;
         left: 20px;
         right: 20px;
@@ -762,8 +766,71 @@ body {
     }
 
     .opened {
+      height: 160px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .faq-section {
+    h2 {
+      font-size: 45px;
+      margin: 0 auto 60px;
+    }
+
+    .faqs-container {
+      margin: 0 auto;
+      width: 620px;
+
+      .single-faq {
+        height: 75px;
+
+        h3 {
+          margin-top: 28.5px;
+        }
+
+        .faq-text {
+          margin-top: 28.5px;
+        }
+      }
+
+      .opened {
         height: 160px;
       }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .faq-section {
+    h2 {
+      font-size: 55px;
+    }
+
+    .faqs-container {
+      margin: 0 auto;
+      width: 824px;
+
+      .single-faq {
+        height: 100px;
+
+        h3 {
+          line-height: 25px;
+          font-size: 25px;
+          margin-top: 37.5px;
+        }
+
+        .faq-text {
+          font-size: 20px;
+          margin-top: 37.5px;
+        }
+      }
+
+      .opened {
+        height: 160px;
+      }
+    }
   }
 }
 

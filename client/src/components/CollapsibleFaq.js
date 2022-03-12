@@ -12,9 +12,9 @@ const CollapsibleFaq = ({faqQuestion, faqAnswer}) => {
     >
       <h3>{faqQuestion}</h3>
       {isOpen ? (
-        <FontAwesomeIcon icon={faMinus} className="plus-minus-icon" />
+        <FontAwesomeIcon icon={faMinus} className="plus-icon" />
       ) : (
-        <FontAwesomeIcon icon={faPlus} className="plus-minus-icon" />
+        <FontAwesomeIcon icon={faPlus} className="plus-icon" />
       )}
       <p className="faq-text">{faqAnswer}</p>
     </div>

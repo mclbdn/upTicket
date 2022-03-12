@@ -25,7 +25,7 @@ const Faq = () => {
 
   return (
     <section className="faq-section">
-      <img src={help_icon} alt="" />
+      <img draggable="false" src={help_icon} alt="" />
       <h2>FAQ</h2>
       <div className="faqs-container">
         {faqs.map((faq) => {

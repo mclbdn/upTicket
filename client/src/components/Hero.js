@@ -14,6 +14,9 @@ const Hero = () => {
         </a>
         <ul>
           <li>
+            <a href="">Features</a>
+          </li>
+          <li>
             <a href="">Testimonials</a>
           </li>
           <li>
@@ -34,7 +37,12 @@ const Hero = () => {
         </div>
       </nav>
       <img draggable="false" src={graph} alt="" className="graph-image" />
-      <img draggable="false" src={check_circle} alt="" className="check-circle" />
+      <img
+        draggable="false"
+        src={check_circle}
+        alt=""
+        className="check-circle"
+      />
       <div className="text-wrapper">
         <h1>
           Make <span className="yellow-text-span">your tickets</span> matter.

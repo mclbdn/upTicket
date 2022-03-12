@@ -50,6 +50,10 @@ h6 {
   overflow-wrap: break-word;
 }
 
+ul {
+  padding-inline-start: 0px;
+}
+
 #root,
 #__next {
   isolation: isolate;
