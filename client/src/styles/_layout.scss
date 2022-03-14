@@ -1074,7 +1074,7 @@ body {
       margin-left: 20px;
       display: flex;
 
-      .testimonial-photo {
+      .founder-photo {
         width: 45px;
         height: 45px;
       }
@@ -1086,14 +1086,14 @@ body {
         justify-content: space-between;
         margin: 0;
 
-        .testimonial-name {
+        .founder-name {
           font-weight: 500;
           font-size: 16px;
           color: $dark-blue-color;
           padding-top: 0px;
         }
 
-        .testimonial-role {
+        .founder-role {
           font-weight: 300;
           font-size: 12px;
           color: rgba($color: $dark-blue-color, $alpha: 0.5);
@@ -1125,10 +1125,51 @@ body {
         .name-and-role {
           margin-left: 30px;
 
-          .testimonial-name {
+          .founder-name {
             margin: 0;
           }
-          .testimonial-role {
+          .founder-role {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .founders-note-section {
+    h1 {
+      font-size: 55px;
+    }
+    .founders-note-wrapper {
+      margin: 60px 140px 0;
+      min-height: 780px;
+
+      hr {
+        margin: 0 140px;
+      }
+
+      p {
+        padding-top: 60px;
+        margin: 0 140px 0;
+      }
+
+      .underline-details {
+        margin-left: 140px;
+
+        .founder-photo {
+        width: 55px;
+        height: 55px;
+      }
+
+        .name-and-role {
+          margin-left: 30px;
+
+          .founder-name {
+            margin: 0;
+          }
+          .founder-role {
             margin: 0;
           }
         }
@@ -1138,3 +1179,67 @@ body {
 }
 
 // FOUNDERS NOTE END
+
+// FOOTER START
+
+footer {
+  margin-top: 60px;
+  height: 99px;
+  background-color: rgba($color: $red-color, $alpha: 0.5);
+
+  .logo-wrapper {
+    padding-top: 10px;
+    text-align: center;
+
+    .logo-link {
+      font-family: "Barlow", sans-serif;
+      text-decoration: none;
+      font-size: 25px;
+      line-height: 25px;
+      font-weight: 800;
+      z-index: 1000;
+
+      &:visited {
+        text-decoration: none;
+      }
+
+      .blue-text-span {
+        color: $blue-color;
+      }
+
+      .off-white-text-span {
+        color: $off-white-color;
+      }
+    }
+  }
+
+  hr {
+    margin: 10px auto;
+    width: 50%;
+    height: 0.92px;
+    background: rgba(41, 43, 77, 0.1);
+    border: 0;
+  }
+
+  p {
+    text-align: center;
+    color: rgba($color: $dark-blue-color, $alpha: 0.5);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    margin-top: 120px;
+    height: 186px;
+
+    .logo-wrapper {
+      padding-top: 30px;
+    }
+
+    hr {
+      margin: 30px auto;
+    }
+  }
+}
+
+// FOOTER END

@@ -4,7 +4,7 @@ import michal_photo from "../assets/michal-photo.svg"
 const FoundersNote = () => {
   return (
     <section className="founders-note-section">
-      <h1>Founder’s Note</h1>
+      <h1>Founder's Note</h1>
       <div className="founders-note-wrapper">
         <p>
           Like you, I like exploring and learning new things. <br />
@@ -31,10 +31,10 @@ const FoundersNote = () => {
         </p>
         <hr />
         <div className="underline-details">
-          <img draggable="false" className="testimonial-photo" src={michal_photo} alt="" />
+          <img draggable="false" className="founder-photo" src={michal_photo} alt="" />
           <div className="name-and-role">
-            <p className="testimonial-name">Michal Bednar</p>
-            <p className="testimonial-role">CEO at upTicket</p>
+            <p className="founder-name">Michal Bednar</p>
+            <p className="founder-role">CEO at upTicket</p>
           </div>
         </div>
       </div>
