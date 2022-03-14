@@ -37,6 +37,7 @@ const Faq = () => {
           );
         })}
       </div>
+      <hr className="divider" />
     </section>
   );
 };
