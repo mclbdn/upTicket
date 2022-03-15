@@ -47,7 +47,6 @@ const Testimonials = () => {
           return <SingleTestimonial text={testimonial.text} name={testimonial.name} role={testimonial.role} photo={testimonial.photo} icon={testimonial.icon} icon_class={testimonial.icon_class} />
         })}
       </div>
-      <hr className="divider" />
     </section>
   );
 };

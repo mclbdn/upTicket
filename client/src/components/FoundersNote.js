@@ -3,7 +3,7 @@ import michal_photo from "../assets/michal-photo.svg"
 
 const FoundersNote = () => {
   return (
-    <section className="founders-note-section">
+    <section className="founders-note-section" id="founders-note">
       <h1>Founder's Note</h1>
       <div className="founders-note-wrapper">
         <p>

@@ -11,7 +11,6 @@ const Newsletter = () => {
           <button>Subscribe</button>
         </form>
       </div>
-      <hr className="divider" />
     </section>
   );
 };

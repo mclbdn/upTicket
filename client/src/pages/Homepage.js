@@ -12,9 +12,13 @@ function Homepage() {
     <>
       <Hero />
       <Features />
+      <hr className="divider" />
       <Testimonials />
+      <hr className="divider" />
       <Faq />
+      <hr className="divider" />
       <Newsletter />
+      <hr className="divider" />
       <FoundersNote />
       <Footer />
     </>

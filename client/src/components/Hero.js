@@ -71,12 +71,12 @@ const Hero = () => {
             </li>
             <li>
               <div className="login-btn auth-btn">
-                <a href="">Log In</a>
+                <a href="/login">Log In</a>
               </div>
             </li>
             <li>
               <div className="sign-up-btn auth-btn">
-                <a href="">Sign Up</a>
+                <a href="/signup">Sign Up</a>
               </div>
             </li>
           </ul>
@@ -114,7 +114,6 @@ const Hero = () => {
           </li>
           <li>
             <Link
-              offset={50}
               delay={200}
               to="faq"
               smooth={true}
@@ -128,7 +127,7 @@ const Hero = () => {
             <Link
               offset={-100}
               delay={200}
-              to="testimonials"
+              to="founders-note"
               smooth={true}
               duration={500}
               className="nav-link"
@@ -153,10 +152,10 @@ const Hero = () => {
 
         <div className="auth-buttons">
           <div className="login-btn auth-btn">
-            <a href="">Log In</a>
+            <a href="/login">Log In</a>
           </div>
           <div className="sign-up-btn auth-btn">
-            <a href="">Sign Up</a>
+            <a href="/signup">Sign Up</a>
           </div>
         </div>
       </nav>

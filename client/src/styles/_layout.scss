@@ -256,6 +256,7 @@ body {
 
           a {
             color: $off-white-color;
+            padding: 1.34rem;
           }
         }
 
@@ -266,6 +267,7 @@ body {
 
           a {
             color: $dark-blue-color;
+            padding: 1rem;
           }
         }
       }
@@ -1159,9 +1161,9 @@ body {
         margin-left: 140px;
 
         .founder-photo {
-        width: 55px;
-        height: 55px;
-      }
+          width: 55px;
+          height: 55px;
+        }
 
         .name-and-role {
           margin-left: 30px;
@@ -1243,3 +1245,123 @@ footer {
 }
 
 // FOOTER END
+
+// SIGN UP START
+
+.signup {
+  margin-top: 30px;
+  max-width: 80vw;
+  margin: 60px auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+
+  .logo-wrapper {
+    padding-top: 30px;
+    display: inline-block;
+
+    .logo-link {
+      font-family: "Barlow", sans-serif;
+      text-decoration: none;
+      font-size: 25px;
+      line-height: 25px;
+      font-weight: 800;
+      z-index: 1000;
+
+      &:visited {
+        text-decoration: none;
+      }
+
+      .blue-text-span {
+        color: $blue-color;
+      }
+
+      .pink-text-span {
+        color: $pink-color;
+      }
+    }
+  }
+
+  .form-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      color: $dark-blue-color;
+      font-size: 18px;
+      line-height: 18px;
+    }
+
+    form {
+      .label-and-input-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        label {
+          margin-bottom: 10px;
+        }
+
+        input {
+          font-size: 18px;
+          font-family: inherit;
+          flex: 1;
+          border-radius: 7px;
+          border: 1.62759px solid $dark-blue-color;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      button {
+        font-weight: 600;
+        color: $off-white-color;
+        background-color: $dark-blue-color;
+        border: none;
+        border-radius: 7px;
+        padding: 10px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .signup {
+    margin: 60px auto;
+    max-width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .signup {
+    max-width: 30vw;
+
+    .form-wrapper {
+      h3 {
+        font-size: 25px;
+      }
+
+      form {
+        .label-and-input-container {
+          label,
+          input {
+            font-size: 20px;
+          }
+        }
+
+        button {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+// SIGN UP END
