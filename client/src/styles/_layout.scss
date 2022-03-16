@@ -1255,7 +1255,7 @@ footer {
   padding-left: 30px;
   padding-right: 30px;
   border-radius: 8px;
-  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   .logo-wrapper {
     padding-top: 30px;
@@ -1284,8 +1284,6 @@ footer {
   }
 
   .form-wrapper {
-    max-width: 80%;
-    margin: 0 auto;
 
     h3 {
       margin-top: 30px;
@@ -1300,25 +1298,44 @@ footer {
         display: flex;
         flex-direction: column;
         margin-bottom: 10px;
+        position: relative;
+
+        p {
+          left: 10px;
+          font-size: 14px;
+          position: absolute;
+          color: $red-color;
+          bottom: -22px;
+        }
 
         label {
-          margin-bottom: 10px;
+          cursor: pointer;
+          margin-bottom: 4px;
+          font-weight: 500;
+        }
+
+        label, input {
+          font-size: 16px;
         }
 
         input {
-          font-size: 18px;
+          padding: 10px;
+          line-height: 10px;
           font-family: inherit;
           flex: 1;
           border-radius: 7px;
-          border: 1.62759px solid $dark-blue-color;
+          border: 1px solid rgba($color: $dark-blue-color, $alpha: 0.2);
 
           &:focus {
-            outline: none;
+            outline: 1px solid rgba($color: $light-blue-color, $alpha: 0.5);
           }
         }
       }
 
       button {
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
         font-weight: 600;
         color: $off-white-color;
         background-color: $dark-blue-color;
@@ -1326,7 +1343,7 @@ footer {
         border-radius: 7px;
         padding: 10px;
         margin-bottom: 30px;
-        margin-top: 20px;
+        margin-top: 35px;
       }
     }
   }
@@ -1350,15 +1367,16 @@ footer {
 
       form {
         .label-and-input-container {
+          label {
+            font-weight: 500;
+          }
+
           label,
           input {
-            font-size: 20px;
+            font-size: 16px;
           }
         }
 
-        button {
-          font-size: 20px;
-        }
       }
     }
   }

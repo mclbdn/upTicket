@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const SignUpPage = () => {
+  const [companyName, setCompanyName] = useState("");
+  const [companyEmail, setCompanyEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsAreNotMatching, setPasswordsAreNotMatching] = useState(false)
+
+  useEffect(() => {
+    if (password !== confirmPassword) {
+      setPasswordsAreNotMatching(true)
+    } else {
+      setPasswordsAreNotMatching(false);
+    }
+  }, [confirmPassword, password]);
+
+  async function registerUser(e) {
+    e.preventDefault();
+
+    const response = await fetch("http://localhost:1337/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        companyName,
+        companyEmail,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  }
+
   return (
     <main className="signup">
       <div className="form-wrapper">
@@ -11,28 +44,57 @@ const SignUpPage = () => {
           </a>
         </div>
         <h3>Create your upTicket account</h3>
-        <form action="">
+        <form onSubmit={registerUser}>
           <div className="label-and-input-container">
             <label htmlFor="company">Company Name</label>
-            <input type="text" name="company" id="company" />
+            <input
+              value={companyName}
+              type="text"
+              name="company"
+              onChange={(e) => setCompanyName(e.target.value)}
+              id="company"
+              required
+            />
           </div>
           <div className="label-and-input-container">
             <label htmlFor="email">Company Email</label>
-            <input type="email" name="email" id="email" />
+            <input
+              value={companyEmail}
+              type="email"
+              onChange={(e) => setCompanyEmail(e.target.value)}
+              name="email"
+              id="email"
+              required
+            />
           </div>
           <div className="label-and-input-container">
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              type="password"
+              name="password"
+              id="password"
+              required
+              minLength={8}
+              maxLength={16}
+            />
           </div>
           <div className="label-and-input-container">
-            <label htmlFor="password">Repeat Password</label>
+            <label htmlFor="repeat-password">Repeat Password</label>
             <input
               type="password"
               name="repeat-password"
               id="repeat-password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              minLength={8}
+              maxLength={16}
             />
+            {passwordsAreNotMatching && <p>Passwords must be matching</p>}
           </div>
-          <button type="submit">Create Account</button>
+          <button>Create Account</button>
         </form>
       </div>
     </main>
