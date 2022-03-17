@@ -1255,7 +1255,28 @@ footer {
   padding-left: 30px;
   padding-right: 30px;
   border-radius: 8px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  .error-message {
+    position: absolute;
+    top: -50px;
+    background-color: $red-color;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  .slide {
+    transition: top 1s;
+    transition-timing-function: ease-in-out;
+    top: 10px;
+  }
+
+
 
   .logo-wrapper {
     padding-top: 30px;
@@ -1284,13 +1305,13 @@ footer {
   }
 
   .form-wrapper {
-
     h3 {
       margin-top: 30px;
       margin-bottom: 30px;
       color: $dark-blue-color;
       font-size: 18px;
       line-height: 18px;
+      font-family: "Barlow", sans-serif;
     }
 
     form {
@@ -1300,21 +1321,14 @@ footer {
         margin-bottom: 10px;
         position: relative;
 
-        p {
-          left: 10px;
-          font-size: 14px;
-          position: absolute;
-          color: $red-color;
-          bottom: -22px;
-        }
-
         label {
           cursor: pointer;
           margin-bottom: 4px;
           font-weight: 500;
         }
 
-        label, input {
+        label,
+        input {
           font-size: 16px;
         }
 
@@ -1376,7 +1390,6 @@ footer {
             font-size: 16px;
           }
         }
-
       }
     }
   }

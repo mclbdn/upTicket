@@ -1,41 +1,70 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
   const [companyEmail, setCompanyEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordsAreNotMatching, setPasswordsAreNotMatching] = useState(false)
+  const [formHasErrors, setFormHasErrors] = useState(null);
 
   useEffect(() => {
     if (password !== confirmPassword) {
-      setPasswordsAreNotMatching(true)
+      setFormHasErrors({
+        hasAnError: true,
+        errorMessageToShow: "Passwords must be matching",
+      });
     } else {
-      setPasswordsAreNotMatching(false);
+      setFormHasErrors(null);
     }
   }, [confirmPassword, password]);
 
   async function registerUser(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        companyName,
-        companyEmail,
-        password,
-      }),
-    });
+    if (!formHasErrors) {
+      const response = await fetch("http://localhost:1337/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          companyName,
+          companyEmail,
+          password,
+        }),
+      });
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+
+      console.log(data);
+
+      if (data.status === "ok") {
+        navigate("/login");
+      } else if (data.status === "ko") {
+        console.log(data);
+
+        setFormHasErrors({
+          hasAnError: true,
+          errorMessageToShow:
+            "This e-mail is already registered.",
+        });
+      }
+    }
   }
 
   return (
     <main className="signup">
+      {formHasErrors ? (
+        <div className="error-message slide">
+          <p>{formHasErrors.errorMessageToShow}</p>
+        </div>
+      ) : (
+        <div className="error-message">
+          <p></p>
+        </div>
+      )}
       <div className="form-wrapper">
         <div className="logo-wrapper">
           <a className="logo-link" href="/">
@@ -92,7 +121,7 @@ const SignUpPage = () => {
               minLength={8}
               maxLength={16}
             />
-            {passwordsAreNotMatching && <p>Passwords must be matching</p>}
+            {/* {formHasErrors && <p className="error-message">{formHasErrors.errorMessageToShow}</p>} */}
           </div>
           <button>Create Account</button>
         </form>
