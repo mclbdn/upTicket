@@ -47,8 +47,7 @@ const SignUpPage = () => {
 
         setFormHasErrors({
           hasAnError: true,
-          errorMessageToShow:
-            "This e-mail is already registered.",
+          errorMessageToShow: "This e-mail is already registered.",
         });
       }
     }
@@ -73,6 +72,9 @@ const SignUpPage = () => {
           </a>
         </div>
         <h3>Create your upTicket account</h3>
+        <p>
+          Have an account? <a href="/login">Log In!</a>
+        </p>
         <form onSubmit={registerUser}>
           <div className="label-and-input-container">
             <label htmlFor="company">Company Name</label>

@@ -1,22 +1,59 @@
 const userModel = require("../models/user.model");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 // Register POST
 
 async function postRegister(req, res) {
   console.log(req.body);
-
   try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
     await userModel.create({
       company_name: req.body.companyName,
       company_email: req.body.companyEmail,
-      password: req.body.password,
+      password: hashedPassword,
     });
+
+    // User sucessfully registered
     res.json({ status: "ok" });
   } catch (error) {
+    // User not registered
     res.json({ status: "ko", message: "Duplicate email." });
+  }
+}
+
+async function postLogin(req, res) {
+  // Does this user exist?
+  const user = await userModel.findOne({ company_email: req.body.email });
+  console.log(user);
+
+  if (!user) {
+    res.json({ status: "ko", message: "Non-existing user" });
+  }
+
+  const isPasswordValid = await bcrypt.compare(
+    req.body.password,
+    user.password
+  );
+  console.log(isPasswordValid);
+
+  if (isPasswordValid) {
+    const token = jwt.sign(
+      {
+        name: user.company_name,
+        email: user.company_email,
+      },
+      "secret123"
+    );
+
+    return res.json({ status: "ok", user: token });
+  } else {
+    return res.json({ status: "ko", user: false });
   }
 }
 
 module.exports = {
   postRegister: postRegister,
+  postLogin: postLogin,
 };
