@@ -23,8 +23,9 @@ const LogInPage = () => {
     const data = await response.json();
 
     if (data.user) {
+      localStorage.setItem("token", data.user)
       alert("Login successfull");
-      navigate("/");
+      navigate("/dashboard");
     } else {
       alert("Please check your e-mail/password");
     }
