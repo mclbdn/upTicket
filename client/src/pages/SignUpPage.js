@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const SignUpPage = () => {
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
-  const [companyEmail, setCompanyEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formHasErrors, setFormHasErrors] = useState(null);
@@ -31,20 +31,14 @@ const SignUpPage = () => {
         },
         body: JSON.stringify({
           companyName,
-          companyEmail,
+          email,
           password,
         }),
       });
 
-      const data = await response.json();
-
-      console.log(data);
-
-      if (data.status === "ok") {
+      if (response.status === 200) {
         navigate("/login");
-      } else if (data.status === "ko") {
-        console.log(data);
-
+      } else {
         setFormHasErrors({
           hasAnError: true,
           errorMessageToShow: "This e-mail is already registered.",
@@ -90,9 +84,9 @@ const SignUpPage = () => {
           <div className="label-and-input-container">
             <label htmlFor="email">Company Email</label>
             <input
-              value={companyEmail}
+              value={email}
               type="email"
-              onChange={(e) => setCompanyEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               name="email"
               id="email"
               required

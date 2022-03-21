@@ -22,7 +22,7 @@ const LogInPage = () => {
 
     const data = await response.json();
 
-    if (data.user) {
+    if (response.status === 200) {
       localStorage.setItem("token", data.user)
       alert("Login successfull");
       navigate("/dashboard");

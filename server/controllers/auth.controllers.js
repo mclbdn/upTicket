@@ -6,26 +6,28 @@ const jwt = require("jsonwebtoken");
 
 async function postRegister(req, res) {
   console.log(req.body);
+
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     await userModel.create({
       company_name: req.body.companyName,
-      company_email: req.body.companyEmail,
+      email: req.body.email,
       password: hashedPassword,
     });
 
     // User sucessfully registered
-    res.json({ status: "ok" });
+    return res.status(200).json({ status: "ok" });
   } catch (error) {
     // User not registered
-    res.json({ status: "ko", message: "Duplicate email." });
+    console.log(error);
+    return res.status(401).json({ status: "ko", message: "Duplicate email." });
   }
 }
 
 async function postLogin(req, res) {
   // Does this user exist?
-  const user = await userModel.findOne({ company_email: req.body.email });
+  const user = await userModel.findOne({ email: req.body.email });
   console.log(user);
 
   if (!user) {
@@ -42,15 +44,20 @@ async function postLogin(req, res) {
     const token = jwt.sign(
       {
         name: user.company_name,
-        email: user.company_email,
+        email: user.email,
       },
-      "secret123"
+      "secret123",
+      { expiresIn: "1d" }
     );
 
-    return res.json({ status: "ok", user: token });
+    return res.status(200).json({ status: "ok", user: token });
   } else {
-    return res.json({ status: "ko", user: false });
+    return res.status(401).json({ status: "ko", user: false });
   }
+}
+
+async function postLogout(req, res) {
+  return res.status(200).json({status: "ok"});
 }
 
 async function getCompany(req, res) {
@@ -59,9 +66,9 @@ async function getCompany(req, res) {
   try {
     const decoded = jwt.verify(token, "secret123");
     const email = decoded.email;
-    const user = await userModel.findOne({ company_email: email });
+    const user = await userModel.findOne({ email: email });
 
-    return res.json({status: "ok", company: user.company_name})
+    return res.json({ status: "ok", company: user.company_name });
   } catch (error) {
     console.log(error);
     res.json({ status: "error", error: "invalid token" });
@@ -72,4 +79,5 @@ module.exports = {
   postRegister: postRegister,
   postLogin: postLogin,
   getCompany: getCompany,
+  postLogout: postLogout,
 };
