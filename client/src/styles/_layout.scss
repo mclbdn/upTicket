@@ -1303,6 +1303,11 @@ footer {
   }
 
   .form-wrapper {
+
+    .login-again {
+      padding-bottom: 30px;
+    }
+
     h3 {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -1310,6 +1315,10 @@ footer {
       font-size: 18px;
       line-height: 18px;
       font-family: "Barlow", sans-serif;
+
+      span {
+        font-weight: 400;
+      }
     }
 
     p {
@@ -1405,3 +1414,10 @@ footer {
 }
 
 // SIGN UP END
+
+
+// LOGOUT START
+
+
+
+// LOGOUT END
