@@ -57,27 +57,11 @@ async function postLogin(req, res) {
 }
 
 async function postLogout(req, res) {
-  return res.status(200).json({status: "ok"});
-}
-
-async function getCompany(req, res) {
-  const token = req.headers["x-access-token"];
-
-  try {
-    const decoded = jwt.verify(token, "secret123");
-    const email = decoded.email;
-    const user = await userModel.findOne({ email: email });
-
-    return res.json({ status: "ok", company: user.company_name });
-  } catch (error) {
-    console.log(error);
-    res.json({ status: "error", error: "invalid token" });
-  }
+  return res.status(200).json({ status: "ok" });
 }
 
 module.exports = {
   postRegister: postRegister,
   postLogin: postLogin,
-  getCompany: getCompany,
   postLogout: postLogout,
 };

@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRightFromBracket,
+  faChartLine,
+  faGear,
+  faTableColumns,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -8,7 +15,24 @@ const Dashboard = () => {
   const [ticketName, setTicketName] = useState("");
   const [ticketDescription, setTicketDescription] = useState("");
   const [ticketPriority, setTicketPriority] = useState("");
-  const [companyId, setCompanyId] = useState("");
+  const [companyId, setCompanyId] = useState();
+  const [tickets, setTickets] = useState(null);
+
+  async function getAllTickets() {
+    const response = await fetch("http://localhost:1337/tickets/all", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        company_id: companyId,
+      }),
+    });
+
+    const data = await response.json();
+
+    setTickets(data["tickets"]);
+  }
 
   async function createTicket(e) {
     e.preventDefault();
@@ -28,7 +52,7 @@ const Dashboard = () => {
   }
 
   async function populateCompanyName() {
-    const req = await fetch("http://localhost:1337/api/companyname", {
+    const req = await fetch("http://localhost:1337/tickets/gettickets", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
@@ -38,6 +62,7 @@ const Dashboard = () => {
 
     if (data.status === "ok") {
       setCompanyName(data.company);
+      setCompanyId(data.company_id);
     } else {
       alert(data.error);
     }
@@ -56,7 +81,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
 
     if (token) {
       const user = jwtDecode(token);
@@ -71,9 +95,70 @@ const Dashboard = () => {
     }
   }, []);
 
+  useEffect(async () => {
+    if (companyId) {
+      await getAllTickets();
+    }
+  }, [companyId]);
+
   return (
-    <div>
-      <h1>Dashboard {companyName}</h1>
+    <main>
+      {/* <h1>Dashboard {companyName}</h1> */}
+      <h2>
+        Welcome to your dashboard! <span>🎉</span>
+      </h2>
+      <hr className="dashboard-divider" />
+      <nav>
+        <ul>
+          <li>
+            <div className="username">
+              <p>John</p>
+            </div>
+          </li>
+          <div className="icons">
+            <li>
+              <FontAwesomeIcon
+                className="dashboard-icon"
+                icon={faTableColumns}
+              />
+            </li>
+            <li>
+              <FontAwesomeIcon className="dashboard-icon" icon={faChartLine} />
+            </li>
+            <li>
+              <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
+            </li>
+            <li>
+              <FontAwesomeIcon
+                className="dashboard-icon"
+                icon={faArrowRightFromBracket}
+              />
+            </li>
+          </div>
+        </ul>
+      </nav>
+      <h1>Dashboard</h1>
+      <div className="create-ticket-button-wrapper">
+        <button>+ Create a New Ticket</button>
+      </div>
+      <div className="fields-description">
+        <div className="fields-description-left">
+          <p className="ticket-num">Ticket #</p>
+          <p>Description of the issue</p>
+        </div>
+        <div className="fields-description-right">
+          <p>Priority</p>
+        </div>
+      </div>
+      <div className="single-ticket">
+        <div className="left-side">
+          <div className="ticket-number">T-183</div>
+          <div className="ticket-description">Create Mobile Wireframe</div>
+        </div>
+        <div className="right-side">
+          <div className="ticket-priority">P1</div>
+        </div>
+      </div>
       <form onSubmit={logoutUser}>
         <button type="submit">Logout</button>
       </form>
@@ -105,18 +190,17 @@ const Dashboard = () => {
           id="ticket_priority"
           required
         />
-        <label htmlFor="company_id">Company ID:</label>
-        <input
-          onChange={(e) => setCompanyId(e.target.value)}
-          value={companyId}
-          type="text"
-          name="company_id"
-          id="company_id"
-          required
-        />
         <button type="submit">Submit</button>
       </form>
-    </div>
+      <p>{companyId}</p>
+      {tickets ? (
+        tickets.map((ticket) => {
+          return <p>{ticket.ticket_name}</p>;
+        })
+      ) : (
+        <p>There are no tickets</p>
+      )}
+    </main>
   );
 };
 
