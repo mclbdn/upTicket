@@ -1416,7 +1416,7 @@ footer {
 
 // DASHBOARD START
 
-main {
+.dashboard {
   background-color: #fff;
   height: 100vh;
 
@@ -1544,6 +1544,7 @@ main {
       align-items: center;
 
       .ticket-number {
+        margin-left: 10px;
         margin-right: 10px;
         text-align: center;
         line-height: 30px;

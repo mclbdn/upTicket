@@ -8,6 +8,7 @@ import {
   faGear,
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
+import SingleTicket from "../components/SingleTicket";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -19,36 +20,50 @@ const Dashboard = () => {
   const [tickets, setTickets] = useState(null);
 
   async function getAllTickets() {
-    const response = await fetch("http://localhost:1337/tickets/all", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        company_id: companyId,
-      }),
-    });
+    try {
+      const response = await fetch("http://localhost:1337/tickets/all", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          company_id: companyId,
+        }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    setTickets(data["tickets"]);
+      setTickets(data["tickets"]);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async function createTicket(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/tickets/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ticketName,
-        ticketDescription,
-        ticketPriority,
-        companyId,
-      }),
-    });
+    try {
+      const response = await fetch("http://localhost:1337/tickets/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ticketName,
+          ticketDescription,
+          ticketPriority,
+          companyId,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data.status);
+      if (data.status === "ok") {
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async function populateCompanyName() {
@@ -95,14 +110,18 @@ const Dashboard = () => {
     }
   }, []);
 
-  useEffect(async () => {
-    if (companyId) {
-      await getAllTickets();
+  useEffect(() => {
+    async function fetchTickets() {
+      if (companyId) {
+        await getAllTickets();
+      }
     }
+
+    fetchTickets();
   }, [companyId]);
 
   return (
-    <main>
+    <main className="dashboard">
       {/* <h1>Dashboard {companyName}</h1> */}
       <h2>
         Welcome to your dashboard! <span>🎉</span>
@@ -150,15 +169,19 @@ const Dashboard = () => {
           <p>Priority</p>
         </div>
       </div>
-      <div className="single-ticket">
-        <div className="left-side">
-          <div className="ticket-number">T-183</div>
-          <div className="ticket-description">Create Mobile Wireframe</div>
-        </div>
-        <div className="right-side">
-          <div className="ticket-priority">P1</div>
-        </div>
-      </div>
+      {tickets ? (
+        tickets.map((ticket) => {
+          return (
+            <SingleTicket
+              ticket_id={ticket.ticket_id}
+              ticket_name={ticket.ticket_name}
+              ticket_priority={ticket.ticket_priority}
+            />
+          );
+        })
+      ) : (
+        <p>There are no tickets</p>
+      )}
       <form onSubmit={logoutUser}>
         <button type="submit">Logout</button>
       </form>
@@ -185,7 +208,9 @@ const Dashboard = () => {
         <input
           onChange={(e) => setTicketPriority(e.target.value)}
           value={ticketPriority}
-          type="text"
+          type="number"
+          min={1}
+          max={3}
           name="ticket_priority"
           id="ticket_priority"
           required
@@ -193,13 +218,6 @@ const Dashboard = () => {
         <button type="submit">Submit</button>
       </form>
       <p>{companyId}</p>
-      {tickets ? (
-        tickets.map((ticket) => {
-          return <p>{ticket.ticket_name}</p>;
-        })
-      ) : (
-        <p>There are no tickets</p>
-      )}
     </main>
   );
 };

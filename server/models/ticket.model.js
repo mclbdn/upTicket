@@ -17,6 +17,10 @@ const TicketSchema = mongoose.Schema(
     company_id: {
       type: String,
       required: true
+    },
+    ticket_id: {
+      type: String,
+      required: true
     }
   },
   { collection: "tickets" }
