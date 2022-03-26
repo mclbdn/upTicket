@@ -1433,10 +1433,32 @@ footer {
     z-index: 2;
 
     .modal-content {
-      width: 60%;
-      min-height: 200px;
-      background-color: white;
-      padding: 25px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      border-radius: 8px;
+      margin: 20px;
+      height: 50%;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+      h3 {
+        color: $dark-blue-color;
+        text-align: center;
+      }
+
+      .label-and-input {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 16px;
+          color: $dark-blue-color;
+          font-weight: 500;
+        }
+      }
     }
   }
 

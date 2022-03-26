@@ -192,38 +192,6 @@ const Dashboard = () => {
         <button type="submit">Logout</button>
       </form>
 
-      <form onSubmit={createTicket}>
-        <label htmlFor="ticket_name">Ticket Name:</label>
-        <input
-          value={ticketName}
-          onChange={(e) => setTicketName(e.target.value)}
-          type="text"
-          name="ticket_name"
-          id="ticket_name"
-          required
-        />
-        <label htmlFor="ticket-description">Ticket Description:</label>
-        <input
-          value={ticketDescription}
-          onChange={(e) => setTicketDescription(e.target.value)}
-          type="text"
-          name="ticket_description"
-          id="ticket_description"
-          required
-        />
-        <label htmlFor="ticket_priority">Ticket Priority:</label>
-        <input
-          onChange={(e) => setTicketPriority(e.target.value)}
-          value={ticketPriority}
-          type="number"
-          min={1}
-          max={3}
-          name="ticket_priority"
-          id="ticket_priority"
-          required
-        />
-        <button type="submit">Submit</button>
-      </form>
       <p>{companyId}</p>
       <Modal
         shown={isModalShown}
@@ -231,7 +199,45 @@ const Dashboard = () => {
           setIsModalOpened(false);
         }}
       >
-        <h1>Hi</h1>
+        <h3>Create a new ticket</h3>
+        <form onSubmit={createTicket}>
+          <div className="label-and-input">
+            <label htmlFor="ticket_name">Ticket Name:</label>
+            <input
+              value={ticketName}
+              onChange={(e) => setTicketName(e.target.value)}
+              type="text"
+              name="ticket_name"
+              id="ticket_name"
+              required
+            />
+          </div>
+          <div className="label-and-input">
+            <label htmlFor="ticket-description">Ticket Description:</label>
+            <input
+              value={ticketDescription}
+              onChange={(e) => setTicketDescription(e.target.value)}
+              type="text"
+              name="ticket_description"
+              id="ticket_description"
+              required
+            />
+          </div>
+          <div className="label-and-input">
+            <label htmlFor="ticket_priority">Ticket Priority:</label>
+            <input
+              onChange={(e) => setTicketPriority(e.target.value)}
+              value={ticketPriority}
+              type="number"
+              min={1}
+              max={3}
+              name="ticket_priority"
+              id="ticket_priority"
+              required
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
       </Modal>
     </main>
   );
