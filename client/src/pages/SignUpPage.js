@@ -117,7 +117,6 @@ const SignUpPage = () => {
               minLength={8}
               maxLength={16}
             />
-            {/* {formHasErrors && <p className="error-message">{formHasErrors.errorMessageToShow}</p>} */}
           </div>
           <button>Create Account</button>
         </form>

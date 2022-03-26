@@ -9,6 +9,7 @@ import {
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
 import SingleTicket from "../components/SingleTicket";
+import Modal from "../components/Modal";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Dashboard = () => {
   const [ticketPriority, setTicketPriority] = useState("");
   const [companyId, setCompanyId] = useState();
   const [tickets, setTickets] = useState(null);
+  const [isModalShown, setIsModalOpened] = useState(false);
 
   async function getAllTickets() {
     try {
@@ -123,6 +125,7 @@ const Dashboard = () => {
   return (
     <main className="dashboard">
       {/* <h1>Dashboard {companyName}</h1> */}
+
       <h2>
         Welcome to your dashboard! <span>🎉</span>
       </h2>
@@ -158,7 +161,10 @@ const Dashboard = () => {
       </nav>
       <h1>Dashboard</h1>
       <div className="create-ticket-button-wrapper">
-        <button>+ Create a New Ticket</button>
+        <div className="modal-wrapper"></div>
+        <button onClick={() => setIsModalOpened(true)}>
+          + Create a New Ticket
+        </button>
       </div>
       <div className="fields-description">
         <div className="fields-description-left">
@@ -185,6 +191,7 @@ const Dashboard = () => {
       <form onSubmit={logoutUser}>
         <button type="submit">Logout</button>
       </form>
+
       <form onSubmit={createTicket}>
         <label htmlFor="ticket_name">Ticket Name:</label>
         <input
@@ -218,6 +225,14 @@ const Dashboard = () => {
         <button type="submit">Submit</button>
       </form>
       <p>{companyId}</p>
+      <Modal
+        shown={isModalShown}
+        close={() => {
+          setIsModalOpened(false);
+        }}
+      >
+        <h1>Hi</h1>
+      </Modal>
     </main>
   );
 };
