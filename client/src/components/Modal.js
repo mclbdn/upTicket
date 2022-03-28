@@ -15,7 +15,7 @@ const Modal = ({ children, shown, close }) => {
         }}
       >
         {children}
-        <button onClick={() => close()}>Close</button>
+        {/* <button onClick={() => close()}>Close</button> */}
       </div>
     </div>
   ) : null;

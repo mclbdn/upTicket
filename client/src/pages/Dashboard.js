@@ -21,6 +21,13 @@ const Dashboard = () => {
   const [tickets, setTickets] = useState(null);
   const [isModalShown, setIsModalOpened] = useState(false);
 
+  const handleCloseBtn = () => {
+    setIsModalOpened(false);
+    setTicketName("");
+    setTicketDescription("");
+    setTicketPriority("");
+  };
+
   async function getAllTickets() {
     try {
       const response = await fetch("http://localhost:1337/tickets/all", {
@@ -236,7 +243,12 @@ const Dashboard = () => {
               required
             />
           </div>
-          <button type="submit">Submit</button>
+          <div className="btns">
+            <button type="submit">Submit</button>
+            <button type="button" onClick={() => handleCloseBtn()}>
+              Close
+            </button>
+          </div>
         </form>
       </Modal>
     </main>
