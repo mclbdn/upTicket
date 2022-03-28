@@ -131,9 +131,18 @@ const Dashboard = () => {
 
   return (
     <main className="dashboard">
-      {/* <h1>Dashboard {companyName}</h1> */}
-
-      <h2>
+      <div className="tablet-top-container">
+        <div className="company-name-and-welcome">
+          <h2 className="company-name-h2">{companyName}</h2>
+          <h2 className="welcome-to-dashboard-h2">
+            Welcome to your dashboard! <span>🎉</span>
+          </h2>
+        </div>
+        <div className="username">
+          <p>John</p>
+        </div>
+      </div>
+      <h2 className="mobile-h2">
         Welcome to your dashboard! <span>🎉</span>
       </h2>
       <hr className="dashboard-divider" />
