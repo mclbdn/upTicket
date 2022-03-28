@@ -1420,7 +1420,10 @@ footer {
   background-color: #fff;
   height: 100vh;
 
-  .tablet-top-container {
+  .tablet-top-container,
+  .tablet-left-menu,
+  .tablet-off-white-container,
+  .tablet-create-ticket-button-wrapper {
     display: none;
   }
 
@@ -1565,7 +1568,7 @@ footer {
     }
   }
 
-  h1 {
+  .mobile-h1 {
     font-size: 20px;
     font-weight: 600;
     color: $blue-color;
@@ -1670,7 +1673,13 @@ footer {
   .dashboard {
     position: relative;
 
-    .mobile-h2 {
+    .mobile-h2,
+    .dashboard-divider,
+    nav,
+    .mobile-h1,
+    .create-ticket-button-wrapper,
+    .fields-description,
+    .tickets-wrapper-mobile {
       display: none;
     }
 
@@ -1703,6 +1712,10 @@ footer {
             border-bottom: 1px solid
               rgba($color: $light-blue-color, $alpha: 0.4);
             width: 350px;
+          }
+
+          span {
+            color: initial;
           }
         }
 
@@ -1742,6 +1755,75 @@ footer {
           font-size: 16px;
           font-weight: 600;
         }
+      }
+    }
+
+    .tablet-left-menu {
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+        margin-top: 28px;
+        font-size: 18px;
+        font-weight: 500;
+        color: $dark-blue-color;
+
+        &:first-of-type {
+          margin-top: 53px;
+        }
+
+        .dashboard-icon {
+          margin-right: 9px;
+        }
+      }
+    }
+
+    .tablet-off-white-container {
+      display: block;
+      position: absolute;
+      background-color: $off-white-color;
+      border-top-left-radius: 8px;
+      left: 214px;
+      right: 0px;
+      top: 88px;
+      bottom: 0px;
+
+      h1 {
+        font-weight: 500;
+        font-size: 23px;
+        color: $blue-color;
+        margin: 30px 0px 20px 47px;
+      }
+
+      .tablet-create-ticket-button-wrapper {
+        display: block;
+        margin-left: 47px;
+
+        button {
+          font-weight: 600;
+          font-size: 16px;
+          width: 223px;
+          height: 35px;
+          background-color: $blue-color;
+          color: $off-white-color;
+          text-align: center;
+          line-height: 35px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      }
+
+      .tablet-white-container {
+        border-radius: 8px;
+        background-color: #fff;
+        position: absolute;
+        left: 47px;
+        right: 40px;
+        top: 140px;
+        bottom: 60px;
       }
     }
   }

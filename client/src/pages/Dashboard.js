@@ -142,6 +142,39 @@ const Dashboard = () => {
           <p>John</p>
         </div>
       </div>
+      <div className="tablet-left-menu">
+        <a href="">
+          <FontAwesomeIcon className="dashboard-icon" icon={faTableColumns} />
+          Dashboard
+        </a>
+        <a href="">
+          <FontAwesomeIcon className="dashboard-icon" icon={faChartLine} />
+          Report
+        </a>
+        <a href="">
+          <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
+          Settings
+        </a>
+        <a href="">
+          <FontAwesomeIcon
+            className="dashboard-icon"
+            icon={faArrowRightFromBracket}
+          />
+          Logout
+        </a>
+      </div>
+      <div className="tablet-off-white-container">
+        <h1>Dashboard</h1>
+        <div className="tablet-create-ticket-button-wrapper">
+          <div className="modal-wrapper"></div>
+          <button onClick={() => setIsModalOpened(true)}>
+            + Create a New Ticket
+          </button>
+        </div>
+        <div className="tablet-white-container">
+          
+        </div>
+      </div>
       <h2 className="mobile-h2">
         Welcome to your dashboard! <span>🎉</span>
       </h2>
@@ -175,7 +208,7 @@ const Dashboard = () => {
           </div>
         </ul>
       </nav>
-      <h1>Dashboard</h1>
+      <h1 className="mobile-h1">Dashboard</h1>
       <div className="create-ticket-button-wrapper">
         <div className="modal-wrapper"></div>
         <button onClick={() => setIsModalOpened(true)}>
@@ -191,19 +224,21 @@ const Dashboard = () => {
           <p>Priority</p>
         </div>
       </div>
-      {tickets ? (
-        tickets.map((ticket) => {
-          return (
-            <SingleTicket
-              ticket_id={ticket.ticket_id}
-              ticket_name={ticket.ticket_name}
-              ticket_priority={ticket.ticket_priority}
-            />
-          );
-        })
-      ) : (
-        <p>There are no tickets</p>
-      )}
+      <div className="tickets-wrapper-mobile">
+        {tickets ? (
+          tickets.map((ticket) => {
+            return (
+              <SingleTicket
+                ticket_id={ticket.ticket_id}
+                ticket_name={ticket.ticket_name}
+                ticket_priority={ticket.ticket_priority}
+              />
+            );
+          })
+        ) : (
+          <p>There are no tickets</p>
+        )}
+      </div>
       <form onSubmit={logoutUser}>
         <button type="submit">Logout</button>
       </form>
