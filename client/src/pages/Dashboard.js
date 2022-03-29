@@ -316,6 +316,14 @@ const Dashboard = () => {
           </div>
         </form>
       </Modal>
+      <div className="bottom-paragraph-wrapper">
+        <p className="bottom-paragraph">
+          created by{" "}
+          <a href="https://github.com/mclbdn/" target="_blank">
+            @mclbdn
+          </a>
+        </p>
+      </div>
     </main>
   );
 };
