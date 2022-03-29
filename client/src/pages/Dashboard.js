@@ -162,6 +162,14 @@ const Dashboard = () => {
           />
           Logout
         </a>
+        <div className="bottom-paragraph-wrapper-bigger-screen-size">
+          <p className="bottom-paragraph-bigger-screen-size">
+            created by{" "}
+            <a href="https://github.com/mclbdn/" target="_blank">
+              @mclbdn
+            </a>
+          </p>
+        </div>
       </div>
       <div className="tablet-off-white-container">
         <h1>Dashboard</h1>

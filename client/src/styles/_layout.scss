@@ -1423,7 +1423,8 @@ footer {
   .tablet-top-container,
   .tablet-left-menu,
   .tablet-off-white-container,
-  .tablet-create-ticket-button-wrapper {
+  .tablet-create-ticket-button-wrapper,
+  .bottom-paragraph-wrapper-bigger-screen-size {
     display: none;
   }
 
@@ -1713,7 +1714,6 @@ footer {
       font-size: 13px;
       font-weight: 300;
 
-
       &::after {
         position: absolute;
         content: "";
@@ -1741,7 +1741,8 @@ footer {
     .mobile-h1,
     .create-ticket-button-wrapper,
     .fields-description,
-    .tickets-wrapper-mobile {
+    .tickets-wrapper-mobile,
+    .bottom-paragraph-wrapper {
       display: none;
     }
 
@@ -1927,6 +1928,35 @@ footer {
           .ticket-priority {
             font-size: 16px;
           }
+        }
+      }
+    }
+
+    .bottom-paragraph-wrapper-bigger-screen-size {
+      display: block;
+      position: absolute;
+      bottom: 20px;
+      left: 40px;
+
+      .bottom-paragraph-bigger-screen-size {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+        position: relative;
+
+        &::after {
+          position: absolute;
+          content: "";
+          border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+          left: 0;
+          right: 0;
+          top: -20px;
+        }
+
+        a {
+          font-size: inherit;
+          color: inherit;
+          font-weight: inherit;
         }
       }
     }
