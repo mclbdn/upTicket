@@ -1428,6 +1428,11 @@ footer {
     display: none;
   }
 
+  .tickets-wrapper-mobile {
+    overflow: scroll;
+    height: 50%;
+  }
+
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -1831,10 +1836,11 @@ footer {
         margin-top: 28px;
         font-size: 18px;
         font-weight: 500;
-        color: $dark-blue-color;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
 
         &:first-of-type {
           margin-top: 53px;
+          color: $dark-blue-color;
         }
 
         .dashboard-icon {
