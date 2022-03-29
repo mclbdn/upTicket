@@ -1869,7 +1869,7 @@ footer {
 
           .ticket-num {
             margin-left: 13px;
-            margin-right: 6px;
+            margin-right: 7px;
           }
 
           .fields-description-left {
@@ -1894,6 +1894,142 @@ footer {
 
           .ticket-priority {
             font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dashboard {
+    .tablet-top-container {
+      padding: 20px 60px;
+
+      .company-name-and-welcome {
+        .welcome-to-dashboard-h2 {
+          position: absolute;
+          left: 308px;
+
+          &::before {
+            width: 875px;
+          }
+        }
+
+        .company-name-h2 {
+          &::before {
+            width: 200px;
+          }
+        }
+      }
+
+      .username {
+        width: 149px;
+        height: 40px;
+
+        &::before {
+          width: 149px;
+        }
+
+        p {
+          line-height: 40px;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .tablet-left-menu {
+      margin-left: 60px;
+
+      a {
+        margin-top: 34px;
+        font-size: 20px;
+
+        &:first-of-type {
+          margin-top: 91px;
+        }
+      }
+    }
+
+    .tablet-off-white-container {
+      left: 308px;
+      top: 108px;
+
+      h1 {
+        font-size: 25px;
+        margin: 52px 0px 26px 48px;
+      }
+
+      .tablet-create-ticket-button-wrapper {
+        display: block;
+        margin-left: 48px;
+
+        button {
+          font-size: 18px;
+          width: 223px;
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+
+      .tablet-white-container {
+        left: 48px;
+        right: 60px;
+        top: 178px;
+        bottom: 70px;
+
+        .tablet-fields-description {
+          display: flex;
+          justify-content: space-between;
+          margin: 26px 52px 39px;
+
+          p {
+            font-weight: 600;
+            font-size: 16px;
+            color: rgba($color: $dark-blue-color, $alpha: 0.5);
+          }
+
+          .ticket-num {
+            margin-left: 0px;
+            margin-right: 25px;
+          }
+
+          .fields-description-left {
+            display: flex;
+          }
+
+          .fields-description-right {
+            margin-right: 0px;
+          }
+        }
+
+        .single-ticket {
+          margin: 26px 26px;
+          height: 72px;
+
+          .left-side {
+            .ticket-number {
+              margin-left: 16px;
+              margin-right: 16px;
+              font-size: 18px;
+              height: 40px;
+              line-height: 40px;
+              width: 80px;
+            }
+
+            .ticket-description {
+              font-size: 18px;
+            }
+          }
+
+          .right-side {
+            .ticket-priority {
+              font-size: 18px;
+              margin-right: 16px;
+              width: 80px;
+              height: 40px;
+              line-height: 40px;
+            }
           }
         }
       }
