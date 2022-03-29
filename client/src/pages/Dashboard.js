@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [companyId, setCompanyId] = useState();
   const [tickets, setTickets] = useState(null);
   const [isModalShown, setIsModalOpened] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   const handleCloseBtn = () => {
     setIsModalOpened(false);
@@ -129,6 +130,27 @@ const Dashboard = () => {
     fetchTickets();
   }, [companyId]);
 
+  // Check window size
+  useEffect(() => {
+    if (window.innerWidth < 744) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth < 744) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
+    };
+
+    window.addEventListener("resize", updateMedia);
+
+    return () => window.removeEventListener("resize", updateMedia);
+  }, []);
+
   return (
     <main className="dashboard">
       <div className="tablet-top-container">
@@ -189,19 +211,23 @@ const Dashboard = () => {
               <p>Priority</p>
             </div>
           </div>
-          {tickets ? (
-            tickets.map((ticket) => {
-              return (
-                <SingleTicket
-                  key={ticket.ticket_id}
-                  ticket_id={ticket.ticket_id}
-                  ticket_name={ticket.ticket_name}
-                  ticket_priority={ticket.ticket_priority}
-                />
-              );
-            })
-          ) : (
-            <p>There are no tickets</p>
+          {!mobile && (
+            <div>
+              {tickets ? (
+                tickets.map((ticket) => {
+                  return (
+                    <SingleTicket
+                      key={ticket.ticket_id}
+                      ticket_id={ticket.ticket_id}
+                      ticket_name={ticket.ticket_name}
+                      ticket_priority={ticket.ticket_priority}
+                    />
+                  );
+                })
+              ) : (
+                <p>There are no tickets</p>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -254,22 +280,24 @@ const Dashboard = () => {
           <p>Priority</p>
         </div>
       </div>
-      <div className="tickets-wrapper-mobile">
-        {tickets ? (
-          tickets.map((ticket) => {
-            return (
-              <SingleTicket
-              key={ticket.ticket_id}
-                ticket_id={ticket.ticket_id}
-                ticket_name={ticket.ticket_name}
-                ticket_priority={ticket.ticket_priority}
-              />
-            );
-          })
-        ) : (
-          <p>There are no tickets</p>
-        )}
-      </div>
+      {mobile && (
+        <div className="tickets-wrapper-mobile">
+          {tickets ? (
+            tickets.map((ticket) => {
+              return (
+                <SingleTicket
+                  key={ticket.ticket_id}
+                  ticket_id={ticket.ticket_id}
+                  ticket_name={ticket.ticket_name}
+                  ticket_priority={ticket.ticket_priority}
+                />
+              );
+            })
+          ) : (
+            <p>There are no tickets</p>
+          )}
+        </div>
+      )}
       <form onSubmit={logoutUser}>
         <button type="submit">Logout</button>
       </form>
