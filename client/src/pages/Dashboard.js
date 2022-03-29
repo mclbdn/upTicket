@@ -193,6 +193,7 @@ const Dashboard = () => {
             tickets.map((ticket) => {
               return (
                 <SingleTicket
+                  key={ticket.ticket_id}
                   ticket_id={ticket.ticket_id}
                   ticket_name={ticket.ticket_name}
                   ticket_priority={ticket.ticket_priority}
@@ -258,6 +259,7 @@ const Dashboard = () => {
           tickets.map((ticket) => {
             return (
               <SingleTicket
+              key={ticket.ticket_id}
                 ticket_id={ticket.ticket_id}
                 ticket_name={ticket.ticket_name}
                 ticket_priority={ticket.ticket_priority}
