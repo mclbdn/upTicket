@@ -172,7 +172,28 @@ const Dashboard = () => {
           </button>
         </div>
         <div className="tablet-white-container">
-          
+          <div className="tablet-fields-description">
+            <div className="fields-description-left">
+              <p className="ticket-num">Ticket #</p>
+              <p>Description of the issue</p>
+            </div>
+            <div className="fields-description-right">
+              <p>Priority</p>
+            </div>
+          </div>
+          {tickets ? (
+            tickets.map((ticket) => {
+              return (
+                <SingleTicket
+                  ticket_id={ticket.ticket_id}
+                  ticket_name={ticket.ticket_name}
+                  ticket_priority={ticket.ticket_priority}
+                />
+              );
+            })
+          ) : (
+            <p>There are no tickets</p>
+          )}
         </div>
       </div>
       <h2 className="mobile-h2">
