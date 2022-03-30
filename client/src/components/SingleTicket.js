@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-const SingleTicket = ({ ticket_id, ticket_name, ticket_priority }) => {
+const SingleTicket = ({
+  ticket_id,
+  ticket_name,
+  ticket_description,
+  ticket_priority,
+  setIsModalOpened,
+  setTicketName,
+  setTicketDescription,
+  setTicketPriority,
+  setIsUpdatingTicket
+}) => {
   const [bgColor, setBgColor] = useState("");
+
+  // Set different color to ticket-priority div according to its priority
   useEffect(() => {
     if (ticket_priority == 1) {
       setBgColor("rgba(242, 89, 75, 0.5)");
@@ -12,8 +24,16 @@ const SingleTicket = ({ ticket_id, ticket_name, ticket_priority }) => {
     }
   }, []);
 
+  const handleClick = () => {
+    setTicketName(ticket_name);
+    setTicketPriority(ticket_priority);
+    setTicketDescription(ticket_description);
+    setIsModalOpened(true);
+    setIsUpdatingTicket(true);
+  };
+
   return (
-    <div className="single-ticket">
+    <div className="single-ticket" onClick={() => handleClick()}>
       <div className="left-side">
         <div className="ticket-number">T-{ticket_id}</div>
         <div className="ticket-description">{ticket_name}</div>

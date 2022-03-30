@@ -21,12 +21,14 @@ const Dashboard = () => {
   const [tickets, setTickets] = useState(null);
   const [isModalShown, setIsModalOpened] = useState(false);
   const [mobile, setMobile] = useState(false);
+  const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
 
   const handleCloseBtn = () => {
     setIsModalOpened(false);
     setTicketName("");
     setTicketDescription("");
     setTicketPriority("");
+    setIsUpdatingTicket(false);
   };
 
   async function getAllTickets() {
@@ -217,8 +219,14 @@ const Dashboard = () => {
                 tickets.map((ticket) => {
                   return (
                     <SingleTicket
+                      setTicketName={setTicketName}
+                      setTicketDescription={setTicketDescription}
+                      setTicketPriority={setTicketPriority}
+                      setIsModalOpened={setIsModalOpened}
+                      setIsUpdatingTicket={setIsUpdatingTicket}
                       key={ticket.ticket_id}
                       ticket_id={ticket.ticket_id}
+                      ticket_description={ticket.ticket_description}
                       ticket_name={ticket.ticket_name}
                       ticket_priority={ticket.ticket_priority}
                     />
@@ -286,9 +294,13 @@ const Dashboard = () => {
             tickets.map((ticket) => {
               return (
                 <SingleTicket
+                  setTicketName={setTicketName}
+                  setTicketDescription={setTicketDescription}
+                  setTicketPriority={setTicketPriority}
                   key={ticket.ticket_id}
                   ticket_id={ticket.ticket_id}
                   ticket_name={ticket.ticket_name}
+                  ticket_description={ticket.ticket_description}
                   ticket_priority={ticket.ticket_priority}
                 />
               );
@@ -304,6 +316,7 @@ const Dashboard = () => {
 
       <p>{companyId}</p>
       <Modal
+        setIsUpdatingTicket={setIsUpdatingTicket}
         shown={isModalShown}
         close={() => {
           setIsModalOpened(false);
@@ -347,7 +360,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="btns">
-            <button type="submit">Submit</button>
+            {!isUpdatingTicket && <button type="submit">Submit</button>}
             <button type="button" onClick={() => handleCloseBtn()}>
               Close
             </button>

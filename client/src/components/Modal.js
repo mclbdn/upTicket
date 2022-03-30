@@ -1,11 +1,15 @@
 import React from "react";
 
-const Modal = ({ children, shown, close }) => {
+const Modal = ({ children, shown, close, setIsUpdatingTicket }) => {
+  const handleClick = () => {
+    setIsUpdatingTicket(false);
+    close();
+  };
   return shown ? (
     <div
       className="modal-backdrop"
       onClick={() => {
-        close();
+        handleClick();
       }}
     >
       <div
@@ -15,7 +19,6 @@ const Modal = ({ children, shown, close }) => {
         }}
       >
         {children}
-        {/* <button onClick={() => close()}>Close</button> */}
       </div>
     </div>
   ) : null;
