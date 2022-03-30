@@ -297,8 +297,10 @@ const Dashboard = () => {
                   setTicketName={setTicketName}
                   setTicketDescription={setTicketDescription}
                   setTicketPriority={setTicketPriority}
+                  setIsUpdatingTicket={setIsUpdatingTicket}
                   key={ticket.ticket_id}
                   ticket_id={ticket.ticket_id}
+                  setIsModalOpened={setIsModalOpened}
                   ticket_name={ticket.ticket_name}
                   ticket_description={ticket.ticket_description}
                   ticket_priority={ticket.ticket_priority}
