@@ -3,15 +3,30 @@ const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
 async function createTicket(req, res) {
+  const token = req.headers["x-access-token"];
   let highestTicketId;
   let currentTicketId;
   const allCompanyTicketIds = [];
+
+  // Was sent valid token in header?
+  try {
+    const decoded = jwt.verify(token, "secret123");
+  } catch (error) {
+    res.status(500).json({ status: "Invalid token" });
+    return;
+  }
+
+  try {
+    await userModel.findById(req.body.companyId);
+  } catch (error) {
+    res.json({ status: "Provided company ID doesn't exist" });
+    return;
+  }
 
   try {
     const companyId = req.body.companyId;
 
     const allCompanyTickets = await ticketModel.find({ company_id: companyId });
-
     // Company has 0 tickets created
     if (allCompanyTickets.length === 0) {
       // Create first ticket with ticket_id = 000
@@ -28,7 +43,8 @@ async function createTicket(req, res) {
       currentTicketId = String(highestTicketId).padStart(3, "0");
     }
   } catch (error) {
-    console.log(error);
+    res.json({ status: "Provided company ID doesn't exist." });
+    return;
   }
 
   try {

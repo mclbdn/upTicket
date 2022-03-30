@@ -59,6 +59,7 @@ const Dashboard = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
         },
         body: JSON.stringify({
           ticketName,
@@ -67,7 +68,6 @@ const Dashboard = () => {
           companyId,
         }),
       });
-
       const data = await response.json();
       console.log(data.status);
       if (data.status === "ok") {
