@@ -16,6 +16,7 @@ async function createTicket(req, res) {
     return;
   }
 
+  // Does this company exist in the db?
   try {
     await userModel.findById(req.body.companyId);
   } catch (error) {
@@ -43,7 +44,7 @@ async function createTicket(req, res) {
       currentTicketId = String(highestTicketId).padStart(3, "0");
     }
   } catch (error) {
-    res.json({ status: "Provided company ID doesn't exist." });
+    console.log(error);
     return;
   }
 
@@ -61,6 +62,41 @@ async function createTicket(req, res) {
   } catch (error) {
     console.log(error);
     res.status(500).json({ status: "ko" });
+  }
+}
+
+async function updateTicket(req, res) {
+  const token = req.headers["x-access-token"];
+
+  // Was sent valid token in header?
+  try {
+    const decoded = jwt.verify(token, "secret123");
+  } catch (error) {
+    res.status(500).json({ status: "Invalid token" });
+    return;
+  }
+
+  // Does this company exist in the db?
+  try {
+    await userModel.findById(req.body.companyId);
+  } catch (error) {
+    res.json({ status: "Provided company ID doesn't exist" });
+    return;
+  }
+
+  // Does this ticket exist in the db?
+  try {
+    const ticketToFind = req.body.ticket_id;
+    const ticket = await ticketModel.findOneAndUpdate(
+      { _id: ticketToFind },
+      { ticket_name: req.body.ticket_name }
+    );
+    console.log(ticket);
+    res.status(200).json({ status: "Ticket updated" });
+    return;
+  } catch (error) {
+    res.status(500).json({ status: "Ticket doesn't exist" });
+    return;
   }
 }
 
@@ -100,4 +136,5 @@ module.exports = {
   createTicket: createTicket,
   getCompany: getCompany,
   getTickets: getTickets,
+  updateTicket: updateTicket,
 };
