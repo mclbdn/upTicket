@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SingleTicket from "../components/SingleTicket";
 import Modal from "../components/Modal";
+import TicketsContainer from "../components/TicketsContainer";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -52,6 +53,8 @@ const Dashboard = () => {
 
       const data = await response.json();
       console.log(data);
+      getAllTickets();
+      setIsModalOpened(false);
     } catch (error) {
       console.log(error);
     }
@@ -258,7 +261,7 @@ const Dashboard = () => {
             </div>
           </div>
           {!mobile && (
-            <div>
+            <TicketsContainer>
               {tickets ? (
                 tickets.map((ticket) => {
                   return (
@@ -281,7 +284,7 @@ const Dashboard = () => {
               ) : (
                 <p>There are no tickets</p>
               )}
-            </div>
+            </TicketsContainer>
           )}
         </div>
       </div>
