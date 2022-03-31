@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.routes");
-const ticketRoutes = require("./routes/ticket.routes")
+const ticketRoutes = require("./routes/ticket.routes");
 
 // Connect to the db
 mongoose.connect(
@@ -17,6 +17,8 @@ app.use(express.json());
 app.use(authRoutes);
 
 // Use ticket routes
-app.use(ticketRoutes)
+app.use(ticketRoutes);
 
-app.listen(1337);
+app.listen(process.env.PORT || 1337, () => {
+  console.log("Server is running");
+});
