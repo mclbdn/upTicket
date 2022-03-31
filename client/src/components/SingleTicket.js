@@ -9,7 +9,9 @@ const SingleTicket = ({
   setTicketName,
   setTicketDescription,
   setTicketPriority,
-  setIsUpdatingTicket
+  setIsUpdatingTicket,
+  setActiveTicketId,
+  ticket_db_id,
 }) => {
   const [bgColor, setBgColor] = useState("");
 
@@ -30,6 +32,7 @@ const SingleTicket = ({
     setTicketDescription(ticket_description);
     setIsModalOpened(true);
     setIsUpdatingTicket(true);
+    setActiveTicketId(ticket_db_id);
   };
 
   return (

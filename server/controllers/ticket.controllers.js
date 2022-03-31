@@ -89,9 +89,15 @@ async function updateTicket(req, res) {
     const ticketToFind = req.body.ticket_id;
     const ticket = await ticketModel.findOneAndUpdate(
       { _id: ticketToFind },
-      { ticket_name: req.body.ticket_name }
+      {
+        ticket_name: req.body.ticketName,
+        ticket_description: req.body.ticketDescription,
+        ticket_priority: req.body.ticketPriority,
+      }
     );
+
     console.log(ticket);
+    
     res.status(200).json({ status: "Ticket updated" });
     return;
   } catch (error) {

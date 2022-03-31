@@ -22,6 +22,7 @@ const Dashboard = () => {
   const [isModalShown, setIsModalOpened] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
+  const [activeTicketId, setActiveTicketId] = useState("");
 
   const handleCloseBtn = () => {
     setIsModalOpened(false);
@@ -29,7 +30,32 @@ const Dashboard = () => {
     setTicketDescription("");
     setTicketPriority("");
     setIsUpdatingTicket(false);
+    setActiveTicketId("");
   };
+
+  async function handleUpdate() {
+    try {
+      const response = await fetch("http://localhost:1337/tickets/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          ticketName,
+          ticketDescription,
+          ticketPriority,
+          companyId,
+          ticket_id: activeTicketId,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async function getAllTickets() {
     try {
@@ -96,12 +122,9 @@ const Dashboard = () => {
   }
 
   async function logoutUser(e) {
-    e.preventDefault();
-
     const response = await fetch("http://localhost:1337/api/logout");
 
     if (response.status === 200) {
-      navigate("/logout");
       localStorage.clear();
     }
   }
@@ -179,7 +202,7 @@ const Dashboard = () => {
           <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
           Settings
         </a>
-        <a href="">
+        <a href="/logout" onClick={() => logoutUser()}>
           <FontAwesomeIcon
             className="dashboard-icon"
             icon={faArrowRightFromBracket}
@@ -229,6 +252,8 @@ const Dashboard = () => {
                       ticket_description={ticket.ticket_description}
                       ticket_name={ticket.ticket_name}
                       ticket_priority={ticket.ticket_priority}
+                      ticket_db_id={ticket._id}
+                      setActiveTicketId={setActiveTicketId}
                     />
                   );
                 })
@@ -304,6 +329,8 @@ const Dashboard = () => {
                   ticket_name={ticket.ticket_name}
                   ticket_description={ticket.ticket_description}
                   ticket_priority={ticket.ticket_priority}
+                  ticket_db_id={ticket._id}
+                  setActiveTicketId={setActiveTicketId}
                 />
               );
             })
@@ -323,6 +350,7 @@ const Dashboard = () => {
         close={() => {
           setIsModalOpened(false);
         }}
+        setActiveTicketId={setActiveTicketId}
       >
         <h3>Create a new ticket</h3>
         <form onSubmit={createTicket}>
@@ -362,8 +390,24 @@ const Dashboard = () => {
             />
           </div>
           <div className="btns">
-            {!isUpdatingTicket && <button type="submit">Submit</button>}
-            <button type="button" onClick={() => handleCloseBtn()}>
+            {isUpdatingTicket ? (
+              <button
+                onClick={() => handleUpdate()}
+                className="update-btn btn "
+                type="button"
+              >
+                Update
+              </button>
+            ) : (
+              <button className="submit-btn btn" type="submit">
+                Submit
+              </button>
+            )}
+            <button
+              className="close-btn btn"
+              type="button btn"
+              onClick={() => handleCloseBtn()}
+            >
               Close
             </button>
           </div>

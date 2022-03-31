@@ -1,10 +1,18 @@
 import React from "react";
 
-const Modal = ({ children, shown, close, setIsUpdatingTicket }) => {
+const Modal = ({
+  children,
+  shown,
+  close,
+  setIsUpdatingTicket,
+  setActiveTicketId,
+}) => {
   const handleClick = () => {
     setIsUpdatingTicket(false);
     close();
+    setActiveTicketId("");
   };
+
   return shown ? (
     <div
       className="modal-backdrop"
