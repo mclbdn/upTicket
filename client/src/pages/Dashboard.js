@@ -57,6 +57,27 @@ const Dashboard = () => {
     }
   }
 
+  async function handleDelete() {
+    try {
+      const response = await fetch("http://localhost:1337/tickets/delete", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          companyId,
+          ticket_id: activeTicketId,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function getAllTickets() {
     try {
       const response = await fetch("http://localhost:1337/tickets/all", {
@@ -391,13 +412,22 @@ const Dashboard = () => {
           </div>
           <div className="btns">
             {isUpdatingTicket ? (
-              <button
-                onClick={() => handleUpdate()}
-                className="update-btn btn "
-                type="button"
-              >
-                Update
-              </button>
+              <div>
+                <button
+                  onClick={() => handleUpdate()}
+                  className="update-btn btn "
+                  type="button"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => handleDelete()}
+                  className="delete-btn btn "
+                  type="button"
+                >
+                  Delete
+                </button>
+              </div>
             ) : (
               <button className="submit-btn btn" type="submit">
                 Submit

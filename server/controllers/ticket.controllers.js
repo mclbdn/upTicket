@@ -97,10 +97,46 @@ async function updateTicket(req, res) {
     );
 
     console.log(ticket);
-    
+
     res.status(200).json({ status: "Ticket updated" });
     return;
   } catch (error) {
+    res.status(500).json({ status: "Ticket doesn't exist" });
+    return;
+  }
+}
+
+async function deleteTicket(req, res) {
+  const token = req.headers["x-access-token"];
+
+  // Was sent valid token in header?
+  try {
+    const decoded = jwt.verify(token, "secret123");
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "Invalid token" });
+    return;
+  }
+
+  // Does this company exist in the db?
+  try {
+    await userModel.findById(req.body.companyId);
+  } catch (error) {
+    console.log(error);
+    res.json({ status: "Provided company ID doesn't exist" });
+    return;
+  }
+
+  // Does this ticket exist in the db?
+  try {
+    const ticketToDelete = req.body.ticket_id;
+    const response = await ticketModel.deleteOne({ _id: ticketToDelete });
+
+    console.log(response);
+    res.status(200).json({ status: "Ticket deleted" });
+    return;
+  } catch (error) {
+    console.log(error);
     res.status(500).json({ status: "Ticket doesn't exist" });
     return;
   }
@@ -143,4 +179,5 @@ module.exports = {
   getCompany: getCompany,
   getTickets: getTickets,
   updateTicket: updateTicket,
+  deleteTicket: deleteTicket,
 };
