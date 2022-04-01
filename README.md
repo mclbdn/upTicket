@@ -1,5 +1,7 @@
 # upTicket
 
+### <a href="https://upticket-mclbdn.netlify.app/">Try running this website here.</a>
+
 
 Full-Stack MERN website letting users register/login/logout and create/update/delete tickets. This app is still work in progress.
 
@@ -9,3 +11,5 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 * Used [SASS](https://sass-lang.com/) for styling
 * Fully responsive UI
 * Tested API endpoints with [Postman](https://www.postman.com/)
+* Set up private routes 
+* Utilized JWT 

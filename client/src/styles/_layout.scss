@@ -1544,7 +1544,7 @@ footer {
           font-weight: 500;
         }
 
-        input {
+        input{
           padding: 10px;
           line-height: 10px;
           font-family: inherit;
@@ -1552,6 +1552,7 @@ footer {
           border-radius: 7px;
           border: 1px solid rgba(41, 43, 77, 0.2);
         }
+
       }
     }
   }
@@ -1590,10 +1591,11 @@ footer {
       }
 
       li {
+        margin-left: 40px;
+
         .dashboard-icon {
           width: 16px;
           height: 14px;
-          margin-left: 40px;
           color: rgba($color: $dark-blue-color, $alpha: 0.5);
         }
 
