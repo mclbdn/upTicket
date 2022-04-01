@@ -24,17 +24,20 @@ const SignUpPage = () => {
     e.preventDefault();
 
     if (!formHasErrors) {
-      const response = await fetch("http://localhost:1337/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          companyName,
-          email,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            companyName,
+            email,
+            password,
+          }),
+        }
+      );
 
       if (response.status === 200) {
         navigate("/login");

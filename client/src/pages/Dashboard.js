@@ -36,20 +36,23 @@ const Dashboard = () => {
 
   async function handleUpdate() {
     try {
-      const response = await fetch("http://localhost:1337/tickets/update", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          ticketName,
-          ticketDescription,
-          ticketPriority,
-          companyId,
-          ticket_id: activeTicketId,
-        }),
-      });
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/update",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            ticketName,
+            ticketDescription,
+            ticketPriority,
+            companyId,
+            ticket_id: activeTicketId,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
@@ -62,19 +65,24 @@ const Dashboard = () => {
 
   async function handleDelete() {
     try {
-      const response = await fetch("http://localhost:1337/tickets/delete", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          companyId,
-          ticket_id: activeTicketId,
-        }),
-      });
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/delete",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            companyId,
+            ticket_id: activeTicketId,
+          }),
+        }
+      );
 
       const data = await response.json();
+      getAllTickets();
+      setIsModalOpened(false);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -83,15 +91,18 @@ const Dashboard = () => {
 
   async function getAllTickets() {
     try {
-      const response = await fetch("http://localhost:1337/tickets/all", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          company_id: companyId,
-        }),
-      });
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/all",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            company_id: companyId,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -105,23 +116,27 @@ const Dashboard = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:1337/tickets/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          ticketName,
-          ticketDescription,
-          ticketPriority,
-          companyId,
-        }),
-      });
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            ticketName,
+            ticketDescription,
+            ticketPriority,
+            companyId,
+          }),
+        }
+      );
       const data = await response.json();
       console.log(data.status);
       if (data.status === "ok") {
-        window.location.reload();
+        getAllTickets();
+        setIsModalOpened(false);
       }
     } catch (error) {
       console.log(error);
@@ -129,11 +144,15 @@ const Dashboard = () => {
   }
 
   async function populateCompanyName() {
-    const req = await fetch("http://localhost:1337/tickets/gettickets", {
-      headers: {
-        "x-access-token": localStorage.getItem("token"),
-      },
-    });
+    console.log(localStorage.getItem("token"));
+    const req = await fetch(
+      "https://upticket-server.herokuapp.com/tickets/gettickets",
+      {
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      }
+    );
 
     const data = await req.json();
 
@@ -145,8 +164,10 @@ const Dashboard = () => {
     }
   }
 
-  async function logoutUser(e) {
-    const response = await fetch("http://localhost:1337/api/logout");
+  async function logoutUser() {
+    const response = await fetch(
+      "https://upticket-server.herokuapp.com/api/logout"
+    );
 
     if (response.status === 200) {
       localStorage.clear();
@@ -313,10 +334,13 @@ const Dashboard = () => {
               <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
             </li>
             <li>
-              <FontAwesomeIcon
-                className="dashboard-icon"
-                icon={faArrowRightFromBracket}
-              />
+              <a href="/logout" onClick={() => logoutUser()}>
+                {" "}
+                <FontAwesomeIcon
+                  className="dashboard-icon"
+                  icon={faArrowRightFromBracket}
+                />
+              </a>
             </li>
           </div>
         </ul>
@@ -363,9 +387,6 @@ const Dashboard = () => {
           )}
         </div>
       )}
-      <form onSubmit={logoutUser}>
-        <button type="submit">Logout</button>
-      </form>
 
       <p>{companyId}</p>
       <Modal
@@ -376,7 +397,12 @@ const Dashboard = () => {
         }}
         setActiveTicketId={setActiveTicketId}
       >
-        <h3>Create a new ticket</h3>
+        {isUpdatingTicket ? (
+          <h3>Update this ticket</h3>
+        ) : (
+          <h3>Create a new ticket</h3>
+        )}
+
         <form onSubmit={createTicket}>
           <div className="label-and-input">
             <label htmlFor="ticket_name">Ticket Name:</label>

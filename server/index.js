@@ -4,11 +4,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.routes");
 const ticketRoutes = require("./routes/ticket.routes");
+require("dotenv").config();
 
 // Connect to the db
-mongoose.connect(
-  "mongodb+srv://mclbdn:Miminitos1.@cluster0.zgee6.mongodb.net/upticket-users"
-);
+mongoose.connect(process.env.MONGO_DB_URL);
 
 app.use(cors());
 app.use(express.json());
