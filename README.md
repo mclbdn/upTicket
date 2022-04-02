@@ -13,3 +13,4 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 * Tested API endpoints with [Postman](https://www.postman.com/)
 * Set up private routes 
 * Utilized JWT 
+* Implemented MVC design pattern
