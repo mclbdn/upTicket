@@ -1,5 +1,5 @@
 import React from "react";
-import michal_photo from "../assets/michal-photo.svg"
+import michal_photo from "../assets/michal-photo.png";
 
 const FoundersNote = () => {
   return (
