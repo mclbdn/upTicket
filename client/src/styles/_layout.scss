@@ -762,6 +762,7 @@ body {
         .underline-details {
           .testimonial-photo {
             width: 56px;
+            height: 56px;
           }
 
           .name-and-role {
@@ -1464,10 +1465,12 @@ footer {
       .btns {
         margin-bottom: 30px;
         margin-top: 35px;
+        display: flex;
+        justify-content: space-between;
 
         @media screen and (min-width: 768px) {
           display: flex;
-          justify-content: space-between;
+          
         }
 
         .btn {
@@ -1484,19 +1487,10 @@ footer {
           background-color: $dark-blue-color;
           color: $off-white-color;
           margin-bottom: 10px;
+          width: 100%;
 
           @media screen and (min-width: 768px) {
             margin-bottom: 0px;
-            max-width: 75%;
-          }
-        }
-
-        .close-btn {
-          background-color: $red-color;
-          color: $dark-blue-color;
-
-          @media screen and (min-width: 768px) {
-            max-width: 20%;
           }
         }
 
@@ -1504,10 +1498,22 @@ footer {
           background-color: $dark-blue-color;
           color: $off-white-color;
           margin-bottom: 10px;
+          width: 45%;
 
           @media screen and (min-width: 768px) {
             margin-bottom: 0px;
-            max-width: 75%;
+          }
+        }
+
+        .delete-btn  {
+          width: 45%;
+          background-color: $red-color;
+          color: $dark-blue-color;
+          margin-bottom: 10px;
+          width: 45%;
+
+          @media screen and (min-width: 768px) {
+            margin-bottom: 0px;
           }
         }
       }
@@ -1553,6 +1559,25 @@ footer {
           border: 1px solid rgba(41, 43, 77, 0.2);
         }
 
+      }
+
+      .close-fa-btn {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        top: 3%;
+        right: 1%;
+      }
+
+      .fa-close-btn {
+        position: absolute;
+        cursor: pointer;
+        right: 10px;
+        top: 10px;
+        width: 25px;
+        height: 25px;
+        color: $dark-blue-color;
       }
     }
   }

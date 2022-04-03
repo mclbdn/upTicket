@@ -7,6 +7,7 @@ import {
   faChartLine,
   faGear,
   faTableColumns,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import SingleTicket from "../components/SingleTicket";
 import Modal from "../components/Modal";
@@ -55,9 +56,8 @@ const Dashboard = () => {
       );
 
       const data = await response.json();
-      console.log(data);
       getAllTickets();
-      setIsModalOpened(false);
+      handleCloseBtn();
     } catch (error) {
       console.log(error);
     }
@@ -82,8 +82,7 @@ const Dashboard = () => {
 
       const data = await response.json();
       getAllTickets();
-      setIsModalOpened(false);
-      console.log(data);
+      handleCloseBtn();
     } catch (error) {
       console.log(error);
     }
@@ -136,7 +135,7 @@ const Dashboard = () => {
       console.log(data.status);
       if (data.status === "ok") {
         getAllTickets();
-        setIsModalOpened(false);
+        handleCloseBtn();
       }
     } catch (error) {
       console.log(error);
@@ -388,15 +387,19 @@ const Dashboard = () => {
         </div>
       )}
 
-      <p>{companyId}</p>
       <Modal
-        setIsUpdatingTicket={setIsUpdatingTicket}
         shown={isModalShown}
-        close={() => {
-          setIsModalOpened(false);
+        handleCloseBtn={() => {
+          handleCloseBtn();
         }}
-        setActiveTicketId={setActiveTicketId}
       >
+        <FontAwesomeIcon
+          icon={faXmark}
+          className="fa-close-btn"
+          onClick={() => {
+            handleCloseBtn();
+          }}
+        />
         {isUpdatingTicket ? (
           <h3>Update this ticket</h3>
         ) : (
@@ -441,7 +444,7 @@ const Dashboard = () => {
           </div>
           <div className="btns">
             {isUpdatingTicket ? (
-              <div>
+              <>
                 <button
                   onClick={() => handleUpdate()}
                   className="update-btn btn "
@@ -456,19 +459,12 @@ const Dashboard = () => {
                 >
                   Delete
                 </button>
-              </div>
+              </>
             ) : (
               <button className="submit-btn btn" type="submit">
                 Submit
               </button>
             )}
-            <button
-              className="close-btn btn"
-              type="button btn"
-              onClick={() => handleCloseBtn()}
-            >
-              Close
-            </button>
           </div>
         </form>
       </Modal>
