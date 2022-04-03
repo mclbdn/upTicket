@@ -56,12 +56,12 @@ async function postLogin(req, res) {
   }
 }
 
-async function postLogout(req, res) {
+async function getLogout(req, res) {
   return res.status(200).json({ status: "ok" });
 }
 
 module.exports = {
   postRegister: postRegister,
   postLogin: postLogin,
-  postLogout: postLogout,
+  getLogout: getLogout,
 };

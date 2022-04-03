@@ -170,6 +170,7 @@ const Dashboard = () => {
 
     if (response.status === 200) {
       localStorage.clear();
+      navigate("/logout")
     }
   }
 
@@ -246,7 +247,7 @@ const Dashboard = () => {
           <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
           Settings
         </a>
-        <a href="/logout" onClick={() => logoutUser()}>
+        <a onClick={() => logoutUser()}>
           <FontAwesomeIcon
             className="dashboard-icon"
             icon={faArrowRightFromBracket}
