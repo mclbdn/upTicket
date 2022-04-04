@@ -14,3 +14,12 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 * Set up private routes 
 * Utilized JWT 
 * Implemented MVC design pattern
+
+## New Planed Features
+🟠 - Not yet in progress | 🟡 - In progress | 🟢 - Finished
+
+* Use CSS(SASS) modules instead of one long stylesheet - 🟡
+* Add reports to dashboard - 🟠
+* Add settings to dashboard - 🟠
+* Add API docs - 🟠
+* Redesign forms inside dashboard
