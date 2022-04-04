@@ -1,0 +1,105 @@
+@import "../styles/vars";
+
+.single_testimonial {
+  background-color: rgba($color: $light-blue-color, $alpha: 0.6);
+  border-radius: 7px;
+  height: 316px;
+  margin-bottom: 60px;
+  position: relative;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+
+  .heart {
+    position: absolute;
+    top: -30px;
+  }
+
+  .star {
+    position: absolute;
+    bottom: -30px;
+    right: 40px;
+  }
+
+  .plus_one {
+    position: absolute;
+    top: -30px;
+    left: 70px;
+  }
+
+  hr {
+    left: 0;
+    right: 0;
+    height: 0.92px;
+    background: rgba($color: $dark-blue-color, $alpha: 0.1);
+    border: 0;
+    margin: 0px 20px;
+    position: absolute;
+    bottom: 105px;
+  }
+
+  .testimonial_text {
+    padding-top: 30px;
+    line-height: 163%;
+    font-size: 15px;
+    margin: 0 20px 0;
+    text-align: left;
+    color: $dark-blue-color;
+
+    @media screen and (min-width: 1440px) {
+      padding-top: 60px;
+      font-size: 20px;
+    }
+  }
+
+  .underline_details {
+    position: absolute;
+    bottom: 30px;
+    margin-left: 20px;
+    display: flex;
+
+    .name_and_role {
+      display: flex;
+      flex-direction: column;
+      margin-left: 30px;
+      justify-content: space-between;
+
+      .testimonial_name {
+        font-weight: 500;
+        font-size: 16px;
+        color: $dark-blue-color;
+
+        @media screen and (min-width: 1440px) {
+          font-size: 20px;
+        }
+      }
+
+      .testimonial_role {
+        font-weight: 300;
+        font-size: 12px;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+
+        @media screen and (min-width: 1440px) {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .testimonial_photo {
+      @media screen and (min-width: 1440px) {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 400px;
+    flex: 1;
+    max-width: 29vw;
+    min-height: 50vh;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 440px;
+    flex: inherit;
+  }
+}
