@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./SingUpAndLogin.module.scss";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -51,21 +52,21 @@ const SignUpPage = () => {
   }
 
   return (
-    <main className="signup">
+    <main className={styles.signup_or_login}>
       {formHasErrors ? (
-        <div className="error-message slide">
+        <div className={`${styles.error_message} ${styles.slide}`}>
           <p>{formHasErrors.errorMessageToShow}</p>
         </div>
       ) : (
-        <div className="error-message">
+        <div className={styles.error_message}>
           <p></p>
         </div>
       )}
-      <div className="form-wrapper">
-        <div className="logo-wrapper">
-          <a className="logo-link" href="/">
-            <span className="blue-text-span">up</span>
-            <span className="pink-text-span">Ticket</span>
+      <div className={styles.form_wrapper}>
+        <div className={styles.logo_wrapper}>
+          <a className={styles.logo_link} href="/">
+            <span className={styles.blue_text}>up</span>
+            <span className={styles.pink_text}>Ticket</span>
           </a>
         </div>
         <h3>Create your upTicket account</h3>
@@ -73,7 +74,7 @@ const SignUpPage = () => {
           Have an account? <a href="/login">Log In!</a>
         </p>
         <form onSubmit={registerUser}>
-          <div className="label-and-input-container">
+          <div className={styles.label_and_input_container}>
             <label htmlFor="company">Company Name</label>
             <input
               value={companyName}
@@ -84,7 +85,7 @@ const SignUpPage = () => {
               required
             />
           </div>
-          <div className="label-and-input-container">
+          <div className={styles.label_and_input_container}>
             <label htmlFor="email">Company Email</label>
             <input
               value={email}
@@ -95,7 +96,7 @@ const SignUpPage = () => {
               required
             />
           </div>
-          <div className="label-and-input-container">
+          <div className={styles.label_and_input_container}>
             <label htmlFor="password">Password</label>
             <input
               onChange={(e) => setPassword(e.target.value)}
@@ -108,7 +109,7 @@ const SignUpPage = () => {
               maxLength={16}
             />
           </div>
-          <div className="label-and-input-container">
+          <div className={styles.label_and_input_container}>
             <label htmlFor="repeat-password">Repeat Password</label>
             <input
               type="password"

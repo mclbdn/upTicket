@@ -9,9 +9,9 @@ import {
   faTableColumns,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import SingleTicket from "../components/SingleTicket";
-import Modal from "../components/Modal";
-import TicketsContainer from "../components/TicketsContainer";
+import SingleTicket from "../components/dashboard/SingleTicket";
+import Modal from "../components/dashboard/Modal";
+import TicketsContainer from "../components/dashboard/TicketsContainer";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -159,7 +159,7 @@ const Dashboard = () => {
       setCompanyName(data.company);
       setCompanyId(data.company_id);
     } else {
-      alert(data.error);
+      navigate("/login");
     }
   }
 
@@ -170,7 +170,7 @@ const Dashboard = () => {
 
     if (response.status === 200) {
       localStorage.clear();
-      navigate("/logout")
+      navigate("/logout");
     }
   }
 
@@ -257,7 +257,11 @@ const Dashboard = () => {
         <div className="bottom-paragraph-wrapper-bigger-screen-size">
           <p className="bottom-paragraph-bigger-screen-size">
             created by{" "}
-            <a href="https://github.com/mclbdn/" target="_blank">
+            <a
+              href="https://github.com/mclbdn/"
+              target="_blank"
+              rel="noreferrer"
+            >
               @mclbdn
             </a>
           </p>

@@ -40,7 +40,7 @@ const FoundersNote = () => {
             draggable="false"
             className={styles.founder_photo}
             src={michal_photo}
-            alt="Photo of the founder Michal Bednar"
+            alt="Founder Michal Bednar"
           />
           <div className={styles.name_and_role}>
             <p className={styles.founder_name}>Michal Bednar</p>

@@ -182,7 +182,7 @@ const Hero = () => {
           time.
         </p>
         <div className={styles.cta_button}>
-          <a href="">Try upTicket for free</a>
+          <a href="/signup">Try upTicket for free</a>
         </div>
       </div>
     </section>

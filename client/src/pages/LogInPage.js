@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./SingUpAndLogin.module.scss";
 
 const LogInPage = () => {
   const navigate = useNavigate();
@@ -35,12 +36,12 @@ const LogInPage = () => {
   }
 
   return (
-    <main className="signup">
-      <div className="form-wrapper">
-        <div className="logo-wrapper">
-          <a className="logo-link" href="/">
-            <span className="blue-text-span">up</span>
-            <span className="pink-text-span">Ticket</span>
+    <main className={styles.signup_or_login}>
+      <div className={styles.form_wrapper}>
+        <div className={styles.logo_wrapper}>
+          <a className={styles.logo_link} href="/">
+            <span className={styles.blue_text}>up</span>
+            <span className={styles.pink_text}>Ticket</span>
           </a>
         </div>
         <h3>Log In</h3>
@@ -48,7 +49,7 @@ const LogInPage = () => {
           Don't have an account yet? <a href="/signup">Sign Up!</a>
         </p>
         <form onSubmit={loginUser}>
-          <div className="label-and-input-container">
+          <div className={styles.label_and_input_container}>
             <label htmlFor="email">Company Email</label>
             <input
               value={email}
@@ -58,7 +59,7 @@ const LogInPage = () => {
               id="email"
             />
           </div>
-          <div className="label-and-input-container">
+          <div className={styles.label_and_input_container}>
             <label htmlFor="password">Password</label>
             <input
               value={password}
