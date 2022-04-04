@@ -22,4 +22,4 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 * Add reports to dashboard - 🟠
 * Add settings to dashboard - 🟠
 * Add API docs - 🟠
-* Redesign forms inside dashboard
+* Redesign forms inside dashboard - 🟠

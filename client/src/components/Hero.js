@@ -4,6 +4,7 @@ import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import graph from "../assets/graphic.svg";
 import check_circle from "../assets/check-circle.svg";
 import { Link } from "react-scroll";
+import styles from "./Hero.module.scss";
 
 const Hero = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -13,9 +14,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero-section">
+    <section className={styles.hero_section}>
       {isHamburgerOpen && (
-        <div className="menu">
+        <div className={styles.menu}>
           <ul>
             <li>
               <Link
@@ -24,7 +25,7 @@ const Hero = () => {
                 to="features"
                 smooth={true}
                 duration={500}
-                className="nav-link"
+                className={styles.nav_link}
                 onClick={handleHamburgerClick}
               >
                 Features
@@ -37,7 +38,7 @@ const Hero = () => {
                 to="testimonials"
                 smooth={true}
                 duration={500}
-                className="nav-link"
+                className={styles.nav_link}
                 onClick={handleHamburgerClick}
               >
                 Testimonials
@@ -50,7 +51,7 @@ const Hero = () => {
                 to="faq"
                 smooth={true}
                 duration={500}
-                className="nav-link"
+                className={styles.nav_link}
                 onClick={handleHamburgerClick}
               >
                 FAQ
@@ -63,19 +64,19 @@ const Hero = () => {
                 to="testimonials"
                 smooth={true}
                 duration={500}
-                className="nav-link"
+                className={styles.nav_link}
                 onClick={handleHamburgerClick}
               >
                 Founder's Note
               </Link>
             </li>
             <li>
-              <div className="login-btn auth-btn">
+              <div className={`${styles.login_btn} ${styles.auth_btn}`}>
                 <a href="/login">Log In</a>
               </div>
             </li>
             <li>
-              <div className="sign-up-btn auth-btn">
+              <div className={`${styles.sign_up_btn} ${styles.auth_btn}`}>
                 <a href="/signup">Sign Up</a>
               </div>
             </li>
@@ -83,9 +84,9 @@ const Hero = () => {
         </div>
       )}
       <nav>
-        <a className="logo-link" href="/">
-          <span className="blue-text-span">up</span>
-          <span className="off-white-text-span">Ticket</span>
+        <a className={styles.logo_link} href="/">
+          <span className={styles.blue_text_span}>up</span>
+          <span className={styles.off_white_text_span}>Ticket</span>
         </a>
         <ul>
           <li>
@@ -95,7 +96,7 @@ const Hero = () => {
               to="features"
               smooth={true}
               duration={500}
-              className="nav-link"
+              className={styles.nav_link}
             >
               Features
             </Link>
@@ -107,7 +108,7 @@ const Hero = () => {
               to="testimonials"
               smooth={true}
               duration={500}
-              className="nav-link"
+              className={styles.nav_link}
             >
               Testimonials
             </Link>
@@ -118,7 +119,7 @@ const Hero = () => {
               to="faq"
               smooth={true}
               duration={500}
-              className="nav-link"
+              className={styles.nav_link}
             >
               FAQ
             </Link>
@@ -130,7 +131,7 @@ const Hero = () => {
               to="founders-note"
               smooth={true}
               duration={500}
-              className="nav-link"
+              className={styles.nav_link}
             >
               Founder's Note
             </Link>
@@ -139,42 +140,48 @@ const Hero = () => {
         {isHamburgerOpen ? (
           <FontAwesomeIcon
             icon={faX}
-            className="hamburger-menu"
+            className={styles.hamburger_menu}
             onClick={handleHamburgerClick}
           />
         ) : (
           <FontAwesomeIcon
             icon={faBars}
-            className="hamburger-menu"
+            className={styles.hamburger_menu}
             onClick={handleHamburgerClick}
           />
         )}
 
-        <div className="auth-buttons">
-          <div className="login-btn auth-btn">
+        <div className={styles.auth_buttons}>
+          <div className={`${styles.login_btn} ${styles.auth_btn}`}>
             <a href="/login">Log In</a>
           </div>
-          <div className="sign-up-btn auth-btn">
+          <div className={`${styles.sign_up_btn} ${styles.auth_btn}`}>
             <a href="/signup">Sign Up</a>
           </div>
         </div>
       </nav>
-      <img draggable="false" src={graph} alt="" className="graph-image" />
+      <img
+        draggable="false"
+        src={graph}
+        alt=""
+        className={styles.graph_image}
+      />
       <img
         draggable="false"
         src={check_circle}
-        alt=""
-        className="check-circle"
+        alt="Checked circle graphics"
+        className={styles.check_circle}
       />
-      <div className="text-wrapper">
+      <div className={styles.text_wrapper}>
         <h1>
-          Make <span className="yellow-text-span">your tickets</span> matter.
+          Make <span className={styles.yellow_text_span}>your tickets</span>{" "}
+          matter.
         </h1>
         <p>
           upTicket makes it easier and simpler to resolve tickets while saving
           time.
         </p>
-        <div className="cta-button-hero">
+        <div className={styles.cta_button}>
           <a href="">Try upTicket for free</a>
         </div>
       </div>
