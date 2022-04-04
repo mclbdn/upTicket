@@ -1,12 +1,13 @@
 import React from "react";
+import styles from "./Footer.module.scss"
 
 const Footer = () => {
   return (
     <footer>
-      <div className="logo-wrapper">
-        <a className="logo-link" href="/">
-          <span className="blue-text-span">up</span>
-          <span className="off-white-text-span">Ticket</span>
+      <div className={styles.logo_wrapper}>
+        <a className={styles.logo_link} href="/">
+          <span className={styles.blue_text}>up</span>
+          <span className={styles.off_white_text}>Ticket</span>
         </a>
       </div>
       <hr />
