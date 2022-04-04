@@ -23,6 +23,16 @@
     line-height: 18px;
     margin-left: 20px;
     margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 28.5px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      line-height: 25px;
+      font-size: 25px;
+      margin-top: 37.5px;
+    }
   }
 
   .plus_icon {
@@ -36,9 +46,34 @@
     left: 20px;
     right: 20px;
     top: 58px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 28.5px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 20px;
+      margin-top: 37.5px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 75px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 100px;
   }
 }
 
 .opened {
   height: 160px;
+
+  @media screen and (min-width: 768px) {
+    height: 160px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 160px;
+  }
 }
