@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import help_icon from "../assets/help-icon.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import CollapsibleFaq from "./CollapsibleFaq";
+import styles from "./Faq.module.scss"
 
 const Faq = () => {
   const faqs = [
@@ -24,10 +23,10 @@ const Faq = () => {
   ];
 
   return (
-    <section className="faq-section" id="faq">
-      <img draggable="false" src={help_icon} alt="" />
+    <section className={styles.faq_section} id="faq">
+      <img draggable="false" src={help_icon} alt="Question mark icon" />
       <h2>FAQ</h2>
-      <div className="faqs-container">
+      <div className={styles.faqs_container}>
         {faqs.map((faq) => {
           return (
             <CollapsibleFaq

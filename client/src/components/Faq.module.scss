@@ -1,0 +1,25 @@
+@import "../styles/vars";
+
+.faq_section {
+  position: relative;
+
+  h2 {
+    color: $dark-blue-color;
+    font-family: "Barlow", sans-serif;
+    line-height: 95%;
+    font-size: 40px;
+    text-align: center;
+    margin: 0 auto 30px;
+    width: 335px;
+  }
+
+  img {
+    position: absolute;
+    right: 30%;
+    top: -60px;
+  }
+
+  .faqs_container {
+    margin: 0 20px;
+  }
+}

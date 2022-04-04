@@ -1,0 +1,44 @@
+@import "../styles/vars";
+
+.single_faq {
+  height: 55px;
+  border: 1px solid $dark-blue-color;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: baseline;
+  position: relative;
+  overflow: hidden;
+  transition: height ease-in-out 0.3s;
+  -moz-transition: height ease-in-out 0.3s;
+  -webkit-transition: height ease-in-out 0.3s;
+  -o-transition: height ease-in-out 0.3s;
+
+  h3 {
+    color: $dark-blue-color;
+    font-size: 18px;
+    line-height: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .plus_icon {
+    margin-right: 20px;
+    color: $dark-blue-color;
+  }
+
+  .faq_text {
+    color: $dark-blue-color;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 58px;
+  }
+}
+
+.opened {
+  height: 160px;
+}

@@ -1,69 +1,69 @@
 // FAQ START
 
 .faq-section {
-  position: relative;
+  // position: relative;
 
-  h2 {
-    color: $dark-blue-color;
-    font-family: "Barlow", sans-serif;
-    line-height: 95%;
-    font-size: 40px;
-    text-align: center;
-    margin: 0 auto 30px;
-    width: 335px;
-  }
+  // h2 {
+  //   color: $dark-blue-color;
+  //   font-family: "Barlow", sans-serif;
+  //   line-height: 95%;
+  //   font-size: 40px;
+  //   text-align: center;
+  //   margin: 0 auto 30px;
+  //   width: 335px;
+  // }
 
-  img {
-    position: absolute;
-    right: 30%;
-    top: -60px;
-  }
+  // img {
+  //   position: absolute;
+  //   right: 30%;
+  //   top: -60px;
+  // }
 
   .faqs-container {
-    margin: 0 20px;
+    // margin: 0 20px;
 
     .single-faq {
-      height: 55px;
-      border: 1px solid $dark-blue-color;
-      box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      border-radius: 7px;
-      display: flex;
-      justify-content: space-between;
-      cursor: pointer;
-      align-items: baseline;
-      position: relative;
-      overflow: hidden;
-      transition: height ease-in-out 0.3s;
-      -moz-transition: height ease-in-out 0.3s;
-      -webkit-transition: height ease-in-out 0.3s;
-      -o-transition: height ease-in-out 0.3s;
+      // height: 55px;
+      // border: 1px solid $dark-blue-color;
+      // box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+      // margin-bottom: 30px;
+      // border-radius: 7px;
+      // display: flex;
+      // justify-content: space-between;
+      // cursor: pointer;
+      // align-items: baseline;
+      // position: relative;
+      // overflow: hidden;
+      // transition: height ease-in-out 0.3s;
+      // -moz-transition: height ease-in-out 0.3s;
+      // -webkit-transition: height ease-in-out 0.3s;
+      // -o-transition: height ease-in-out 0.3s;
 
-      h3 {
-        color: $dark-blue-color;
-        font-size: 18px;
-        line-height: 18px;
-        margin-left: 20px;
-        margin-top: 20px;
-      }
+      // h3 {
+      //   color: $dark-blue-color;
+      //   font-size: 18px;
+      //   line-height: 18px;
+      //   margin-left: 20px;
+      //   margin-top: 20px;
+      // }
 
-      .plus-icon {
-        margin-right: 20px;
-        color: $dark-blue-color;
-      }
+      // .plus-icon {
+      //   margin-right: 20px;
+      //   color: $dark-blue-color;
+      // }
 
-      .faq-text {
-        color: $dark-blue-color;
-        position: absolute;
-        left: 20px;
-        right: 20px;
-        top: 58px;
-      }
+      // .faq-text {
+      //   color: $dark-blue-color;
+      //   position: absolute;
+      //   left: 20px;
+      //   right: 20px;
+      //   top: 58px;
+      // }
     }
 
-    .opened {
-      height: 160px;
-    }
+    // .opened {
+    //   height: 160px;
+    // }
   }
 }
 
