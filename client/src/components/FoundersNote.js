@@ -1,11 +1,12 @@
 import React from "react";
 import michal_photo from "../assets/michal-photo.png";
+import styles from "./FoundersNote.module.scss";
 
 const FoundersNote = () => {
   return (
-    <section className="founders-note-section" id="founders-note">
+    <section className={styles.founders_note_section} id="founders-note">
       <h1>Founder's Note</h1>
-      <div className="founders-note-wrapper">
+      <div className={styles.founders_note_wrapper}>
         <p>
           Like you, I like exploring and learning new things. <br />
           <br />
@@ -18,7 +19,11 @@ const FoundersNote = () => {
           also fun. <br /> <br /> upTicket is not a SaaS business, because it's
           not profitable at all. Nevertheless, it's my biggest programming
           project so far and you can check out the complete code{" "}
-          <a target="_blank" href="https://github.com/mclbdn/upTicket">
+          <a
+            target="_blank"
+            href="https://github.com/mclbdn/upTicket"
+            rel="noreferrer"
+          >
             here
           </a>
           . <br />
@@ -30,11 +35,16 @@ const FoundersNote = () => {
           <br /> Michal Bednar
         </p>
         <hr />
-        <div className="underline-details">
-          <img draggable="false" className="founder-photo" src={michal_photo} alt="" />
-          <div className="name-and-role">
-            <p className="founder-name">Michal Bednar</p>
-            <p className="founder-role">CEO at upTicket</p>
+        <div className={styles.underline_details}>
+          <img
+            draggable="false"
+            className={styles.founder_photo}
+            src={michal_photo}
+            alt="Photo of the founder Michal Bednar"
+          />
+          <div className={styles.name_and_role}>
+            <p className={styles.founder_name}>Michal Bednar</p>
+            <p className={styles.founder_role}>CEO at upTicket</p>
           </div>
         </div>
       </div>
