@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import graph from "../assets/graphic.svg";
-import check_circle from "../assets/check-circle.svg";
+import graph from "../../assets/graphic.svg";
+import check_circle from "../../assets/check-circle.svg";
 import { Link } from "react-scroll";
 import styles from "./Hero.module.scss";
 

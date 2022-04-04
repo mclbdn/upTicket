@@ -1,5 +1,5 @@
 import React from "react";
-import help_icon from "../assets/help-icon.svg";
+import help_icon from "../../assets/help-icon.svg";
 import CollapsibleFaq from "./CollapsibleFaq";
 import styles from "./Faq.module.scss"
 

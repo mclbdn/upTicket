@@ -1,4 +1,4 @@
-@import "../styles/vars";
+@import "../../styles/vars";
 
 @keyframes open {
   from {
@@ -11,7 +11,7 @@
 
 .hero_section {
   height: 402px;
-  background-image: url("../assets/hero-image.jpg");
+  background-image: url("../../assets/hero-image.jpg");
   background-position: 25% 75%;
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,7 +1,7 @@
 import React from "react";
-import unresolved_tickets from "../assets/unresolved-tickets.svg";
-import assigned_tickets from "../assets/assigned-tickets.svg";
-import overall_statistics from "../assets/overall-statistics.svg";
+import unresolved_tickets from "../../assets/unresolved-tickets.svg";
+import assigned_tickets from "../../assets/assigned-tickets.svg";
+import overall_statistics from "../../assets/overall-statistics.svg";
 import styles from "./Features.module.scss";
 
 const Features = () => {

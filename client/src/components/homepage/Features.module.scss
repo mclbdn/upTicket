@@ -1,4 +1,4 @@
-@import "../styles/vars";
+@import "../../styles/vars";
 
 .features_section {
   .single_feature {
@@ -77,7 +77,7 @@
     }
 
     .feature_img_simple {
-      background-image: url("../assets/simple-feature-image.jpg");
+      background-image: url("../../assets/simple-feature-image.jpg");
       background-position: 60% 60%;
 
       img {
@@ -102,7 +102,7 @@
     }
 
     .feature_img_free {
-      background-image: url("../assets/free-feature-image.jpg");
+      background-image: url("../../assets/free-feature-image.jpg");
       background-position: 35% 60%;
 
       img {
@@ -127,7 +127,7 @@
     }
 
     .feature_img_speed {
-      background-image: url("../assets/speed-feature-image.jpg");
+      background-image: url("../../assets/speed-feature-image.jpg");
       background-position: 35% 60%;
 
       img {

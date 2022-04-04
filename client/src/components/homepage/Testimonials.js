@@ -1,11 +1,11 @@
 import React from "react";
 import SingleTestimonial from "./SingleTestimonial";
-import adriana_photo from "../assets/adriana-photo.svg";
-import josh_photo from "../assets/josh-photo.svg";
-import kate_photo from "../assets/kate-photo.svg";
-import heart_icon from "../assets/heart-icon.svg";
-import star_icon from "../assets/star-icon.svg";
-import plus_one_icon from "../assets/plus-one-icon.svg";
+import adriana_photo from "../../assets/adriana-photo.svg";
+import josh_photo from "../../assets/josh-photo.svg";
+import kate_photo from "../../assets/kate-photo.svg";
+import heart_icon from "../../assets/heart-icon.svg";
+import star_icon from "../../assets/star-icon.svg";
+import plus_one_icon from "../../assets/plus-one-icon.svg";
 import styles from "./Testimonials.module.scss";
 
 const Testimonials = () => {

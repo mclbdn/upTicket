@@ -1,5 +1,5 @@
 import React from "react";
-import mail_icon from "../assets/mail-icon.svg"
+import mail_icon from "../../assets/mail-icon.svg"
 import styles from "./Newsletter.module.scss"
 
 const Newsletter = () => {
