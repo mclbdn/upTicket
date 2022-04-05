@@ -11,9 +11,12 @@ import {
 import SingleTicket from "../components/dashboard/ticketSection/SingleTicket";
 import Modal from "../components/dashboard/ticketSection/Modal";
 import TicketsContainer from "../components/dashboard/ticketSection/TicketsContainer";
-import styles from "./Dashboard.module.scss";
 import TopContainer from "../components/dashboard/TopContainer";
-import LefMenu from "../components/dashboard/LeftMenu";
+import LeftMenu from "../components/dashboard/LeftMenu";
+import styles from "./Dashboard.module.scss";
+import OffWhiteContainer from "../components/dashboard/OffWhiteContainer";
+import SmallScreenBottomParagraphWrapper from "../components/dashboard/SmallScreenBottomParagraphWrapper";
+import BiggerScreenBottomParagraphWrapper from "../components/dashboard/BiggerScreenBottomParagraphWrapper";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -226,47 +229,10 @@ const Dashboard = () => {
   return (
     <main className={styles.dashboard}>
       <TopContainer companyName={companyName} />
-      <LefMenu logoutUser={logoutUser} />
-      {/* <div className={styles.bigger_screen_left_menu}>
-        <a href="">
-          <FontAwesomeIcon
-            className={styles.dashboard_icon}
-            icon={faTableColumns}
-          />
-          Dashboard
-        </a>
-        <a href="">
-          <FontAwesomeIcon
-            className={styles.dashboard_icon}
-            icon={faChartLine}
-          />
-          Report
-        </a>
-        <a href="">
-          <FontAwesomeIcon className={styles.dashboard_icon} icon={faGear} />
-          Settings
-        </a>
-        <a onClick={() => logoutUser()}>
-          <FontAwesomeIcon
-            className={styles.dashboard_icon}
-            icon={faArrowRightFromBracket}
-          />
-          Logout
-        </a>
-        <div className={styles.bigger_screen_bottom_paragraph_wrapper}>
-          <p className={styles.bigger_screen_bottom_paragraph}>
-            created by{" "}
-            <a
-              href="https://github.com/mclbdn/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              @mclbdn
-            </a>
-          </p>
-        </div>
-      </div> */}
-      <div className={styles.bigger_screen_off_white_container}>
+      <LeftMenu logoutUser={logoutUser}>
+        <BiggerScreenBottomParagraphWrapper />
+      </LeftMenu>
+      <OffWhiteContainer>
         <h1>Dashboard</h1>
         <div className={styles.bigger_screen_create_ticket_button_wrapper}>
           <div className="modal-wrapper"></div>
@@ -311,7 +277,7 @@ const Dashboard = () => {
             </TicketsContainer>
           )}
         </div>
-      </div>
+      </OffWhiteContainer>
       <h2 className={styles.small_screen_welcome}>
         Welcome to your dashboard! <span>🎉</span>
       </h2>
@@ -356,7 +322,6 @@ const Dashboard = () => {
       </nav>
       <h1 className={styles.mobile_h1}>Dashboard</h1>
       <div className={styles.create_ticket_button_wrapper}>
-        {/* <div className="modal-wrapper"></div> */}
         <button onClick={() => setIsModalOpened(true)}>
           + Create a New Ticket
         </button>
@@ -413,14 +378,7 @@ const Dashboard = () => {
         handleUpdate={handleUpdate}
         handleDelete={handleDelete}
       />
-      <div className={styles.bottom_paragraph_wrapper}>
-        <p className={styles.bottom_paragraph}>
-          created by{" "}
-          <a href="https://github.com/mclbdn/" target="_blank" rel="noreferrer">
-            @mclbdn
-          </a>
-        </p>
-      </div>
+      <SmallScreenBottomParagraphWrapper />
     </main>
   );
 };

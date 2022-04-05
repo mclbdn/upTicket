@@ -1,0 +1,36 @@
+@import "../../styles/vars";
+
+.bottom_paragraph_wrapper {
+  text-align: center;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 20px;
+
+  .bottom_paragraph {
+    color: rgba($color: $dark-blue-color, $alpha: 0.5);
+    margin: 0 auto;
+    position: relative;
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 300;
+
+    &::after {
+      position: absolute;
+      content: "";
+      border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+      left: 0px;
+      right: 0px;
+      top: -20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+      display: none;
+    }
+}

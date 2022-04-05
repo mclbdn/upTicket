@@ -1,0 +1,48 @@
+@import "../../styles/vars";
+
+.bigger_screen_bottom_paragraph_wrapper {
+  display: none;
+
+  .bigger_screen_bottom_paragraph {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba($color: $dark-blue-color, $alpha: 0.5);
+    position: relative;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 15px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+      left: 0;
+      right: 0;
+      top: -20px;
+
+      @media screen and (min-width: 1440px) {
+        left: -24px;
+        right: -37px;
+      }
+    }
+
+    a {
+      font-size: inherit;
+      color: inherit;
+      font-weight: inherit;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 84px;
+    bottom: 24px;
+  }
+}

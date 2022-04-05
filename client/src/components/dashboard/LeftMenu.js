@@ -8,7 +8,7 @@ import {
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
 
-const LefMenu = ({ logoutUser }) => {
+const LefMenu = ({ logoutUser, children }) => {
   return (
     <div className={styles.bigger_screen_left_menu}>
       <a href="">
@@ -33,14 +33,7 @@ const LefMenu = ({ logoutUser }) => {
         />
         Logout
       </a>
-      <div className={styles.bigger_screen_bottom_paragraph_wrapper}>
-        <p className={styles.bigger_screen_bottom_paragraph}>
-          created by{" "}
-          <a href="https://github.com/mclbdn/" target="_blank" rel="noreferrer">
-            @mclbdn
-          </a>
-        </p>
-      </div>
+      {children}
     </div>
   );
 };

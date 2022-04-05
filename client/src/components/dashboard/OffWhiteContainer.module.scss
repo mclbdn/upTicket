@@ -1,0 +1,21 @@
+@import "../../styles/vars";
+
+.bigger_screen_off_white_container {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    background-color: $off-white-color;
+    border-top-left-radius: 8px;
+    left: 214px;
+    right: 0px;
+    top: 88px;
+    bottom: 0px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 308px;
+    top: 108px;
+  }
+}
