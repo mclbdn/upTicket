@@ -1,0 +1,500 @@
+@import "../styles/vars";
+
+.dashboard {
+  background-color: #fff;
+  height: 100vh;
+
+  .bigger_screen_top_container,
+  .bigger_screen_left_menu,
+  .bigger_screen_off_white_container,
+  .bigger_screen_create_ticket_button_wrapper,
+  .bigger_screen_bottom_paragraph_wrapper {
+    display: none;
+  }
+
+  .small_screen_welcome,
+  .dashboard_divider,
+  nav,
+  .mobile_h1,
+  .create_ticket_button_wrapper,
+  .small_screen_fields_description,
+  .small_screen_tickets_wrapper,
+  .bottom_paragraph_wrapper {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .bigger_screen_top_container {
+    .company_name_and_welcome {
+      display: flex;
+
+      .bigger_screen_welcome,
+      .company_name {
+        font-family: "Barlow", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+        position: relative;
+      }
+
+      .bigger_screen_welcome {
+        position: absolute;
+        left: 214px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          bottom: -20px;
+          border-bottom: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+          width: 350px;
+        }
+
+        span {
+          color: initial;
+        }
+
+        @media screen and (min-width: 1440px) {
+          position: absolute;
+          left: 308px;
+
+          &::before {
+            width: 875px;
+          }
+        }
+      }
+
+      .company_name {
+        margin-right: 39px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          bottom: -20px;
+          border-bottom: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+          width: 150px;
+
+          @media screen and (min-width: 1440px) {
+            width: 200px;
+          }
+        }
+      }
+    }
+
+    .username {
+      background-color: rgba($color: $blue-color, $alpha: 0.3);
+      width: 116px;
+      height: 35px;
+      border-radius: 8px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "";
+        bottom: -15.5px;
+        border-bottom: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+        width: 116px;
+
+        @media screen and (min-width: 1440px) {
+          width: 149px;
+        }
+      }
+
+      p {
+        text-align: center;
+        line-height: 35px;
+        color: $dark-blue-color;
+        font-size: 16px;
+        font-weight: 600;
+
+        @media screen and (min-width: 1440px) {
+          line-height: 40px;
+          font-size: 18px;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        width: 149px;
+        height: 40px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    @media screen and (min-width: 1440px) {
+      padding: 20px 60px;
+    }
+  }
+
+  .bigger_screen_left_menu {
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 28px;
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+
+      &:hover {
+        color: $dark-blue-color;
+      }
+
+      &:first-of-type {
+        margin-top: 53px;
+        color: $dark-blue-color;
+
+        @media screen and (min-width: 1440px) {
+          margin-top: 91px;
+        }
+      }
+
+      .dashboard_icon {
+        margin-right: 9px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        margin-top: 34px;
+        font-size: 20px;
+      }
+    }
+
+    .bigger_screen_bottom_paragraph_wrapper {
+      display: block;
+      position: absolute;
+      bottom: 20px;
+      left: 40px;
+
+      .bigger_screen_bottom_paragraph {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+        position: relative;
+
+        @media screen and (min-width: 1440px) {
+          font-size: 15px;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+          left: 0;
+          right: 0;
+          top: -20px;
+
+          @media screen and (min-width: 1440px) {
+            left: -24px;
+            right: -37px;
+          }
+        }
+
+        a {
+          font-size: inherit;
+          color: inherit;
+          font-weight: inherit;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        left: 84px;
+        bottom: 24px;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: 1440px) {
+      margin-left: 60px;
+    }
+  }
+
+  .bigger_screen_off_white_container {
+    h1 {
+      font-weight: 500;
+      font-size: 23px;
+      color: $blue-color;
+      margin: 30px 0px 20px 47px;
+
+      @media screen and (min-width: 1440px) {
+        font-size: 25px;
+        margin: 52px 0px 26px 48px;
+      }
+    }
+
+    .bigger_screen_create_ticket_button_wrapper {
+      display: block;
+      margin-left: 47px;
+
+      button {
+        font-weight: 600;
+        font-size: 16px;
+        width: 223px;
+        height: 35px;
+        background-color: $blue-color;
+        color: $off-white-color;
+        text-align: center;
+        line-height: 35px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+
+        @media screen and (min-width: 1440px) {
+          font-size: 18px;
+          width: 223px;
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        display: block;
+        margin-left: 48px;
+      }
+    }
+
+    .bigger_screen_white_container {
+      border-radius: 8px;
+      background-color: #fff;
+      position: absolute;
+      left: 47px;
+      right: 40px;
+      top: 140px;
+      bottom: 60px;
+      overflow: scroll;
+
+      .bigger_screen_fields_description {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 20px 45px;
+
+        p {
+          font-weight: 600;
+          font-size: 13px;
+          color: rgba($color: $dark-blue-color, $alpha: 0.5);
+
+          @media screen and (min-width: 1440px) {
+            font-weight: 600;
+            font-size: 16px;
+            color: rgba($color: $dark-blue-color, $alpha: 0.5);
+          }
+        }
+
+        .ticket_num {
+          margin-left: 13px;
+          margin-right: 7px;
+
+          @media screen and (min-width: 1440px) {
+            margin-left: 0px;
+            margin-right: 20px;
+          }
+        }
+
+        .fields_description_left {
+          display: flex;
+        }
+
+        .fields_description_right {
+          margin-right: 13px;
+
+          @media screen and (min-width: 1440px) {
+            margin-right: 0px;
+          }
+        }
+
+        @media screen and (min-width: 1440px) {
+          display: flex;
+          justify-content: space-between;
+          margin: 26px 52px 39px;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        left: 48px;
+        right: 60px;
+        top: 178px;
+        bottom: 70px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      display: block;
+      position: absolute;
+      background-color: $off-white-color;
+      border-top-left-radius: 8px;
+      left: 214px;
+      right: 0px;
+      top: 88px;
+      bottom: 0px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      left: 308px;
+      top: 108px;
+    }
+  }
+
+  .small_screen_tickets_wrapper {
+    overflow: scroll;
+    height: 50%;
+  }
+
+  .small_screen_welcome {
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+    color: rgba($color: $dark-blue-color, $alpha: 0.5);
+    font-size: 18px;
+
+    span {
+      color: initial;
+    }
+  }
+
+  .dashboard_divider {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+    margin: 10px 20px 20px;
+  }
+
+  nav {
+    margin: 0 20px 20px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .icons {
+        display: flex;
+      }
+
+      li {
+        margin-left: 40px;
+
+        .dashboard_icon {
+          width: 16px;
+          height: 14px;
+          color: rgba($color: $dark-blue-color, $alpha: 0.5);
+        }
+
+        .username {
+          background-color: rgba($color: $blue-color, $alpha: 0.3);
+          width: 96px;
+          height: 30px;
+          border-radius: 8px;
+
+          p {
+            text-align: center;
+            line-height: 30px;
+            color: $dark-blue-color;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile_h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: $blue-color;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .create_ticket_button_wrapper {
+    text-align: center;
+    margin: 0 auto 20px;
+    position: relative;
+
+    button {
+      font-weight: 600;
+      font-size: 15px;
+      width: 200px;
+      height: 35px;
+      background-color: $blue-color;
+      color: $off-white-color;
+      text-align: center;
+      line-height: 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .small_screen_fields_description {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 0px;
+
+    p {
+      font-weight: 600;
+      font-size: 12px;
+      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+    }
+
+    .ticket_num {
+      margin-left: 13px;
+      margin-right: 13px;
+    }
+
+    .fields_description_left {
+      display: flex;
+    }
+
+    .fields_description_right {
+      margin-right: 13px;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .bottom_paragraph_wrapper {
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 20px;
+
+    .bottom_paragraph {
+      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+      margin: 0 auto;
+      position: relative;
+      width: fit-content;
+      font-size: 13px;
+      font-weight: 300;
+
+      &::after {
+        position: absolute;
+        content: "";
+        border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+        left: 0px;
+        right: 0px;
+        top: -20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
+}

@@ -7,11 +7,11 @@ import {
   faChartLine,
   faGear,
   faTableColumns,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import SingleTicket from "../components/dashboard/SingleTicket";
-import Modal from "../components/dashboard/Modal";
-import TicketsContainer from "../components/dashboard/TicketsContainer";
+import SingleTicket from "../components/dashboard/ticketSection/SingleTicket";
+import Modal from "../components/dashboard/ticketSection/Modal";
+import TicketsContainer from "../components/dashboard/ticketSection/TicketsContainer";
+import styles from "./Dashboard.module.scss";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -222,40 +222,46 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <main className="dashboard">
-      <div className="tablet-top-container">
-        <div className="company-name-and-welcome">
-          <h2 className="company-name-h2">{companyName}</h2>
-          <h2 className="welcome-to-dashboard-h2">
+    <main className={styles.dashboard}>
+      <div className={styles.bigger_screen_top_container}>
+        <div className={styles.company_name_and_welcome}>
+          <h2 className={styles.company_name}>{companyName}</h2>
+          <h2 className={styles.bigger_screen_welcome}>
             Welcome to your dashboard! <span>🎉</span>
           </h2>
         </div>
-        <div className="username">
+        <div className={styles.username}>
           <p>John</p>
         </div>
       </div>
-      <div className="tablet-left-menu">
+      <div className={styles.bigger_screen_left_menu}>
         <a href="">
-          <FontAwesomeIcon className="dashboard-icon" icon={faTableColumns} />
+          <FontAwesomeIcon
+            className={styles.dashboard_icon}
+            icon={faTableColumns}
+          />
           Dashboard
         </a>
         <a href="">
-          <FontAwesomeIcon className="dashboard-icon" icon={faChartLine} />
+          <FontAwesomeIcon
+            className={styles.dashboard_icon}
+            icon={faChartLine}
+          />
           Report
         </a>
         <a href="">
-          <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
+          <FontAwesomeIcon className={styles.dashboard_icon} icon={faGear} />
           Settings
         </a>
         <a onClick={() => logoutUser()}>
           <FontAwesomeIcon
-            className="dashboard-icon"
+            className={styles.dashboard_icon}
             icon={faArrowRightFromBracket}
           />
           Logout
         </a>
-        <div className="bottom-paragraph-wrapper-bigger-screen-size">
-          <p className="bottom-paragraph-bigger-screen-size">
+        <div className={styles.bigger_screen_bottom_paragraph_wrapper}>
+          <p className={styles.bigger_screen_bottom_paragraph}>
             created by{" "}
             <a
               href="https://github.com/mclbdn/"
@@ -267,21 +273,21 @@ const Dashboard = () => {
           </p>
         </div>
       </div>
-      <div className="tablet-off-white-container">
+      <div className={styles.bigger_screen_off_white_container}>
         <h1>Dashboard</h1>
-        <div className="tablet-create-ticket-button-wrapper">
+        <div className={styles.bigger_screen_create_ticket_button_wrapper}>
           <div className="modal-wrapper"></div>
           <button onClick={() => setIsModalOpened(true)}>
             + Create a New Ticket
           </button>
         </div>
-        <div className="tablet-white-container">
-          <div className="tablet-fields-description">
-            <div className="fields-description-left">
-              <p className="ticket-num">Ticket #</p>
+        <div className={styles.bigger_screen_white_container}>
+          <div className={styles.bigger_screen_fields_description}>
+            <div className={styles.fields_description_left}>
+              <p className={styles.ticket_num}>Ticket #</p>
               <p>Description of the issue</p>
             </div>
-            <div className="fields-description-right">
+            <div className={styles.fields_description_right}>
               <p>Priority</p>
             </div>
           </div>
@@ -313,35 +319,41 @@ const Dashboard = () => {
           )}
         </div>
       </div>
-      <h2 className="mobile-h2">
+      <h2 className={styles.small_screen_welcome}>
         Welcome to your dashboard! <span>🎉</span>
       </h2>
-      <hr className="dashboard-divider" />
+      <hr className={styles.dashboard_divider} />
       <nav>
         <ul>
           <li>
-            <div className="username">
+            <div className={styles.username}>
               <p>John</p>
             </div>
           </li>
-          <div className="icons">
+          <div className={styles.icons}>
             <li>
               <FontAwesomeIcon
-                className="dashboard-icon"
+                className={styles.dashboard_icon}
                 icon={faTableColumns}
               />
             </li>
             <li>
-              <FontAwesomeIcon className="dashboard-icon" icon={faChartLine} />
+              <FontAwesomeIcon
+                className={styles.dashboard_icon}
+                icon={faChartLine}
+              />
             </li>
             <li>
-              <FontAwesomeIcon className="dashboard-icon" icon={faGear} />
+              <FontAwesomeIcon
+                className={styles.dashboard_icon}
+                icon={faGear}
+              />
             </li>
             <li>
               <a href="/logout" onClick={() => logoutUser()}>
                 {" "}
                 <FontAwesomeIcon
-                  className="dashboard-icon"
+                  className={styles.dashboard_icon}
                   icon={faArrowRightFromBracket}
                 />
               </a>
@@ -349,24 +361,24 @@ const Dashboard = () => {
           </div>
         </ul>
       </nav>
-      <h1 className="mobile-h1">Dashboard</h1>
-      <div className="create-ticket-button-wrapper">
-        <div className="modal-wrapper"></div>
+      <h1 className={styles.mobile_h1}>Dashboard</h1>
+      <div className={styles.create_ticket_button_wrapper}>
+        {/* <div className="modal-wrapper"></div> */}
         <button onClick={() => setIsModalOpened(true)}>
           + Create a New Ticket
         </button>
       </div>
-      <div className="fields-description">
-        <div className="fields-description-left">
-          <p className="ticket-num">Ticket #</p>
+      <div className={styles.small_screen_fields_description}>
+        <div className={styles.fields_description_left}>
+          <p className={styles.ticket_num}>Ticket #</p>
           <p>Description of the issue</p>
         </div>
-        <div className="fields-description-right">
+        <div className={styles.fields_description_right}>
           <p>Priority</p>
         </div>
       </div>
       {mobile && (
-        <div className="tickets-wrapper-mobile">
+        <div className={styles.small_screen_tickets_wrapper}>
           {tickets ? (
             tickets.map((ticket) => {
               return (
@@ -407,86 +419,11 @@ const Dashboard = () => {
         ticketPriority={ticketPriority}
         handleUpdate={handleUpdate}
         handleDelete={handleDelete}
-      >
-        {/* <FontAwesomeIcon
-          icon={faXmark}
-          className="fa-close-btn"
-          onClick={() => {
-            handleCloseBtn();
-          }}
-        />
-        {isUpdatingTicket ? (
-          <h3>Update this ticket</h3>
-        ) : (
-          <h3>Create a new ticket</h3>
-        )}
-
-        <form onSubmit={createTicket}>
-          <div className="label-and-input">
-            <label htmlFor="ticket_name">Ticket Name:</label>
-            <input
-              value={ticketName}
-              onChange={(e) => setTicketName(e.target.value)}
-              type="text"
-              name="ticket_name"
-              id="ticket_name"
-              required
-            />
-          </div>
-          <div className="label-and-input">
-            <label htmlFor="ticket-description">Ticket Description:</label>
-            <input
-              value={ticketDescription}
-              onChange={(e) => setTicketDescription(e.target.value)}
-              type="text"
-              name="ticket_description"
-              id="ticket_description"
-              required
-            />
-          </div>
-          <div className="label-and-input">
-            <label htmlFor="ticket_priority">Ticket Priority:</label>
-            <input
-              onChange={(e) => setTicketPriority(e.target.value)}
-              value={ticketPriority}
-              type="number"
-              min={1}
-              max={3}
-              name="ticket_priority"
-              id="ticket_priority"
-              required
-            />
-          </div>
-          <div className="btns">
-            {isUpdatingTicket ? (
-              <>
-                <button
-                  onClick={() => handleUpdate()}
-                  className="update-btn btn "
-                  type="button"
-                >
-                  Update
-                </button>
-                <button
-                  onClick={() => handleDelete()}
-                  className="delete-btn btn "
-                  type="button"
-                >
-                  Delete
-                </button>
-              </>
-            ) : (
-              <button className="submit-btn btn" type="submit">
-                Submit
-              </button>
-            )}
-          </div>
-        </form> */}
-      </Modal>
-      <div className="bottom-paragraph-wrapper">
-        <p className="bottom-paragraph">
+      />
+      <div className={styles.bottom_paragraph_wrapper}>
+        <p className={styles.bottom_paragraph}>
           created by{" "}
-          <a href="https://github.com/mclbdn/" target="_blank">
+          <a href="https://github.com/mclbdn/" target="_blank" rel="noreferrer">
             @mclbdn
           </a>
         </p>

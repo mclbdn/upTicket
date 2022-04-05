@@ -1,32 +1,3 @@
-// import React from "react";
-// import styles from "./Modal.module.scss";
-
-// const Modal = ({ children, shown, handleCloseBtn }) => {
-//   const handleClick = () => {
-//     handleCloseBtn();
-//   };
-
-//   return shown ? (
-//     <div
-//       className="modal-backdrop"
-//       onClick={() => {
-//         handleClick();
-//       }}
-//     >
-//       <div
-//         className="modal-content"
-//         onClick={(e) => {
-//           e.stopPropagation();
-//         }}
-//       >
-//         {children}
-//       </div>
-//     </div>
-//   ) : null;
-// };
-
-// export default Modal;
-
 import React from "react";
 import styles from "./Modal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
