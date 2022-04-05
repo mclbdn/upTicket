@@ -1,0 +1,88 @@
+@import "../../styles/vars";
+
+.single_ticket {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 20px 20px;
+  height: 50px;
+  background-color: $off-white-color;
+  border-radius: 8px;
+  justify-content: space-between;
+
+  .left_side {
+    display: flex;
+    align-items: center;
+
+    .ticket_number {
+      margin-left: 10px;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 30px;
+      background-color: rgba($color: $pink-color, $alpha: 0.3);
+      height: 30px;
+      width: 52.11px;
+      font-size: 14px;
+      font-weight: 300;
+      border-radius: 8px;
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        margin-left: 16px;
+        margin-right: 16px;
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+        width: 80px;
+      }
+    }
+
+    .ticket_description {
+      font-size: 14px;
+      color: $dark-blue-color;
+      font-weight: 400;
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .right_side {
+    .ticket_priority {
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      width: 52.11px;
+      height: 30px;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 30px;
+      color: $dark-blue-color;
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 18px;
+        margin-right: 16px;
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin: 26px 26px;
+    height: 72px;
+  }
+}

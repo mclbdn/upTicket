@@ -278,53 +278,6 @@
     }
   }
 
-  .single-ticket {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin: 20px 20px;
-    height: 50px;
-    background-color: $off-white-color;
-    border-radius: 8px;
-    justify-content: space-between;
-
-    .left-side {
-      display: flex;
-      align-items: center;
-
-      .ticket-number {
-        margin-left: 10px;
-        margin-right: 10px;
-        text-align: center;
-        line-height: 30px;
-        background-color: rgba($color: $pink-color, $alpha: 0.3);
-        height: 30px;
-        width: 52.11px;
-        font-size: 14px;
-        font-weight: 300;
-        border-radius: 8px;
-      }
-
-      .ticket-description {
-        font-size: 14px;
-        color: $dark-blue-color;
-        font-weight: 400;
-      }
-    }
-
-    .ticket-priority {
-      margin-right: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      width: 52.11px;
-      height: 30px;
-      border-radius: 8px;
-      text-align: center;
-      line-height: 30px;
-      color: $dark-blue-color;
-    }
-  }
-
   .bottom-paragraph-wrapper {
     text-align: center;
     position: absolute;
@@ -545,22 +498,6 @@
             margin-right: 13px;
           }
         }
-
-        .single-ticket {
-          .left-side {
-            .ticket-number {
-              font-size: 16px;
-            }
-
-            .ticket-description {
-              font-size: 16px;
-            }
-          }
-
-          .ticket-priority {
-            font-size: 16px;
-          }
-        }
       }
     }
 
@@ -708,36 +645,6 @@
 
           .fields-description-right {
             margin-right: 0px;
-          }
-        }
-
-        .single-ticket {
-          margin: 26px 26px;
-          height: 72px;
-
-          .left-side {
-            .ticket-number {
-              margin-left: 16px;
-              margin-right: 16px;
-              font-size: 18px;
-              height: 40px;
-              line-height: 40px;
-              width: 80px;
-            }
-
-            .ticket-description {
-              font-size: 18px;
-            }
-          }
-
-          .right-side {
-            .ticket-priority {
-              font-size: 18px;
-              margin-right: 16px;
-              width: 80px;
-              height: 40px;
-              line-height: 40px;
-            }
           }
         }
       }

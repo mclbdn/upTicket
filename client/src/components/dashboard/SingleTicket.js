@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./SingleTicket.module.scss"
 
 const SingleTicket = ({
   ticket_id,
@@ -36,13 +37,13 @@ const SingleTicket = ({
   };
 
   return (
-    <div className="single-ticket" onClick={() => handleClick()}>
-      <div className="left-side">
-        <div className="ticket-number">T-{ticket_id}</div>
-        <div className="ticket-description">{ticket_name}</div>
+    <div className={styles.single_ticket} onClick={() => handleClick()}>
+      <div className={styles.left_side}>
+        <div className={styles.ticket_number}>T-{ticket_id}</div>
+        <div className={styles.ticket_description}>{ticket_name}</div>
       </div>
-      <div className="right-side">
-        <div className="ticket-priority" style={{ backgroundColor: bgColor }}>
+      <div className={styles.right_side}>
+        <div className={styles.ticket_priority} style={{ backgroundColor: bgColor }}>
           P{ticket_priority}
         </div>
       </div>
