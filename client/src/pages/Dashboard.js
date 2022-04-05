@@ -13,6 +13,7 @@ import Modal from "../components/dashboard/ticketSection/Modal";
 import TicketsContainer from "../components/dashboard/ticketSection/TicketsContainer";
 import styles from "./Dashboard.module.scss";
 import TopContainer from "../components/dashboard/TopContainer";
+import LefMenu from "../components/dashboard/LeftMenu";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -225,7 +226,8 @@ const Dashboard = () => {
   return (
     <main className={styles.dashboard}>
       <TopContainer companyName={companyName} />
-      <div className={styles.bigger_screen_left_menu}>
+      <LefMenu logoutUser={logoutUser} />
+      {/* <div className={styles.bigger_screen_left_menu}>
         <a href="">
           <FontAwesomeIcon
             className={styles.dashboard_icon}
@@ -263,7 +265,7 @@ const Dashboard = () => {
             </a>
           </p>
         </div>
-      </div>
+      </div> */}
       <div className={styles.bigger_screen_off_white_container}>
         <h1>Dashboard</h1>
         <div className={styles.bigger_screen_create_ticket_button_wrapper}>

@@ -1,0 +1,88 @@
+@import "../../styles/vars";
+
+.bigger_screen_left_menu {
+  display: none;
+  
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 28px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba($color: $dark-blue-color, $alpha: 0.5);
+
+    &:hover {
+      color: $dark-blue-color;
+    }
+
+    &:first-of-type {
+      margin-top: 53px;
+      color: $dark-blue-color;
+
+      @media screen and (min-width: 1440px) {
+        margin-top: 91px;
+      }
+    }
+
+    .dashboard_icon {
+      margin-right: 9px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      margin-top: 34px;
+      font-size: 20px;
+    }
+  }
+
+  .bigger_screen_bottom_paragraph_wrapper {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+
+    .bigger_screen_bottom_paragraph {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+      position: relative;
+
+      @media screen and (min-width: 1440px) {
+        font-size: 15px;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+        left: 0;
+        right: 0;
+        top: -20px;
+
+        @media screen and (min-width: 1440px) {
+          left: -24px;
+          right: -37px;
+        }
+      }
+
+      a {
+        font-size: inherit;
+        color: inherit;
+        font-weight: inherit;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      left: 84px;
+      bottom: 24px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 60px;
+  }
+}
