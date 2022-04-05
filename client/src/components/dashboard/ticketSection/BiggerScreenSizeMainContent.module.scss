@@ -1,0 +1,112 @@
+@import "../../../styles/vars";
+
+.bigger_screen_h1 {
+  font-weight: 500;
+  font-size: 23px;
+  color: $blue-color;
+  margin: 30px 0px 20px 47px;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 25px;
+    margin: 52px 0px 26px 48px;
+  }
+}
+
+.bigger_screen_create_ticket_button_wrapper {
+  display: none;
+
+  button {
+    font-weight: 600;
+    font-size: 16px;
+    width: 223px;
+    height: 35px;
+    background-color: $blue-color;
+    color: $off-white-color;
+    text-align: center;
+    line-height: 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 18px;
+      width: 223px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (min-width: 768) {
+    display: block;
+    margin-left: 47px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    margin-left: 48px;
+  }
+}
+
+.bigger_screen_white_container {
+  border-radius: 8px;
+  background-color: #fff;
+  position: absolute;
+  left: 47px;
+  right: 40px;
+  top: 140px;
+  bottom: 60px;
+  overflow: scroll;
+
+  .bigger_screen_fields_description {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 45px;
+
+    p {
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+
+      @media screen and (min-width: 1440px) {
+        font-weight: 600;
+        font-size: 16px;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+      }
+    }
+
+    .ticket_num {
+      margin-left: 13px;
+      margin-right: 7px;
+
+      @media screen and (min-width: 1440px) {
+        margin-left: 0px;
+        margin-right: 20px;
+      }
+    }
+
+    .fields_description_left {
+      display: flex;
+    }
+
+    .fields_description_right {
+      margin-right: 13px;
+
+      @media screen and (min-width: 1440px) {
+        margin-right: 0px;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      display: flex;
+      justify-content: space-between;
+      margin: 26px 52px 39px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 48px;
+    right: 60px;
+    top: 178px;
+    bottom: 70px;
+  }
+}
