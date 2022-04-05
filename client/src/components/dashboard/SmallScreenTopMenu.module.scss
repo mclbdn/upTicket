@@ -1,0 +1,73 @@
+@import "../../styles/vars";
+
+.small_screen_welcome {
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+  color: rgba($color: $dark-blue-color, $alpha: 0.5);
+  font-size: 18px;
+
+  span {
+    color: initial;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.dashboard_divider {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+  margin: 10px 20px 20px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+nav {
+  margin: 0 20px 20px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icons {
+      display: flex;
+    }
+
+    li {
+      margin-left: 40px;
+
+      .dashboard_icon {
+        width: 16px;
+        height: 14px;
+        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+      }
+
+      .username {
+        background-color: rgba($color: $blue-color, $alpha: 0.3);
+        width: 96px;
+        height: 30px;
+        border-radius: 8px;
+
+        p {
+          text-align: center;
+          line-height: 30px;
+          color: $dark-blue-color;
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}

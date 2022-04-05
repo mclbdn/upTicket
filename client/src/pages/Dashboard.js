@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRightFromBracket,
-  faChartLine,
-  faGear,
-  faTableColumns,
-} from "@fortawesome/free-solid-svg-icons";
 import SingleTicket from "../components/dashboard/ticketSection/SingleTicket";
 import Modal from "../components/dashboard/ticketSection/Modal";
 import TicketsContainer from "../components/dashboard/ticketSection/TicketsContainer";
@@ -17,6 +10,7 @@ import styles from "./Dashboard.module.scss";
 import OffWhiteContainer from "../components/dashboard/OffWhiteContainer";
 import SmallScreenBottomParagraphWrapper from "../components/dashboard/SmallScreenBottomParagraphWrapper";
 import BiggerScreenBottomParagraphWrapper from "../components/dashboard/BiggerScreenBottomParagraphWrapper";
+import SmallScreenTopMenu from "../components/dashboard/SmallScreenTopMenu";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -207,14 +201,14 @@ const Dashboard = () => {
 
   // Check window size
   useEffect(() => {
-    if (window.innerWidth < 744) {
+    if (window.innerWidth < 768) {
       setMobile(true);
     } else {
       setMobile(false);
     }
 
     const updateMedia = () => {
-      if (window.innerWidth < 744) {
+      if (window.innerWidth < 768) {
         setMobile(true);
       } else {
         setMobile(false);
@@ -233,7 +227,7 @@ const Dashboard = () => {
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
       <OffWhiteContainer>
-        <h1>Dashboard</h1>
+        <h1 className={styles.bigger_screen_h1}>Dashboard</h1>
         <div className={styles.bigger_screen_create_ticket_button_wrapper}>
           <div className="modal-wrapper"></div>
           <button onClick={() => setIsModalOpened(true)}>
@@ -278,48 +272,7 @@ const Dashboard = () => {
           )}
         </div>
       </OffWhiteContainer>
-      <h2 className={styles.small_screen_welcome}>
-        Welcome to your dashboard! <span>🎉</span>
-      </h2>
-      <hr className={styles.dashboard_divider} />
-      <nav>
-        <ul>
-          <li>
-            <div className={styles.username}>
-              <p>John</p>
-            </div>
-          </li>
-          <div className={styles.icons}>
-            <li>
-              <FontAwesomeIcon
-                className={styles.dashboard_icon}
-                icon={faTableColumns}
-              />
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className={styles.dashboard_icon}
-                icon={faChartLine}
-              />
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className={styles.dashboard_icon}
-                icon={faGear}
-              />
-            </li>
-            <li>
-              <a href="/logout" onClick={() => logoutUser()}>
-                {" "}
-                <FontAwesomeIcon
-                  className={styles.dashboard_icon}
-                  icon={faArrowRightFromBracket}
-                />
-              </a>
-            </li>
-          </div>
-        </ul>
-      </nav>
+      <SmallScreenTopMenu logoutUser={logoutUser} />
       <h1 className={styles.mobile_h1}>Dashboard</h1>
       <div className={styles.create_ticket_button_wrapper}>
         <button onClick={() => setIsModalOpened(true)}>
