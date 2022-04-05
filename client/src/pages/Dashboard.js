@@ -397,8 +397,18 @@ const Dashboard = () => {
         handleCloseBtn={() => {
           handleCloseBtn();
         }}
+        isUpdatingTicket={isUpdatingTicket}
+        createTicket={createTicket}
+        ticketName={ticketName}
+        setTicketName={setTicketName}
+        ticketDescription={ticketDescription}
+        setTicketDescription={setTicketDescription}
+        setTicketPriority={setTicketPriority}
+        ticketPriority={ticketPriority}
+        handleUpdate={handleUpdate}
+        handleDelete={handleDelete}
       >
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon={faXmark}
           className="fa-close-btn"
           onClick={() => {
@@ -471,7 +481,7 @@ const Dashboard = () => {
               </button>
             )}
           </div>
-        </form>
+        </form> */}
       </Modal>
       <div className="bottom-paragraph-wrapper">
         <p className="bottom-paragraph">

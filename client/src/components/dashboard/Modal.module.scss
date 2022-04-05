@@ -1,0 +1,138 @@
+@import "../../styles/vars";
+
+.modal_backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+  .modal_content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius: 8px;
+    margin: 20px;
+    background-color: $off-white-color;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    .btns {
+      margin-bottom: 30px;
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+
+      .btn {
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        font-weight: 600;
+        border: none;
+        border-radius: 7px;
+        padding: 10px;
+      }
+
+      .submit_btn {
+        background-color: $dark-blue-color;
+        color: $off-white-color;
+        margin-bottom: 10px;
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 0px;
+        }
+      }
+
+      .update_btn {
+        background-color: $dark-blue-color;
+        color: $off-white-color;
+        margin-bottom: 10px;
+        width: 45%;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 0px;
+        }
+      }
+
+      .delete_btn {
+        width: 45%;
+        background-color: $red-color;
+        color: $dark-blue-color;
+        margin-bottom: 10px;
+        width: 45%;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 0px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+      }
+    }
+
+    h3 {
+      color: $dark-blue-color;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .label_and_input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      label {
+        font-size: 16px;
+        color: $dark-blue-color;
+        cursor: pointer;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+
+      input {
+        padding: 10px;
+        line-height: 10px;
+        font-family: inherit;
+        flex: 1 1;
+        border-radius: 7px;
+        border: 1px solid rgba(41, 43, 77, 0.2);
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 20px;
+
+        &:nth-child(1) {
+          max-width: 25%;
+        }
+
+        &:nth-child(3) {
+          width: fit-content;
+        }
+      }
+    }
+
+    .close_btn {
+      position: absolute;
+      cursor: pointer;
+      right: 10px;
+      top: 10px;
+      width: 25px;
+      height: 25px;
+      color: $dark-blue-color;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin: 40px;
+    }
+  }
+}
