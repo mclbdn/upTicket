@@ -12,6 +12,7 @@ import SingleTicket from "../components/dashboard/ticketSection/SingleTicket";
 import Modal from "../components/dashboard/ticketSection/Modal";
 import TicketsContainer from "../components/dashboard/ticketSection/TicketsContainer";
 import styles from "./Dashboard.module.scss";
+import TopContainer from "../components/dashboard/TopContainer";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -223,17 +224,7 @@ const Dashboard = () => {
 
   return (
     <main className={styles.dashboard}>
-      <div className={styles.bigger_screen_top_container}>
-        <div className={styles.company_name_and_welcome}>
-          <h2 className={styles.company_name}>{companyName}</h2>
-          <h2 className={styles.bigger_screen_welcome}>
-            Welcome to your dashboard! <span>🎉</span>
-          </h2>
-        </div>
-        <div className={styles.username}>
-          <p>John</p>
-        </div>
-      </div>
+      <TopContainer companyName={companyName} />
       <div className={styles.bigger_screen_left_menu}>
         <a href="">
           <FontAwesomeIcon

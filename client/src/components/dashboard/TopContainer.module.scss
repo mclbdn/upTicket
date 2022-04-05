@@ -1,0 +1,109 @@
+@import "../../styles//vars";
+
+.bigger_screen_top_container {
+  display: none;
+
+  .company_name_and_welcome {
+    display: flex;
+
+    .bigger_screen_welcome,
+    .company_name {
+      font-family: "Barlow", sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+      position: relative;
+    }
+
+    .bigger_screen_welcome {
+      position: absolute;
+      left: 214px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        bottom: -20px;
+        border-bottom: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+        width: 350px;
+      }
+
+      span {
+        color: initial;
+      }
+
+      @media screen and (min-width: 1440px) {
+        position: absolute;
+        left: 308px;
+
+        &::before {
+          width: 875px;
+        }
+      }
+    }
+
+    .company_name {
+      margin-right: 39px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        bottom: -20px;
+        border-bottom: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+        width: 150px;
+
+        @media screen and (min-width: 1440px) {
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  .username {
+    background-color: rgba($color: $blue-color, $alpha: 0.3);
+    width: 116px;
+    height: 35px;
+    border-radius: 8px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: -15.5px;
+      border-bottom: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+      width: 116px;
+
+      @media screen and (min-width: 1440px) {
+        width: 149px;
+      }
+    }
+
+    p {
+      text-align: center;
+      line-height: 35px;
+      color: $dark-blue-color;
+      font-size: 16px;
+      font-weight: 600;
+
+      @media screen and (min-width: 1440px) {
+        line-height: 40px;
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 149px;
+      height: 40px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 20px 60px;
+  }
+}
