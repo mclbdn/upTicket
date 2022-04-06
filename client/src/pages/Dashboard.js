@@ -24,6 +24,7 @@ const Dashboard = () => {
   const [mobile, setMobile] = useState(false);
   const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
   const [activeTicketId, setActiveTicketId] = useState("");
+  const [isMainContent, setIsMainContent] = useState(true);
 
   const handleCloseBtn = () => {
     setIsModalOpened(false);
@@ -223,11 +224,34 @@ const Dashboard = () => {
   return (
     <main className={styles.dashboard}>
       <TopContainer companyName={companyName} />
-      <LeftMenu logoutUser={logoutUser}>
+      <LeftMenu
+        logoutUser={logoutUser}
+        setIsMainContent={setIsMainContent}
+        isMainContent={isMainContent}
+      >
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
       <OffWhiteContainer>
-        <BiggerScreenSizeMainContent
+        {isMainContent && (
+          <BiggerScreenSizeMainContent
+            setIsModalOpened={setIsModalOpened}
+            mobile={mobile}
+            tickets={tickets}
+            setTicketName={setTicketName}
+            setTicketDescription={setTicketDescription}
+            setTicketPriority={setTicketPriority}
+            setIsUpdatingTicket={setIsUpdatingTicket}
+            setActiveTicketId={setActiveTicketId}
+          />
+        )}
+      </OffWhiteContainer>
+      <SmallScreenTopMenu
+        logoutUser={logoutUser}
+        setIsMainContent={setIsMainContent}
+        isMainContent={isMainContent}
+      />
+      {isMainContent && (
+        <SmallScreenMainContent
           setIsModalOpened={setIsModalOpened}
           mobile={mobile}
           tickets={tickets}
@@ -237,18 +261,7 @@ const Dashboard = () => {
           setIsUpdatingTicket={setIsUpdatingTicket}
           setActiveTicketId={setActiveTicketId}
         />
-      </OffWhiteContainer>
-      <SmallScreenTopMenu logoutUser={logoutUser} />
-      <SmallScreenMainContent
-        setIsModalOpened={setIsModalOpened}
-        mobile={mobile}
-        tickets={tickets}
-        setTicketName={setTicketName}
-        setTicketDescription={setTicketDescription}
-        setTicketPriority={setTicketPriority}
-        setIsUpdatingTicket={setIsUpdatingTicket}
-        setActiveTicketId={setActiveTicketId}
-      />
+      )}
       <Modal
         shown={isModalShown}
         handleCloseBtn={() => {

@@ -4,7 +4,7 @@ import Homepage from "./pages/Homepage";
 import LogInPage from "./pages/LogInPage";
 import LogoutPage from "./pages/LogoutPage";
 import SignUpPage from "./pages/SignUpPage";
-import "./styles/_main.scss";
+import "./styles/_base.scss";
 
 const App = () => {
   return (

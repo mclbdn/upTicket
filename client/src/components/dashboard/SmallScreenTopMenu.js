@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./SmallScreenTopMenu.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightFromBracket,
@@ -7,8 +6,9 @@ import {
   faGear,
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
+import styles from "./SmallScreenTopMenu.module.scss";
 
-const SmallScreenTopMenu = ({ logoutUser }) => {
+const SmallScreenTopMenu = ({ logoutUser, setIsMainContent, isMainContent }) => {
   return (
     <>
       <h2 className={styles.small_screen_welcome}>
@@ -23,13 +23,14 @@ const SmallScreenTopMenu = ({ logoutUser }) => {
             </div>
           </li>
           <div className={styles.icons}>
-            <li>
+            <li onClick={() => setIsMainContent(true)}>
               <FontAwesomeIcon
+                style={{ color: isMainContent ? "#292b4d" : "" }}
                 className={styles.dashboard_icon}
                 icon={faTableColumns}
               />
             </li>
-            <li>
+            <li onClick={() => setIsMainContent(false)}>
               <FontAwesomeIcon
                 className={styles.dashboard_icon}
                 icon={faChartLine}

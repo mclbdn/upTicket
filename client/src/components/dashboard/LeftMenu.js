@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./LeftMenu.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightFromBracket,
@@ -7,22 +6,31 @@ import {
   faGear,
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
+import styles from "./LeftMenu.module.scss";
 
-const LeftMenu = ({ logoutUser, children }) => {
+const LeftMenu = ({
+  logoutUser,
+  children,
+  setIsMainContent,
+  isMainContent,
+}) => {
   return (
     <div className={styles.bigger_screen_left_menu}>
-      <a href="">
+      <a
+        onClick={() => setIsMainContent(true)}
+        style={{ color: isMainContent ? "#292b4d" : "" }}
+      >
         <FontAwesomeIcon
           className={styles.dashboard_icon}
           icon={faTableColumns}
         />
         Dashboard
       </a>
-      <a href="">
+      <a onClick={() => setIsMainContent(false)}>
         <FontAwesomeIcon className={styles.dashboard_icon} icon={faChartLine} />
         Report
       </a>
-      <a href="">
+      <a>
         <FontAwesomeIcon className={styles.dashboard_icon} icon={faGear} />
         Settings
       </a>
