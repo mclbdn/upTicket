@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styles from "./TopContainer.module.scss";
 
-const TopContainer = ({ companyName }) => {
+const TopContainer = () => {
+  const companyName = useSelector((state) => state.companyName);
+
   return (
     <div className={styles.bigger_screen_top_container}>
       <div className={styles.company_name_and_welcome}>

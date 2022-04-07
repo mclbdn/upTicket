@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
-import styles from "./SingleTicket.module.scss"
+import styles from "./SingleTicket.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsModalShown, setTicketName, setTicketDescription } from "../../../redux/actions";
 
 const SingleTicket = ({
   ticket_id,
   ticket_name,
   ticket_description,
   ticket_priority,
-  setIsModalOpened,
-  setTicketName,
-  setTicketDescription,
   setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
   ticket_db_id,
 }) => {
   const [bgColor, setBgColor] = useState("");
+  // REDUX
+  const dispatch = useDispatch();
+  const ticketName = useSelector((state) => state.ticketName);
+  // REDUX
 
   // Set different color to ticket-priority div according to its priority
   useEffect(() => {
@@ -28,12 +31,12 @@ const SingleTicket = ({
   }, []);
 
   const handleClick = () => {
-    setTicketName(ticket_name);
+    dispatch(setTicketName(ticket_name))
     setTicketPriority(ticket_priority);
-    setTicketDescription(ticket_description);
-    setIsModalOpened(true);
+    dispatch(setTicketDescription(ticket_description))
     setIsUpdatingTicket(true);
     setActiveTicketId(ticket_db_id);
+    dispatch(setIsModalShown(true));
   };
 
   return (
@@ -43,7 +46,10 @@ const SingleTicket = ({
         <div className={styles.ticket_description}>{ticket_name}</div>
       </div>
       <div className={styles.right_side}>
-        <div className={styles.ticket_priority} style={{ backgroundColor: bgColor }}>
+        <div
+          className={styles.ticket_priority}
+          style={{ backgroundColor: bgColor }}
+        >
           P{ticket_priority}
         </div>
       </div>

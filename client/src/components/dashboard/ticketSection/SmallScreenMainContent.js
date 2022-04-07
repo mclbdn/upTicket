@@ -1,22 +1,25 @@
 import React from "react";
 import SingleTicket from "./SingleTicket";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { setIsModalShown } from "../../../redux/actions";
 import styles from "./SmallScreenMainContent.module.scss";
 
 const SmallScreenMainContent = ({
-  setIsModalOpened,
   mobile,
   tickets,
-  setTicketName,
-  setTicketDescription,
   setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
 }) => {
+  // REDUX
+  const dispatch = useDispatch();
+  // REDUX
   return (
     <>
       <h1 className={styles.mobile_h1}>Dashboard</h1>
       <div className={styles.create_ticket_button_wrapper}>
-        <button onClick={() => setIsModalOpened(true)}>
+        <button onClick={() => dispatch(setIsModalShown(true))}>
           + Create a New Ticket
         </button>
       </div>
@@ -35,13 +38,10 @@ const SmallScreenMainContent = ({
             tickets.map((ticket) => {
               return (
                 <SingleTicket
-                  setTicketName={setTicketName}
-                  setTicketDescription={setTicketDescription}
                   setTicketPriority={setTicketPriority}
                   setIsUpdatingTicket={setIsUpdatingTicket}
                   key={ticket.ticket_id}
                   ticket_id={ticket.ticket_id}
-                  setIsModalOpened={setIsModalOpened}
                   ticket_name={ticket.ticket_name}
                   ticket_description={ticket.ticket_description}
                   ticket_priority={ticket.ticket_priority}

@@ -11,25 +11,35 @@ import BiggerScreenBottomParagraphWrapper from "../components/dashboard/BiggerSc
 import SmallScreenTopMenu from "../components/dashboard/SmallScreenTopMenu";
 import BiggerScreenSizeMainContent from "../components/dashboard/ticketSection/BiggerScreenSizeMainContent";
 import SmallScreenMainContent from "../components/dashboard/ticketSection/SmallScreenMainContent";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setCompanyName,
+  setCompanyId,
+  setTicketName,
+  setIsModalShown,
+  setTicketDescription,
+} from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [companyName, setCompanyName] = useState("");
-  const [ticketName, setTicketName] = useState("");
-  const [ticketDescription, setTicketDescription] = useState("");
   const [ticketPriority, setTicketPriority] = useState("");
-  const [companyId, setCompanyId] = useState();
   const [tickets, setTickets] = useState(null);
-  const [isModalShown, setIsModalOpened] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
   const [activeTicketId, setActiveTicketId] = useState("");
   const [isMainContent, setIsMainContent] = useState(true);
 
+  // REDUX
+  const dispatch = useDispatch();
+  const companyId = useSelector((state) => state.companyId);
+  const ticketName = useSelector((state) => state.ticketName);
+  const ticketDescription = useSelector((state) => state.ticketDescription);
+  // REDUX
+
   const handleCloseBtn = () => {
-    setIsModalOpened(false);
-    setTicketName("");
-    setTicketDescription("");
+    dispatch(setIsModalShown(false));
+    dispatch(setTicketName(""));
+    dispatch(setTicketDescription(""));
     setTicketPriority("");
     setIsUpdatingTicket(false);
     setActiveTicketId("");
@@ -156,8 +166,9 @@ const Dashboard = () => {
     const data = await req.json();
 
     if (data.status === "ok") {
-      setCompanyName(data.company);
-      setCompanyId(data.company_id);
+      dispatch(setCompanyName(data.company));
+      // setCompanyId(data.company_id);
+      dispatch(setCompanyId(data.company_id));
     } else {
       navigate("/login");
     }
@@ -223,7 +234,7 @@ const Dashboard = () => {
 
   return (
     <main className={styles.dashboard}>
-      <TopContainer companyName={companyName} />
+      <TopContainer />
       <LeftMenu
         logoutUser={logoutUser}
         setIsMainContent={setIsMainContent}
@@ -234,11 +245,8 @@ const Dashboard = () => {
       <OffWhiteContainer>
         {isMainContent && (
           <BiggerScreenSizeMainContent
-            setIsModalOpened={setIsModalOpened}
             mobile={mobile}
             tickets={tickets}
-            setTicketName={setTicketName}
-            setTicketDescription={setTicketDescription}
             setTicketPriority={setTicketPriority}
             setIsUpdatingTicket={setIsUpdatingTicket}
             setActiveTicketId={setActiveTicketId}
@@ -252,27 +260,19 @@ const Dashboard = () => {
       />
       {isMainContent && (
         <SmallScreenMainContent
-          setIsModalOpened={setIsModalOpened}
           mobile={mobile}
           tickets={tickets}
-          setTicketName={setTicketName}
-          setTicketDescription={setTicketDescription}
           setTicketPriority={setTicketPriority}
           setIsUpdatingTicket={setIsUpdatingTicket}
           setActiveTicketId={setActiveTicketId}
         />
       )}
       <Modal
-        shown={isModalShown}
         handleCloseBtn={() => {
           handleCloseBtn();
         }}
         isUpdatingTicket={isUpdatingTicket}
         createTicket={createTicket}
-        ticketName={ticketName}
-        setTicketName={setTicketName}
-        ticketDescription={ticketDescription}
-        setTicketDescription={setTicketDescription}
         setTicketPriority={setTicketPriority}
         ticketPriority={ticketPriority}
         handleUpdate={handleUpdate}

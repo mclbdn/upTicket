@@ -2,26 +2,35 @@ import React from "react";
 import styles from "./Modal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setIsModalShown,
+  setTicketName,
+  setTicketDescription,
+} from "../../../redux/actions";
 
 const Modal = ({
-  shown,
   handleCloseBtn,
   isUpdatingTicket,
   createTicket,
-  ticketName,
-  setTicketName,
-  ticketDescription,
-  setTicketDescription,
   setTicketPriority,
   ticketPriority,
   handleUpdate,
   handleDelete,
 }) => {
+  // REDUX
+  const isModalShown = useSelector((state) => state.isModalShown);
+  const ticketName = useSelector((state) => state.ticketName);
+  const ticketDescription = useSelector((state) => state.ticketDescription);
+  const dispatch = useDispatch();
+  // REDUX
+
   const handleClick = () => {
     handleCloseBtn();
+    dispatch(setIsModalShown(false));
   };
 
-  return shown ? (
+  return isModalShown ? (
     <div
       className={styles.modal_backdrop}
       onClick={() => {
@@ -52,7 +61,7 @@ const Modal = ({
             <label htmlFor="ticket_name">Ticket Name:</label>
             <input
               value={ticketName}
-              onChange={(e) => setTicketName(e.target.value)}
+              onChange={(e) => dispatch(setTicketName(e.target.value))}
               type="text"
               name="ticket_name"
               id="ticket_name"
@@ -63,7 +72,7 @@ const Modal = ({
             <label htmlFor="ticket-description">Ticket Description:</label>
             <input
               value={ticketDescription}
-              onChange={(e) => setTicketDescription(e.target.value)}
+              onChange={(e) => dispatch(setTicketDescription((e.target.value)))}
               type="text"
               name="ticket_description"
               id="ticket_description"

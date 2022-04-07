@@ -2,22 +2,24 @@ import React from "react";
 import SingleTicket from "./SingleTicket";
 import TicketsContainer from "./TicketsContainer";
 import styles from "./BiggerScreenSizeMainContent.module.scss";
+import { setIsModalShown } from "../../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const BiggerScreenSizeMainContent = ({
-  setIsModalOpened,
   mobile,
   tickets,
-  setTicketName,
-  setTicketDescription,
   setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
 }) => {
+  // REDUX
+  const dispatch = useDispatch();
+  // REDUX
   return (
     <>
       <h1 className={styles.bigger_screen_h1}>Dashboard</h1>
       <div className={styles.bigger_screen_create_ticket_button_wrapper}>
-        <button onClick={() => setIsModalOpened(true)}>
+        <button onClick={() => dispatch(setIsModalShown(true))}>
           + Create a New Ticket
         </button>
       </div>
@@ -37,10 +39,7 @@ const BiggerScreenSizeMainContent = ({
               tickets.map((ticket) => {
                 return (
                   <SingleTicket
-                    setTicketName={setTicketName}
-                    setTicketDescription={setTicketDescription}
                     setTicketPriority={setTicketPriority}
-                    setIsModalOpened={setIsModalOpened}
                     setIsUpdatingTicket={setIsUpdatingTicket}
                     key={ticket.ticket_id}
                     ticket_id={ticket.ticket_id}
