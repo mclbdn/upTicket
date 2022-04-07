@@ -7,6 +7,7 @@ import {
   setTicketDescription,
   setTicketPriority,
   setIsUpdatingTicket,
+  setActiveTicketId,
 } from "../../../redux/actions";
 
 const SingleTicket = ({
@@ -14,14 +15,13 @@ const SingleTicket = ({
   ticket_name,
   ticket_description,
   ticket_priority,
-  setActiveTicketId,
   ticket_db_id,
 }) => {
-  const [bgColor, setBgColor] = useState("");
   // REDUX
   const dispatch = useDispatch();
   const ticketName = useSelector((state) => state.ticketName);
   // REDUX
+  const [bgColor, setBgColor] = useState("");
 
   // Set different color to ticket-priority div according to its priority
   useEffect(() => {
@@ -39,8 +39,9 @@ const SingleTicket = ({
     dispatch(setTicketPriority(ticket_priority));
     dispatch(setTicketDescription(ticket_description));
     dispatch(setIsUpdatingTicket(true));
-    setActiveTicketId(ticket_db_id);
+    dispatch(setActiveTicketId(ticket_db_id));
     dispatch(setIsModalShown(true));
+    console.log(bgColor);
   };
 
   return (

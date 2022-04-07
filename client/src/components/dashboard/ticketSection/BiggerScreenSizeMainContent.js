@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 const BiggerScreenSizeMainContent = ({
   mobile,
   tickets,
-  setActiveTicketId,
 }) => {
   // REDUX
   const dispatch = useDispatch();
@@ -44,7 +43,6 @@ const BiggerScreenSizeMainContent = ({
                     ticket_name={ticket.ticket_name}
                     ticket_priority={ticket.ticket_priority}
                     ticket_db_id={ticket._id}
-                    setActiveTicketId={setActiveTicketId}
                   />
                 );
               })

@@ -8,8 +8,6 @@ import styles from "./SmallScreenMainContent.module.scss";
 const SmallScreenMainContent = ({
   mobile,
   tickets,
-  setIsUpdatingTicket,
-  setActiveTicketId,
 }) => {
   // REDUX
   const dispatch = useDispatch();
@@ -43,7 +41,6 @@ const SmallScreenMainContent = ({
                   ticket_description={ticket.ticket_description}
                   ticket_priority={ticket.ticket_priority}
                   ticket_db_id={ticket._id}
-                  setActiveTicketId={setActiveTicketId}
                 />
               );
             })

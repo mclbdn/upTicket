@@ -46,3 +46,10 @@ export const setIsUpdatingTicket = (bool) => {
     payload: bool,
   };
 };
+
+export const setActiveTicketId = (id) => {
+  return {
+    type: "SETACTIVETICKETID",
+    payload: id,
+  };
+};

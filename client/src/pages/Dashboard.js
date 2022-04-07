@@ -20,14 +20,13 @@ import {
   setTicketDescription,
   setTicketPriority,
   setIsUpdatingTicket,
+  setActiveTicketId,
 } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [tickets, setTickets] = useState(null);
   const [mobile, setMobile] = useState(false);
-  // const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
-  const [activeTicketId, setActiveTicketId] = useState("");
   const [isMainContent, setIsMainContent] = useState(true);
 
   // REDUX
@@ -36,6 +35,7 @@ const Dashboard = () => {
   const ticketName = useSelector((state) => state.ticketName);
   const ticketDescription = useSelector((state) => state.ticketDescription);
   const ticketPriority = useSelector((state) => state.ticketPriority);
+  const activeTicketId = useSelector((state) => state.activeTicketId);
   // REDUX
 
   const handleCloseBtn = () => {
@@ -44,8 +44,7 @@ const Dashboard = () => {
     dispatch(setTicketDescription(""));
     dispatch(setTicketPriority(""));
     dispatch(setIsUpdatingTicket(false));
-    setIsUpdatingTicket(false);
-    setActiveTicketId("");
+    dispatch(setActiveTicketId(""));
   };
 
   async function handleUpdate() {
@@ -250,7 +249,6 @@ const Dashboard = () => {
           <BiggerScreenSizeMainContent
             mobile={mobile}
             tickets={tickets}
-            setActiveTicketId={setActiveTicketId}
           />
         )}
       </OffWhiteContainer>
@@ -263,7 +261,6 @@ const Dashboard = () => {
         <SmallScreenMainContent
           mobile={mobile}
           tickets={tickets}
-          setActiveTicketId={setActiveTicketId}
         />
       )}
       <Modal
