@@ -7,14 +7,15 @@ import {
   setIsModalShown,
   setTicketName,
   setTicketDescription,
+  setTicketPriority,
 } from "../../../redux/actions";
 
 const Modal = ({
   handleCloseBtn,
   isUpdatingTicket,
   createTicket,
-  setTicketPriority,
-  ticketPriority,
+  // setTicketPriority,
+  // ticketPriority,
   handleUpdate,
   handleDelete,
 }) => {
@@ -22,6 +23,7 @@ const Modal = ({
   const isModalShown = useSelector((state) => state.isModalShown);
   const ticketName = useSelector((state) => state.ticketName);
   const ticketDescription = useSelector((state) => state.ticketDescription);
+  const ticketPriority = useSelector((state) => state.ticketPriority);
   const dispatch = useDispatch();
   // REDUX
 
@@ -72,7 +74,7 @@ const Modal = ({
             <label htmlFor="ticket-description">Ticket Description:</label>
             <input
               value={ticketDescription}
-              onChange={(e) => dispatch(setTicketDescription((e.target.value)))}
+              onChange={(e) => dispatch(setTicketDescription(e.target.value))}
               type="text"
               name="ticket_description"
               id="ticket_description"
@@ -82,7 +84,7 @@ const Modal = ({
           <div className={styles.label_and_input}>
             <label htmlFor="ticket_priority">Ticket Priority:</label>
             <input
-              onChange={(e) => setTicketPriority(e.target.value)}
+              onChange={(e) => dispatch(setTicketPriority(e.target.value))}
               value={ticketPriority}
               type="number"
               min={1}

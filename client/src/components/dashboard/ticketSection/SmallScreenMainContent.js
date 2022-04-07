@@ -8,7 +8,6 @@ import styles from "./SmallScreenMainContent.module.scss";
 const SmallScreenMainContent = ({
   mobile,
   tickets,
-  setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
 }) => {
@@ -38,7 +37,6 @@ const SmallScreenMainContent = ({
             tickets.map((ticket) => {
               return (
                 <SingleTicket
-                  setTicketPriority={setTicketPriority}
                   setIsUpdatingTicket={setIsUpdatingTicket}
                   key={ticket.ticket_id}
                   ticket_id={ticket.ticket_id}

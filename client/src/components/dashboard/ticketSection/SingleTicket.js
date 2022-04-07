@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleTicket.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsModalShown, setTicketName, setTicketDescription } from "../../../redux/actions";
+import {
+  setIsModalShown,
+  setTicketName,
+  setTicketDescription,
+  setTicketPriority,
+} from "../../../redux/actions";
 
 const SingleTicket = ({
   ticket_id,
   ticket_name,
   ticket_description,
   ticket_priority,
-  setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
   ticket_db_id,
@@ -31,9 +35,9 @@ const SingleTicket = ({
   }, []);
 
   const handleClick = () => {
-    dispatch(setTicketName(ticket_name))
-    setTicketPriority(ticket_priority);
-    dispatch(setTicketDescription(ticket_description))
+    dispatch(setTicketName(ticket_name));
+    dispatch(setTicketPriority(ticket_priority))
+    dispatch(setTicketDescription(ticket_description));
     setIsUpdatingTicket(true);
     setActiveTicketId(ticket_db_id);
     dispatch(setIsModalShown(true));

@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 const BiggerScreenSizeMainContent = ({
   mobile,
   tickets,
-  setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
 }) => {
@@ -39,7 +38,6 @@ const BiggerScreenSizeMainContent = ({
               tickets.map((ticket) => {
                 return (
                   <SingleTicket
-                    setTicketPriority={setTicketPriority}
                     setIsUpdatingTicket={setIsUpdatingTicket}
                     key={ticket.ticket_id}
                     ticket_id={ticket.ticket_id}
