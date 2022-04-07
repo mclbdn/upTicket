@@ -5,12 +5,10 @@ import { useSelector } from "react-redux";
 import { setIsModalShown } from "../../../redux/actions";
 import styles from "./SmallScreenMainContent.module.scss";
 
-const SmallScreenMainContent = ({
-  mobile,
-  tickets,
-}) => {
+const SmallScreenMainContent = ({ mobile }) => {
   // REDUX
   const dispatch = useDispatch();
+  const tickets = useSelector((state) => state.tickets);
   // REDUX
   return (
     <>

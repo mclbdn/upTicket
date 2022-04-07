@@ -21,11 +21,11 @@ import {
   setTicketPriority,
   setIsUpdatingTicket,
   setActiveTicketId,
+  setTickets,
 } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [tickets, setTickets] = useState(null);
   const [mobile, setMobile] = useState(false);
   const [isMainContent, setIsMainContent] = useState(true);
 
@@ -47,59 +47,6 @@ const Dashboard = () => {
     dispatch(setActiveTicketId(""));
   };
 
-  async function handleUpdate() {
-    try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/update",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            ticketName,
-            ticketDescription,
-            ticketPriority,
-            companyId,
-            ticket_id: activeTicketId,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      getAllTickets();
-      handleCloseBtn();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function handleDelete() {
-    try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/delete",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            companyId,
-            ticket_id: activeTicketId,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      getAllTickets();
-      handleCloseBtn();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   async function getAllTickets() {
     try {
       const response = await fetch(
@@ -117,38 +64,7 @@ const Dashboard = () => {
 
       const data = await response.json();
 
-      setTickets(data["tickets"]);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function createTicket(e) {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/create",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            ticketName,
-            ticketDescription,
-            ticketPriority,
-            companyId,
-          }),
-        }
-      );
-      const data = await response.json();
-      console.log(data.status);
-      if (data.status === "ok") {
-        getAllTickets();
-        handleCloseBtn();
-      }
+      dispatch(setTickets(data["tickets"]));
     } catch (error) {
       console.log(error);
     }
@@ -173,17 +89,6 @@ const Dashboard = () => {
       dispatch(setCompanyId(data.company_id));
     } else {
       navigate("/login");
-    }
-  }
-
-  async function logoutUser() {
-    const response = await fetch(
-      "https://upticket-server.herokuapp.com/api/logout"
-    );
-
-    if (response.status === 200) {
-      localStorage.clear();
-      navigate("/logout");
     }
   }
 
@@ -238,38 +143,23 @@ const Dashboard = () => {
     <main className={styles.dashboard}>
       <TopContainer />
       <LeftMenu
-        logoutUser={logoutUser}
         setIsMainContent={setIsMainContent}
         isMainContent={isMainContent}
       >
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
       <OffWhiteContainer>
-        {isMainContent && (
-          <BiggerScreenSizeMainContent
-            mobile={mobile}
-            tickets={tickets}
-          />
-        )}
+        {isMainContent && <BiggerScreenSizeMainContent mobile={mobile} />}
       </OffWhiteContainer>
       <SmallScreenTopMenu
-        logoutUser={logoutUser}
         setIsMainContent={setIsMainContent}
         isMainContent={isMainContent}
       />
-      {isMainContent && (
-        <SmallScreenMainContent
-          mobile={mobile}
-          tickets={tickets}
-        />
-      )}
+      {isMainContent && <SmallScreenMainContent mobile={mobile} />}
       <Modal
         handleCloseBtn={() => {
           handleCloseBtn();
         }}
-        createTicket={createTicket}
-        handleUpdate={handleUpdate}
-        handleDelete={handleDelete}
       />
       <SmallScreenBottomParagraphWrapper />
     </main>

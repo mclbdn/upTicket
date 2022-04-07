@@ -6,14 +6,27 @@ import {
   faGear,
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import styles from "./LeftMenu.module.scss";
 
 const LeftMenu = ({
-  logoutUser,
   children,
   setIsMainContent,
   isMainContent,
 }) => {
+  const navigate = useNavigate();
+
+  async function logoutUser() {
+    const response = await fetch(
+      "https://upticket-server.herokuapp.com/api/logout"
+    );
+
+    if (response.status === 200) {
+      localStorage.clear();
+      navigate("/logout");
+    }
+  }
+
   return (
     <div className={styles.bigger_screen_left_menu}>
       <a

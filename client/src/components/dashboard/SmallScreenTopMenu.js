@@ -6,9 +6,23 @@ import {
   faGear,
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import styles from "./SmallScreenTopMenu.module.scss";
 
-const SmallScreenTopMenu = ({ logoutUser, setIsMainContent, isMainContent }) => {
+const SmallScreenTopMenu = ({ setIsMainContent, isMainContent }) => {
+  const navigate = useNavigate();
+
+  async function logoutUser() {
+    const response = await fetch(
+      "https://upticket-server.herokuapp.com/api/logout"
+    );
+
+    if (response.status === 200) {
+      localStorage.clear();
+      navigate("/logout");
+    }
+  }
+
   return (
     <>
       <h2 className={styles.small_screen_welcome}>
@@ -43,7 +57,7 @@ const SmallScreenTopMenu = ({ logoutUser, setIsMainContent, isMainContent }) => 
               />
             </li>
             <li>
-              <a href="" onClick={() => logoutUser()}>
+              <a onClick={() => logoutUser()}>
                 {" "}
                 <FontAwesomeIcon
                   className={styles.dashboard_icon}

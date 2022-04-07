@@ -53,3 +53,10 @@ export const setActiveTicketId = (id) => {
     payload: id,
   };
 };
+
+export const setTickets = (tickets) => {
+  return {
+    type: "SETTICKETS",
+    payload: tickets,
+  };
+};

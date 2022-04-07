@@ -3,15 +3,13 @@ import SingleTicket from "./SingleTicket";
 import TicketsContainer from "./TicketsContainer";
 import styles from "./BiggerScreenSizeMainContent.module.scss";
 import { setIsModalShown } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-
-const BiggerScreenSizeMainContent = ({
-  mobile,
-  tickets,
-}) => {
+const BiggerScreenSizeMainContent = ({ mobile }) => {
   // REDUX
   const dispatch = useDispatch();
+  const tickets = useSelector((state) => state.tickets);
+  const isModalShown = useSelector((state) => state.isModalShown);
   // REDUX
   return (
     <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Modal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -8,11 +8,12 @@ import {
   setTicketName,
   setTicketDescription,
   setTicketPriority,
+  setTickets,
 } from "../../../redux/actions";
 
 const Modal = ({
   handleCloseBtn,
-  createTicket,
+  // createTicket,
   handleUpdate,
   handleDelete,
 }) => {
@@ -22,6 +23,8 @@ const Modal = ({
   const ticketDescription = useSelector((state) => state.ticketDescription);
   const ticketPriority = useSelector((state) => state.ticketPriority);
   const isUpdatingTicket = useSelector((state) => state.isUpdatingTicket);
+  const companyId = useSelector((state) => state.companyId);
+  const activeTicketId = useSelector((state) => state.activeTicketId);
   const dispatch = useDispatch();
   // REDUX
 
@@ -29,6 +32,117 @@ const Modal = ({
     handleCloseBtn();
     dispatch(setIsModalShown(false));
   };
+
+  // NEW
+
+  async function getAllTickets() {
+    try {
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/all",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            company_id: companyId,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      dispatch(setTickets(data["tickets"]));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function createTicket(e) {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            ticketName,
+            ticketDescription,
+            ticketPriority,
+            companyId,
+          }),
+        }
+      );
+      const data = await response.json();
+      console.log(data.status);
+      if (data.status === "ok") {
+        getAllTickets();
+        handleCloseBtn();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+   async function handleUpdate() {
+     try {
+       const response = await fetch(
+         "https://upticket-server.herokuapp.com/tickets/update",
+         {
+           method: "PUT",
+           headers: {
+             "Content-Type": "application/json",
+             "x-access-token": localStorage.getItem("token"),
+           },
+           body: JSON.stringify({
+             ticketName,
+             ticketDescription,
+             ticketPriority,
+             companyId,
+             ticket_id: activeTicketId,
+           }),
+         }
+       );
+
+       const data = await response.json();
+       getAllTickets();
+       handleCloseBtn();
+     } catch (error) {
+       console.log(error);
+     }
+   }
+
+  async function handleDelete() {
+    try {
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/delete",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            companyId,
+            ticket_id: activeTicketId,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      getAllTickets();
+      handleCloseBtn();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // NEW
 
   return isModalShown ? (
     <div
