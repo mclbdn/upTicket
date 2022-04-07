@@ -39,3 +39,10 @@ export const setTicketPriority = (priority) => {
     payload: priority,
   };
 };
+
+export const setIsUpdatingTicket = (bool) => {
+  return {
+    type: "SETISUPDATINGTICKET",
+    payload: bool,
+  };
+};

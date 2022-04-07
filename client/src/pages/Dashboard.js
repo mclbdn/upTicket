@@ -19,13 +19,14 @@ import {
   setIsModalShown,
   setTicketDescription,
   setTicketPriority,
+  setIsUpdatingTicket,
 } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [tickets, setTickets] = useState(null);
   const [mobile, setMobile] = useState(false);
-  const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
+  // const [isUpdatingTicket, setIsUpdatingTicket] = useState(false);
   const [activeTicketId, setActiveTicketId] = useState("");
   const [isMainContent, setIsMainContent] = useState(true);
 
@@ -42,6 +43,7 @@ const Dashboard = () => {
     dispatch(setTicketName(""));
     dispatch(setTicketDescription(""));
     dispatch(setTicketPriority(""));
+    dispatch(setIsUpdatingTicket(false));
     setIsUpdatingTicket(false);
     setActiveTicketId("");
   };
@@ -248,8 +250,6 @@ const Dashboard = () => {
           <BiggerScreenSizeMainContent
             mobile={mobile}
             tickets={tickets}
-
-            setIsUpdatingTicket={setIsUpdatingTicket}
             setActiveTicketId={setActiveTicketId}
           />
         )}
@@ -263,7 +263,6 @@ const Dashboard = () => {
         <SmallScreenMainContent
           mobile={mobile}
           tickets={tickets}
-          setIsUpdatingTicket={setIsUpdatingTicket}
           setActiveTicketId={setActiveTicketId}
         />
       )}
@@ -271,7 +270,6 @@ const Dashboard = () => {
         handleCloseBtn={() => {
           handleCloseBtn();
         }}
-        isUpdatingTicket={isUpdatingTicket}
         createTicket={createTicket}
         handleUpdate={handleUpdate}
         handleDelete={handleDelete}

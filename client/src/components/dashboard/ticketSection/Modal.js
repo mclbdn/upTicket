@@ -12,10 +12,7 @@ import {
 
 const Modal = ({
   handleCloseBtn,
-  isUpdatingTicket,
   createTicket,
-  // setTicketPriority,
-  // ticketPriority,
   handleUpdate,
   handleDelete,
 }) => {
@@ -24,6 +21,7 @@ const Modal = ({
   const ticketName = useSelector((state) => state.ticketName);
   const ticketDescription = useSelector((state) => state.ticketDescription);
   const ticketPriority = useSelector((state) => state.ticketPriority);
+  const isUpdatingTicket = useSelector((state) => state.isUpdatingTicket);
   const dispatch = useDispatch();
   // REDUX
 

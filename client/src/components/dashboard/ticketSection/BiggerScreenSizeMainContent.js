@@ -5,10 +5,10 @@ import styles from "./BiggerScreenSizeMainContent.module.scss";
 import { setIsModalShown } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 
+
 const BiggerScreenSizeMainContent = ({
   mobile,
   tickets,
-  setIsUpdatingTicket,
   setActiveTicketId,
 }) => {
   // REDUX
@@ -38,7 +38,6 @@ const BiggerScreenSizeMainContent = ({
               tickets.map((ticket) => {
                 return (
                   <SingleTicket
-                    setIsUpdatingTicket={setIsUpdatingTicket}
                     key={ticket.ticket_id}
                     ticket_id={ticket.ticket_id}
                     ticket_description={ticket.ticket_description}

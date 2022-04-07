@@ -37,7 +37,6 @@ const SmallScreenMainContent = ({
             tickets.map((ticket) => {
               return (
                 <SingleTicket
-                  setIsUpdatingTicket={setIsUpdatingTicket}
                   key={ticket.ticket_id}
                   ticket_id={ticket.ticket_id}
                   ticket_name={ticket.ticket_name}

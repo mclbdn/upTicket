@@ -6,6 +6,7 @@ import {
   setTicketName,
   setTicketDescription,
   setTicketPriority,
+  setIsUpdatingTicket,
 } from "../../../redux/actions";
 
 const SingleTicket = ({
@@ -13,7 +14,6 @@ const SingleTicket = ({
   ticket_name,
   ticket_description,
   ticket_priority,
-  setIsUpdatingTicket,
   setActiveTicketId,
   ticket_db_id,
 }) => {
@@ -36,9 +36,9 @@ const SingleTicket = ({
 
   const handleClick = () => {
     dispatch(setTicketName(ticket_name));
-    dispatch(setTicketPriority(ticket_priority))
+    dispatch(setTicketPriority(ticket_priority));
     dispatch(setTicketDescription(ticket_description));
-    setIsUpdatingTicket(true);
+    dispatch(setIsUpdatingTicket(true));
     setActiveTicketId(ticket_db_id);
     dispatch(setIsModalShown(true));
   };
