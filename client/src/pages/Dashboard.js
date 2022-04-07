@@ -12,17 +12,7 @@ import SmallScreenTopMenu from "../components/dashboard/SmallScreenTopMenu";
 import BiggerScreenSizeMainContent from "../components/dashboard/ticketSection/BiggerScreenSizeMainContent";
 import SmallScreenMainContent from "../components/dashboard/ticketSection/SmallScreenMainContent";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setCompanyName,
-  setCompanyId,
-  setTicketName,
-  setIsModalShown,
-  setTicketDescription,
-  setTicketPriority,
-  setIsUpdatingTicket,
-  setActiveTicketId,
-  setTickets,
-} from "../redux/actions";
+import { setCompanyName, setCompanyId } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -32,43 +22,7 @@ const Dashboard = () => {
   // REDUX
   const dispatch = useDispatch();
   const companyId = useSelector((state) => state.companyId);
-  const ticketName = useSelector((state) => state.ticketName);
-  const ticketDescription = useSelector((state) => state.ticketDescription);
-  const ticketPriority = useSelector((state) => state.ticketPriority);
-  const activeTicketId = useSelector((state) => state.activeTicketId);
   // REDUX
-
-  const handleCloseBtn = () => {
-    dispatch(setIsModalShown(false));
-    dispatch(setTicketName(""));
-    dispatch(setTicketDescription(""));
-    dispatch(setTicketPriority(""));
-    dispatch(setIsUpdatingTicket(false));
-    dispatch(setActiveTicketId(""));
-  };
-
-  async function getAllTickets() {
-    try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/all",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            company_id: companyId,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      dispatch(setTickets(data["tickets"]));
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   async function populateCompanyName() {
     console.log(localStorage.getItem("token"));
@@ -85,13 +39,13 @@ const Dashboard = () => {
 
     if (data.status === "ok") {
       dispatch(setCompanyName(data.company));
-      // setCompanyId(data.company_id);
       dispatch(setCompanyId(data.company_id));
     } else {
       navigate("/login");
     }
   }
 
+  // Check if token was provided, thus user can see the dashboard
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -107,16 +61,6 @@ const Dashboard = () => {
       navigate("/login");
     }
   }, []);
-
-  useEffect(() => {
-    async function fetchTickets() {
-      if (companyId) {
-        await getAllTickets();
-      }
-    }
-
-    fetchTickets();
-  }, [companyId]);
 
   // Check window size
   useEffect(() => {
@@ -156,11 +100,7 @@ const Dashboard = () => {
         isMainContent={isMainContent}
       />
       {isMainContent && <SmallScreenMainContent mobile={mobile} />}
-      <Modal
-        handleCloseBtn={() => {
-          handleCloseBtn();
-        }}
-      />
+      <Modal />
       <SmallScreenBottomParagraphWrapper />
     </main>
   );

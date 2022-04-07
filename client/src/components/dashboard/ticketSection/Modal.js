@@ -8,15 +8,12 @@ import {
   setTicketName,
   setTicketDescription,
   setTicketPriority,
+  setIsUpdatingTicket,
+  setActiveTicketId,
   setTickets,
 } from "../../../redux/actions";
 
-const Modal = ({
-  handleCloseBtn,
-  // createTicket,
-  handleUpdate,
-  handleDelete,
-}) => {
+const Modal = ({}) => {
   // REDUX
   const isModalShown = useSelector((state) => state.isModalShown);
   const ticketName = useSelector((state) => state.ticketName);
@@ -28,12 +25,19 @@ const Modal = ({
   const dispatch = useDispatch();
   // REDUX
 
+  const handleCloseBtn = () => {
+    dispatch(setIsModalShown(false));
+    dispatch(setTicketName(""));
+    dispatch(setTicketDescription(""));
+    dispatch(setTicketPriority(""));
+    dispatch(setIsUpdatingTicket(false));
+    dispatch(setActiveTicketId(""));
+  };
+
   const handleClick = () => {
     handleCloseBtn();
     dispatch(setIsModalShown(false));
   };
-
-  // NEW
 
   async function getAllTickets() {
     try {
@@ -89,33 +93,33 @@ const Modal = ({
     }
   }
 
-   async function handleUpdate() {
-     try {
-       const response = await fetch(
-         "https://upticket-server.herokuapp.com/tickets/update",
-         {
-           method: "PUT",
-           headers: {
-             "Content-Type": "application/json",
-             "x-access-token": localStorage.getItem("token"),
-           },
-           body: JSON.stringify({
-             ticketName,
-             ticketDescription,
-             ticketPriority,
-             companyId,
-             ticket_id: activeTicketId,
-           }),
-         }
-       );
+  async function handleUpdate() {
+    try {
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/update",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            ticketName,
+            ticketDescription,
+            ticketPriority,
+            companyId,
+            ticket_id: activeTicketId,
+          }),
+        }
+      );
 
-       const data = await response.json();
-       getAllTickets();
-       handleCloseBtn();
-     } catch (error) {
-       console.log(error);
-     }
-   }
+      const data = await response.json();
+      getAllTickets();
+      handleCloseBtn();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async function handleDelete() {
     try {
@@ -141,8 +145,6 @@ const Modal = ({
       console.log(error);
     }
   }
-
-  // NEW
 
   return isModalShown ? (
     <div

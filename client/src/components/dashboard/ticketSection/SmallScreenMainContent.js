@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SingleTicket from "./SingleTicket";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setIsModalShown } from "../../../redux/actions";
+import { setIsModalShown, setTickets } from "../../../redux/actions";
 import styles from "./SmallScreenMainContent.module.scss";
 
 const SmallScreenMainContent = ({ mobile }) => {
@@ -10,6 +10,42 @@ const SmallScreenMainContent = ({ mobile }) => {
   const dispatch = useDispatch();
   const tickets = useSelector((state) => state.tickets);
   // REDUX
+  // NEW
+
+  const companyId = useSelector((state) => state.companyId);
+  async function getAllTickets() {
+    try {
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/all",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            company_id: companyId,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      dispatch(setTickets(data["tickets"]));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    async function fetchTickets() {
+      if (companyId) {
+        await getAllTickets();
+      }
+    }
+
+    fetchTickets();
+  }, [companyId]);
+
+  // NEW
   return (
     <>
       <h1 className={styles.mobile_h1}>Dashboard</h1>

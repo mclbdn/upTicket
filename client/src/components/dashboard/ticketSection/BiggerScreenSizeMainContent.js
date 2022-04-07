@@ -1,15 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SingleTicket from "./SingleTicket";
 import TicketsContainer from "./TicketsContainer";
 import styles from "./BiggerScreenSizeMainContent.module.scss";
-import { setIsModalShown } from "../../../redux/actions";
+import { setIsModalShown, setTickets } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const BiggerScreenSizeMainContent = ({ mobile }) => {
   // REDUX
   const dispatch = useDispatch();
   const tickets = useSelector((state) => state.tickets);
-  const isModalShown = useSelector((state) => state.isModalShown);
+  // NEW
+  const companyId = useSelector((state) => state.companyId);
+  async function getAllTickets() {
+    try {
+      const response = await fetch(
+        "https://upticket-server.herokuapp.com/tickets/all",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            company_id: companyId,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      dispatch(setTickets(data["tickets"]));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    async function fetchTickets() {
+      if (companyId) {
+        await getAllTickets();
+      }
+    }
+
+    fetchTickets();
+  }, [companyId]);
+  // NEW
   // REDUX
   return (
     <>
