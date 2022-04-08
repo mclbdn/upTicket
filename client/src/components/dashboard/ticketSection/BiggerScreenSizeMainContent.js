@@ -6,11 +6,10 @@ import { setIsModalShown, setTickets } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const BiggerScreenSizeMainContent = ({ mobile }) => {
-  // REDUX
   const dispatch = useDispatch();
   const tickets = useSelector((state) => state.tickets);
-  // NEW
   const companyId = useSelector((state) => state.companyId);
+
   async function getAllTickets() {
     try {
       const response = await fetch(
@@ -34,6 +33,7 @@ const BiggerScreenSizeMainContent = ({ mobile }) => {
     }
   }
   useEffect(() => {
+    console.log("FETCHING BIG SCREEN")
     async function fetchTickets() {
       if (companyId) {
         await getAllTickets();
@@ -42,8 +42,7 @@ const BiggerScreenSizeMainContent = ({ mobile }) => {
 
     fetchTickets();
   }, [companyId]);
-  // NEW
-  // REDUX
+
   return (
     <>
       <h1 className={styles.bigger_screen_h1}>Dashboard</h1>

@@ -8,6 +8,7 @@ import ticketPriorityReducer from "./ticketPriorityReducer";
 import isUpdatingTicketReducer from "./isUpdatingTicketReducer";
 import activeTicketIdReducer from "./activeTicketIdReducer";
 import ticketsReducer from "./ticketsReducer";
+import isMainContentReducer from "./isMainContentReducer";
 
 const allReducers = combineReducers({
   companyName: companyNameReducer,
@@ -19,6 +20,7 @@ const allReducers = combineReducers({
   isUpdatingTicket: isUpdatingTicketReducer,
   activeTicketId: activeTicketIdReducer,
   tickets: ticketsReducer,
+  isMainContent: isMainContentReducer,
 });
 
 export default allReducers;

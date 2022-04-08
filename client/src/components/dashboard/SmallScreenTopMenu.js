@@ -8,9 +8,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import styles from "./SmallScreenTopMenu.module.scss";
+import { setIsMainContent } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
-const SmallScreenTopMenu = ({ setIsMainContent, isMainContent }) => {
+const SmallScreenTopMenu = ({ isMainContent }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   async function logoutUser() {
     const response = await fetch(
@@ -37,14 +40,14 @@ const SmallScreenTopMenu = ({ setIsMainContent, isMainContent }) => {
             </div>
           </li>
           <div className={styles.icons}>
-            <li onClick={() => setIsMainContent(true)}>
+            <li onClick={() => dispatch(setIsMainContent(true))}>
               <FontAwesomeIcon
                 style={{ color: isMainContent ? "#292b4d" : "" }}
                 className={styles.dashboard_icon}
                 icon={faTableColumns}
               />
             </li>
-            <li onClick={() => setIsMainContent(false)}>
+            <li onClick={() => dispatch(setIsMainContent(false))}>
               <FontAwesomeIcon
                 className={styles.dashboard_icon}
                 icon={faChartLine}

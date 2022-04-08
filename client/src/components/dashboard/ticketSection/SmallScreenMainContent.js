@@ -6,13 +6,13 @@ import { setIsModalShown, setTickets } from "../../../redux/actions";
 import styles from "./SmallScreenMainContent.module.scss";
 
 const SmallScreenMainContent = ({ mobile }) => {
-  // REDUX
+
   const dispatch = useDispatch();
   const tickets = useSelector((state) => state.tickets);
-  // REDUX
-  // NEW
+
 
   const companyId = useSelector((state) => state.companyId);
+
   async function getAllTickets() {
     try {
       const response = await fetch(
@@ -36,6 +36,7 @@ const SmallScreenMainContent = ({ mobile }) => {
     }
   }
   useEffect(() => {
+    console.log("FETCHING SMALL SCREEN");
     async function fetchTickets() {
       if (companyId) {
         await getAllTickets();

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Modal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,7 @@ import {
   setTickets,
 } from "../../../redux/actions";
 
-const Modal = ({}) => {
+const Modal = () => {
   // REDUX
   const isModalShown = useSelector((state) => state.isModalShown);
   const ticketName = useSelector((state) => state.ticketName);

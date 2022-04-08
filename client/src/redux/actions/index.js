@@ -60,3 +60,10 @@ export const setTickets = (tickets) => {
     payload: tickets,
   };
 };
+
+export const setIsMainContent = (bool) => {
+  return {
+    type: "SETISMAINCONTENT",
+    payload: bool,
+  };
+};

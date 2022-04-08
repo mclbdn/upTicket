@@ -8,13 +8,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import styles from "./LeftMenu.module.scss";
+import { setIsMainContent } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const LeftMenu = ({
   children,
-  setIsMainContent,
   isMainContent,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   async function logoutUser() {
     const response = await fetch(
@@ -30,7 +32,7 @@ const LeftMenu = ({
   return (
     <div className={styles.bigger_screen_left_menu}>
       <a
-        onClick={() => setIsMainContent(true)}
+        onClick={() => dispatch(setIsMainContent(true))}
         style={{ color: isMainContent ? "#292b4d" : "" }}
       >
         <FontAwesomeIcon
@@ -39,7 +41,7 @@ const LeftMenu = ({
         />
         Dashboard
       </a>
-      <a onClick={() => setIsMainContent(false)}>
+      <a onClick={() => dispatch(setIsMainContent(false))}>
         <FontAwesomeIcon className={styles.dashboard_icon} icon={faChartLine} />
         Report
       </a>

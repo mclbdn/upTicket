@@ -11,20 +11,19 @@ import BiggerScreenBottomParagraphWrapper from "../components/dashboard/BiggerSc
 import SmallScreenTopMenu from "../components/dashboard/SmallScreenTopMenu";
 import BiggerScreenSizeMainContent from "../components/dashboard/ticketSection/BiggerScreenSizeMainContent";
 import SmallScreenMainContent from "../components/dashboard/ticketSection/SmallScreenMainContent";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCompanyName, setCompanyId } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [mobile, setMobile] = useState(false);
-  const [isMainContent, setIsMainContent] = useState(true);
 
   // REDUX
   const dispatch = useDispatch();
-  const companyId = useSelector((state) => state.companyId);
+  const isMainContent = useSelector((state) => state.isMainContent);
   // REDUX
 
-  async function populateCompanyName() {
+  async function verifyTokenToLogin() {
     console.log(localStorage.getItem("token"));
     const req = await fetch(
       "https://upticket-server.herokuapp.com/tickets/gettickets",
@@ -55,7 +54,7 @@ const Dashboard = () => {
         localStorage.removeItem("token");
         navigate("/login");
       } else {
-        populateCompanyName();
+        verifyTokenToLogin();
       }
     } else {
       navigate("/login");
@@ -86,19 +85,13 @@ const Dashboard = () => {
   return (
     <main className={styles.dashboard}>
       <TopContainer />
-      <LeftMenu
-        setIsMainContent={setIsMainContent}
-        isMainContent={isMainContent}
-      >
+      <LeftMenu isMainContent={isMainContent}>
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
       <OffWhiteContainer>
         {isMainContent && <BiggerScreenSizeMainContent mobile={mobile} />}
       </OffWhiteContainer>
-      <SmallScreenTopMenu
-        setIsMainContent={setIsMainContent}
-        isMainContent={isMainContent}
-      />
+      <SmallScreenTopMenu isMainContent={isMainContent} />
       {isMainContent && <SmallScreenMainContent mobile={mobile} />}
       <Modal />
       <SmallScreenBottomParagraphWrapper />
