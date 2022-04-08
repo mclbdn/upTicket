@@ -11,6 +11,7 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 * Used [SASS](https://sass-lang.com/) for styling
 * Fully responsive UI
 * Tested API endpoints with [Postman](https://www.postman.com/)
+* Managed state with [Redux](https://redux.js.org/)
 * Set up private routes 
 * Utilized JWT 
 * Implemented MVC design pattern
