@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/dashboard/ticketSection/Modal";
@@ -16,12 +16,8 @@ import { setCompanyName, setCompanyId } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
-
-  // REDUX
   const dispatch = useDispatch();
   const isMainContent = useSelector((state) => state.isMainContent);
-  // REDUX
 
   async function verifyTokenToLogin() {
     console.log(localStorage.getItem("token"));
@@ -44,7 +40,7 @@ const Dashboard = () => {
     }
   }
 
-  // Check if token was provided, thus user can see the dashboard
+  // Check if token was provided so user can see the dashboard. If not, redirect him to log in
   useEffect(() => {
     const token = localStorage.getItem("token");
 

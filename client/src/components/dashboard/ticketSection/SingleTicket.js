@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleTicket.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setIsModalShown,
   setTicketName,
@@ -17,14 +17,12 @@ const SingleTicket = ({
   ticket_priority,
   ticket_db_id,
 }) => {
-  // REDUX
   const dispatch = useDispatch();
-  const ticketName = useSelector((state) => state.ticketName);
-  // REDUX
   const [bgColor, setBgColor] = useState("");
 
   // Set different color to ticket-priority div according to its priority
   useEffect(() => {
+    console.log("IS UPDATING TICKET");
     if (ticket_priority == 1) {
       setBgColor("rgba(242, 89, 75, 0.5)");
     } else if (ticket_priority == 2) {
@@ -32,7 +30,7 @@ const SingleTicket = ({
     } else if (ticket_priority == 3) {
       setBgColor("rgba(92, 100, 242, 0.5)");
     }
-  }, []);
+  }, [ticket_priority]);
 
   const handleClick = () => {
     dispatch(setTicketName(ticket_name));

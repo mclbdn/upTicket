@@ -32,8 +32,8 @@ const SmallScreenMainContent = () => {
       console.log(error);
     }
   }
+
   useEffect(() => {
-    console.log("FETCHING SMALL SCREEN");
     async function fetchTickets() {
       if (companyId) {
         await getAllTickets();
