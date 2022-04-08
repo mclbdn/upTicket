@@ -21,14 +21,11 @@ const Dashboard = () => {
 
   async function verifyTokenToLogin() {
     console.log(localStorage.getItem("token"));
-    const req = await fetch(
-      "https://upticket-server.herokuapp.com/tickets/gettickets",
-      {
-        headers: {
-          "x-access-token": localStorage.getItem("token"),
-        },
-      }
-    );
+    const req = await fetch("https://upticket-server.herokuapp.com/tickets/gettickets", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    });
 
     const data = await req.json();
 
@@ -63,9 +60,7 @@ const Dashboard = () => {
       <LeftMenu>
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
-      <OffWhiteContainer>
-        {isMainContent && <BiggerScreenSizeMainContent />}
-      </OffWhiteContainer>
+      <OffWhiteContainer>{isMainContent && <BiggerScreenSizeMainContent />}</OffWhiteContainer>
       <SmallScreenTopMenu />
       {isMainContent && <SmallScreenMainContent />}
       <Modal />

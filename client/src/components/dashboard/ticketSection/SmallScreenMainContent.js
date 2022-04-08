@@ -4,9 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setIsModalShown, setTickets } from "../../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSlash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSlash } from "@fortawesome/free-solid-svg-icons";
 import styles from "./SmallScreenMainContent.module.scss";
 
 const SmallScreenMainContent = () => {
@@ -16,18 +14,15 @@ const SmallScreenMainContent = () => {
 
   async function getAllTickets() {
     try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/all",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            company_id: companyId,
-          }),
-        }
-      );
+      const response = await fetch("https://upticket-server.herokuapp.com/tickets/all", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          company_id: companyId,
+        }),
+      });
 
       const data = await response.json();
 
@@ -51,9 +46,7 @@ const SmallScreenMainContent = () => {
     <>
       <h1 className={styles.mobile_h1}>Dashboard</h1>
       <div className={styles.create_ticket_button_wrapper}>
-        <button onClick={() => dispatch(setIsModalShown(true))}>
-          + Create a New Ticket
-        </button>
+        <button onClick={() => dispatch(setIsModalShown(true))}>+ Create a New Ticket</button>
       </div>
       <div className={styles.small_screen_fields_description}>
         <div className={styles.fields_description_left}>
@@ -80,9 +73,11 @@ const SmallScreenMainContent = () => {
             );
           })
         ) : (
-          <p>There are no tickets</p>
+          <div className={styles.spinner_container}>
+            <FontAwesomeIcon className={styles.spinner} icon={faSlash} />
+            <p>Loading tickets...</p>
+          </div>
         )}
-        <FontAwesomeIcon icon={faSlash} />
       </div>
     </>
   );

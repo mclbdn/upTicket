@@ -14,18 +14,15 @@ const BiggerScreenSizeMainContent = () => {
 
   async function getAllTickets() {
     try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/all",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            company_id: companyId,
-          }),
-        }
-      );
+      const response = await fetch("https://upticket-server.herokuapp.com/tickets/all", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          company_id: companyId,
+        }),
+      });
 
       const data = await response.json();
 
@@ -49,9 +46,7 @@ const BiggerScreenSizeMainContent = () => {
     <>
       <h1 className={styles.bigger_screen_h1}>Dashboard</h1>
       <div className={styles.bigger_screen_create_ticket_button_wrapper}>
-        <button onClick={() => dispatch(setIsModalShown(true))}>
-          + Create a New Ticket
-        </button>
+        <button onClick={() => dispatch(setIsModalShown(true))}>+ Create a New Ticket</button>
       </div>
       <div className={styles.bigger_screen_white_container}>
         <div className={styles.bigger_screen_fields_description}>
@@ -79,9 +74,11 @@ const BiggerScreenSizeMainContent = () => {
               );
             })
           ) : (
-            <p>There are no tickets</p>
+            <div className={styles.spinner_container}>
+              <FontAwesomeIcon className={styles.spinner} icon={faSlash} />
+              <p>Loading tickets...</p>
+            </div>
           )}
-          <FontAwesomeIcon className={styles.spinner} icon={faSlash} />
         </TicketsContainer>
       </div>
     </>

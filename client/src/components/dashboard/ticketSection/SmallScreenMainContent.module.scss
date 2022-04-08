@@ -73,3 +73,36 @@
     display: none;
   }
 }
+
+.spinner_container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+
+  .spinner {
+    margin-bottom: 20px;
+    color: $dark-blue-color;
+    width: 30px;
+    height: 30px;
+    transform: rotate(0deg);
+    animation: spinning-animation 1.5s linear infinite;
+
+    @keyframes spinning-animation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba($color: $dark-blue-color, $alpha: .4);
+  }
+}
