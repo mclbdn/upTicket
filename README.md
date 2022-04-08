@@ -21,7 +21,7 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 
 * ~~Use CSS(SASS) modules instead of one long stylesheet~~ ✅
 * ~~Use Redux for state management~~ ✅
-* Add reports to dashboard 🟠
+* Add reports to dashboard 🟡
 * Add settings to dashboard 🟠
 * Add API docs 🟠
 * Redesign forms inside dashboard 🟠

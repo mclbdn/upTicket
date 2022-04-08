@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.routes");
 const ticketRoutes = require("./routes/ticket.routes");
+const reportRoutes = require("./routes/report.routes");
 require("dotenv").config();
 
 // Connect to the db
@@ -17,6 +18,9 @@ app.use(authRoutes);
 
 // Use ticket routes
 app.use(ticketRoutes);
+
+// Use chart routes
+app.use(reportRoutes);
 
 app.listen(process.env.PORT || 1337, () => {
   console.log("Server is running");
