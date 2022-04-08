@@ -3,6 +3,10 @@ import SingleTicket from "./SingleTicket";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setIsModalShown, setTickets } from "../../../redux/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSlash,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./SmallScreenMainContent.module.scss";
 
 const SmallScreenMainContent = () => {
@@ -78,6 +82,7 @@ const SmallScreenMainContent = () => {
         ) : (
           <p>There are no tickets</p>
         )}
+        <FontAwesomeIcon icon={faSlash} />
       </div>
     </>
   );

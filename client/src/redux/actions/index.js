@@ -67,3 +67,4 @@ export const setIsMainContent = (bool) => {
     payload: bool,
   };
 };
+

@@ -10,6 +10,7 @@ import activeTicketIdReducer from "./activeTicketIdReducer";
 import ticketsReducer from "./ticketsReducer";
 import isMainContentReducer from "./isMainContentReducer";
 
+
 const allReducers = combineReducers({
   companyName: companyNameReducer,
   isModalShown: isModalShownReducer,
@@ -21,6 +22,7 @@ const allReducers = combineReducers({
   activeTicketId: activeTicketIdReducer,
   tickets: ticketsReducer,
   isMainContent: isMainContentReducer,
+  
 });
 
 export default allReducers;

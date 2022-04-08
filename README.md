@@ -19,9 +19,9 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 🟠 - Not yet in progress | 🟡 - In progress | 🟢 - Finished
 
 * ~~Use CSS(SASS) modules instead of one long stylesheet~~ 🟢
-* Use Redux for state management 🟡
+* ~~Use Redux for state management~~ 🟢 
 * Add reports to dashboard 🟠
 * Add settings to dashboard 🟠
 * Add API docs 🟠
 * Redesign forms inside dashboard 🟠
-* Add spinning wheel while tickets are loading 🟠
+* Add spinning wheel while tickets are loading 🟡

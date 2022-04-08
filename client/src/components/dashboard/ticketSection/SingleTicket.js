@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleTicket.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setIsModalShown,
   setTicketName,
@@ -18,6 +18,7 @@ const SingleTicket = ({
   ticket_db_id,
 }) => {
   const dispatch = useDispatch();
+
   const [bgColor, setBgColor] = useState("");
 
   // Set different color to ticket-priority div according to its priority

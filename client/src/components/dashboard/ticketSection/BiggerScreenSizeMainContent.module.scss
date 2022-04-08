@@ -109,3 +109,23 @@
     bottom: 70px;
   }
 }
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  color: $dark-blue-color;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: rotate(0deg);
+  animation: spinning-animation 1.5s linear infinite;
+
+  @keyframes spinning-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

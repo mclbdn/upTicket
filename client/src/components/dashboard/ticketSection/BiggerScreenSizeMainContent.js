@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import SingleTicket from "./SingleTicket";
 import TicketsContainer from "./TicketsContainer";
-import styles from "./BiggerScreenSizeMainContent.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSlash } from "@fortawesome/free-solid-svg-icons";
 import { setIsModalShown, setTickets } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "./BiggerScreenSizeMainContent.module.scss";
 
 const BiggerScreenSizeMainContent = () => {
   const dispatch = useDispatch();
@@ -79,6 +81,7 @@ const BiggerScreenSizeMainContent = () => {
           ) : (
             <p>There are no tickets</p>
           )}
+          <FontAwesomeIcon className={styles.spinner} icon={faSlash} />
         </TicketsContainer>
       </div>
     </>
