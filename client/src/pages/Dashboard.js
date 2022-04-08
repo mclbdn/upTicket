@@ -16,7 +16,7 @@ import { setCompanyName, setCompanyId } from "../redux/actions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [mobile, setMobile] = useState(false);
+
 
   // REDUX
   const dispatch = useDispatch();
@@ -61,38 +61,17 @@ const Dashboard = () => {
     }
   }, []);
 
-  // Check window size
-  useEffect(() => {
-    if (window.innerWidth < 768) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth < 768) {
-        setMobile(true);
-      } else {
-        setMobile(false);
-      }
-    };
-
-    window.addEventListener("resize", updateMedia);
-
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
-
   return (
     <main className={styles.dashboard}>
       <TopContainer />
-      <LeftMenu isMainContent={isMainContent}>
+      <LeftMenu>
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
       <OffWhiteContainer>
-        {isMainContent && <BiggerScreenSizeMainContent mobile={mobile} />}
+        {isMainContent && <BiggerScreenSizeMainContent />}
       </OffWhiteContainer>
-      <SmallScreenTopMenu isMainContent={isMainContent} />
-      {isMainContent && <SmallScreenMainContent mobile={mobile} />}
+      <SmallScreenTopMenu />
+      {isMainContent && <SmallScreenMainContent />}
       <Modal />
       <SmallScreenBottomParagraphWrapper />
     </main>

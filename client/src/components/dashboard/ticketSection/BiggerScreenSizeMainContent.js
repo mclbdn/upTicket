@@ -5,7 +5,7 @@ import styles from "./BiggerScreenSizeMainContent.module.scss";
 import { setIsModalShown, setTickets } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const BiggerScreenSizeMainContent = ({ mobile }) => {
+const BiggerScreenSizeMainContent = () => {
   const dispatch = useDispatch();
   const tickets = useSelector((state) => state.tickets);
   const companyId = useSelector((state) => state.companyId);
@@ -33,7 +33,7 @@ const BiggerScreenSizeMainContent = ({ mobile }) => {
     }
   }
   useEffect(() => {
-    console.log("FETCHING BIG SCREEN")
+    console.log("FETCHING BIG SCREEN");
     async function fetchTickets() {
       if (companyId) {
         await getAllTickets();
@@ -61,26 +61,25 @@ const BiggerScreenSizeMainContent = ({ mobile }) => {
             <p>Priority</p>
           </div>
         </div>
-        {!mobile && (
-          <TicketsContainer>
-            {tickets ? (
-              tickets.map((ticket) => {
-                return (
-                  <SingleTicket
-                    key={ticket.ticket_id}
-                    ticket_id={ticket.ticket_id}
-                    ticket_description={ticket.ticket_description}
-                    ticket_name={ticket.ticket_name}
-                    ticket_priority={ticket.ticket_priority}
-                    ticket_db_id={ticket._id}
-                  />
-                );
-              })
-            ) : (
-              <p>There are no tickets</p>
-            )}
-          </TicketsContainer>
-        )}
+
+        <TicketsContainer>
+          {tickets ? (
+            tickets.map((ticket) => {
+              return (
+                <SingleTicket
+                  key={ticket.ticket_id}
+                  ticket_id={ticket.ticket_id}
+                  ticket_description={ticket.ticket_description}
+                  ticket_name={ticket.ticket_name}
+                  ticket_priority={ticket.ticket_priority}
+                  ticket_db_id={ticket._id}
+                />
+              );
+            })
+          ) : (
+            <p>There are no tickets</p>
+          )}
+        </TicketsContainer>
       </div>
     </>
   );

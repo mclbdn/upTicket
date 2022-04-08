@@ -9,11 +9,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import styles from "./SmallScreenTopMenu.module.scss";
 import { setIsMainContent } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const SmallScreenTopMenu = ({ isMainContent }) => {
+const SmallScreenTopMenu = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isMainContent = useSelector((state) => state.isMainContent);
 
   async function logoutUser() {
     const response = await fetch(
