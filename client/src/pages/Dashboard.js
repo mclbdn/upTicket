@@ -13,6 +13,7 @@ import BiggerScreenSizeMainContent from "../components/dashboard/ticketSection/B
 import SmallScreenMainContent from "../components/dashboard/ticketSection/SmallScreenMainContent";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompanyName, setCompanyId } from "../redux/actions";
+import ReportSectionContent from "../components/dashboard/reportSection/ReportSectionContent";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const Dashboard = () => {
       <LeftMenu>
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
-      <OffWhiteContainer>{isMainContent && <BiggerScreenSizeMainContent />}</OffWhiteContainer>
+      <OffWhiteContainer>{isMainContent ? <BiggerScreenSizeMainContent /> : <ReportSectionContent />}</OffWhiteContainer>
       <SmallScreenTopMenu />
       {isMainContent && <SmallScreenMainContent />}
       <Modal />
