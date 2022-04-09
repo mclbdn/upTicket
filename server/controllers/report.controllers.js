@@ -31,10 +31,14 @@ async function getNumberOfTicketsFromLast7Days(req, res) {
     const startDate = new Date(Date.now() - 604800000);
 
     // Find tickets from past 7 days
-    const allCompanyTickets = await ticketModel.find({
-      company_id: companyId,
-      createdAt: { $gte: new Date(startDate), $lte: new Date(endDate) },
-    });
+    const allCompanyTickets = await ticketModel
+      .find({
+        company_id: companyId,
+        createdAt: { $gte: new Date(startDate), $lte: new Date(endDate) },
+      })
+      .sort({ createdAt: 1 });
+
+      console.log(allCompanyTickets)
 
     // Push them to an array
     allCompanyTickets.forEach((ticket) => {
