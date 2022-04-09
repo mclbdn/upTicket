@@ -2,7 +2,7 @@ const ticketModel = require("../models/ticket.model");
 const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
-async function getPriorities(req, res) {
+async function getNumberOfTicketsFromLast7Days(req, res) {
   const token = req.headers["x-access-token"];
 
   // Was sent valid token in header?
@@ -46,5 +46,5 @@ async function getPriorities(req, res) {
 }
 
 module.exports = {
-  getPriorities: getPriorities,
+  getNumberOfTicketsFromLast7Days: getNumberOfTicketsFromLast7Days,
 };
