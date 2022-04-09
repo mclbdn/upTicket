@@ -24,10 +24,11 @@ async function getNumberOfTicketsFromLast7Days(req, res) {
 
   try {
     const companyId = req.body.companyId;
-    let dates = [];
     // Last 7 days
     const endDate = new Date();
     const startDate = new Date(Date.now() - 604800000);
+    let dates = [];
+    const data = [];
 
     const allCompanyTickets = await ticketModel.find({
       company_id: companyId,
@@ -35,10 +36,24 @@ async function getNumberOfTicketsFromLast7Days(req, res) {
     });
 
     allCompanyTickets.forEach((ticket) => {
-      dates.push(ticket);
+      dates.push(ticket.createdAt.toLocaleDateString());
     });
 
-    res.status(200).json({ data: dates });
+    function countOccurrences(arr) {
+      return arr.reduce(function (a, b) {
+        a[b] = a[b] + 1 || 1;
+        return a;
+      }, []);
+    }
+
+    const datesOrdered = countOccurrences(dates);
+
+    for (let key in datesOrdered) {
+      const tempObj = { date: key, numOfTickets: datesOrdered[key] };
+      data.push(tempObj);
+    }
+
+    res.status(200).json({ datesUsed: { startDate, endDate }, data: data });
   } catch (error) {
     console.log(error);
     return;

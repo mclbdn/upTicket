@@ -66,22 +66,19 @@ const Modal = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/create",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            ticketName,
-            ticketDescription,
-            ticketPriority,
-            companyId,
-          }),
-        }
-      );
+      const response = await fetch("http://localhost:1337/tickets/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          ticketName,
+          ticketDescription,
+          ticketPriority,
+          companyId,
+        }),
+      });
       const data = await response.json();
       console.log(data.status);
       if (data.status === "ok") {
