@@ -16,14 +16,14 @@ const TicketSchema = mongoose.Schema(
     },
     company_id: {
       type: String,
-      required: true
+      required: true,
     },
     ticket_id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
-  { collection: "tickets" }
+  { timestamps: true, collection: "tickets" }
 );
 
 const Ticket = mongoose.model("Ticket", TicketSchema);

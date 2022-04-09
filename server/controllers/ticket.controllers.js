@@ -7,7 +7,6 @@ async function createTicket(req, res) {
   let highestTicketId;
   let currentTicketId;
   const allCompanyTicketIds = [];
-
   // Was sent valid token in header?
   try {
     const decoded = jwt.verify(token, "secret123");
@@ -56,7 +55,6 @@ async function createTicket(req, res) {
       company_id: req.body.companyId,
       ticket_id: currentTicketId,
     });
-
     // Ticket successfully created
     res.status(200).json({ status: "ok" });
   } catch (error) {

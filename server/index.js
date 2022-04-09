@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.routes");
 const ticketRoutes = require("./routes/ticket.routes");
 const reportRoutes = require("./routes/report.routes");
+const ticketModel = require("./models/ticket.model");
 require("dotenv").config();
 
 // Connect to the db
