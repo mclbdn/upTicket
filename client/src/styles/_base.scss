@@ -64,28 +64,3 @@ ul {
 
 // RESETS END
 
-// DIVIDER START
-.divider {
-  width: 187.5px;
-  border-top: 1px solid $dark-blue-color;
-  margin: 60px auto;
-}
-
-@media screen and(min-width:768px) {
-  .divider {
-    width: 512px;
-    border-top: 1px solid $dark-blue-color;
-    margin: 120px auto;
-  }
-}
-
-@media screen and(min-width:1440px) {
-  .divider {
-    width: 580px;
-    border-top: 1px solid $dark-blue-color;
-    margin: 120px auto;
-  }
-}
-
-// DIVIDER END
-
