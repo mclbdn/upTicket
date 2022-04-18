@@ -33,7 +33,7 @@ const SmallScreenTopMenu = () => {
         Welcome to your dashboard! <span>🎉</span>
       </h2>
       <hr className={styles.dashboard_divider} />
-      <nav>
+      <nav className={styles.dashboard_nav}>
         <ul>
           <li>
             <div className={styles.username}>

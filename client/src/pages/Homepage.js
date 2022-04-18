@@ -1,17 +1,27 @@
 import React from "react";
 import Faq from "../components/homepage/Faq";
 import Features from "../components/homepage/Features";
-import Footer from "../components/homepage/Footer";
 import FoundersNote from "../components/homepage/FoundersNote";
-import Hero from "../components/homepage/Hero";
+import NewFaq from "../components/homepage/NewFaq";
+import NewFeatures from "../components/homepage/NewFeatures";
+import Footer from "../components/homepage/NewFooter";
+import NewHero from "../components/homepage/NewHero";
+import NewNewsletter from "../components/homepage/NewNewsletter";
 import Newsletter from "../components/homepage/Newsletter";
+import Team from "../components/homepage/Team";
 import Testimonials from "../components/homepage/Testimonials";
 
 
 function Homepage() {
   return (
     <>
-      <Hero />
+    <NewHero />
+    <NewFeatures />
+    <NewFaq />
+    <Team />
+    <NewNewsletter />
+    <Footer />
+      {/* <Hero />
       <Features />
       <hr className="divider" />
       <Testimonials />
@@ -21,7 +31,7 @@ function Homepage() {
       <Newsletter />
       <hr className="divider" />
       <FoundersNote />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

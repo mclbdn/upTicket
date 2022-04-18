@@ -1,0 +1,151 @@
+@import "../../styles/vars";
+
+footer {
+  height: 117px;
+  background-color: $new-off-white-color;
+
+  .content_wrapper {
+    display: flex;
+    padding: 15px 0 0;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    justify-content: space-between;
+    position: relative;
+
+    .logo_ul {
+      margin-top: 12px;
+
+      @media screen and (min-width: 744px) {
+        margin-top: -4px;
+      }
+    }
+
+    .logo_para {
+      font-family: "Jost", sans-serif;
+      font-size: 10px;
+      display: flex;
+
+      .logo_img {
+        width: 10px;
+
+        @media screen and (min-width: 744px) {
+          width: 12.5px;
+        }
+
+        @media screen and (min-width: 1440px) {
+          width: 13.5px;
+        }
+      }
+
+      @media screen and (min-width: 744px) {
+        font-size: 12px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 13px;
+      }
+    }
+
+    h3 {
+      line-height: 100%;
+      font-family: "Lato", sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        height: 1px;
+        background-color: #000;
+        width: 48px;
+        left: 0;
+        bottom: -5px;
+      }
+
+      @media screen and (min-width: 744px) {
+        font-size: 12px;
+
+        &::after {
+          bottom: -10px;
+          width: 57px;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 13px;
+
+        &::after {
+          width: 69px;
+        }
+      }
+    }
+
+    ul {
+      margin-top: 10px;
+
+      li {
+        list-style: none;
+        line-height: 100%;
+
+        a {
+          width: fit-content;
+          font-family: "Lato", sans-serif;
+          line-height: 100%;
+          font-size: 8px;
+          text-decoration: none;
+          color: $darker-gray;
+
+          &:hover {
+            color: #000;
+          }
+
+          @media screen and (min-width: 744px) {
+            font-size: 11px;
+          }
+
+          @media screen and (min-width: 1440px) {
+            font-size: 12px;
+          }
+        }
+
+        p {
+          width: fit-content;
+          font-family: "Lato", sans-serif;
+          line-height: 100%;
+          font-size: 8px;
+          color: $darker-gray;
+
+          @media screen and (min-width: 744px) {
+            font-size: 11px;
+          }
+
+          @media screen and (min-width: 1440px) {
+            font-size: 12px;
+          }
+        }
+
+        @media screen and (min-width: 744px) {
+          margin-top: 11px;
+
+          &:first-child {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 744px) {
+      width: calc(100% - 80px);
+      padding: 30px 0 0;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: calc(100% - 280px);
+    }
+  }
+
+  @media screen and (min-width: 744px) {
+    height: 171px;
+  }
+}

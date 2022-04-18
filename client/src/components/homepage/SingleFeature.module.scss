@@ -1,0 +1,88 @@
+@import "../../styles/vars";
+
+.single_feature {
+  position: relative;
+  width: calc(100% - 40px);
+  height: 134px;
+  border: 1px solid $new-off-white-color;
+  border-radius: 7px;
+  margin: 0 auto 20px;
+
+  .fa_gray_wrapper {
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    background-color: rgba($color: $darker-gray, $alpha: 0.1);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 7px;
+    color: $new-yellow-color;
+
+    .fa_features_icon {
+      color: $new-yellow-color;
+    }
+
+    @media screen and (min-width: 744px) {
+      width: 35px;
+      height: 35px;
+      top: 20px;
+      left: 20px;
+      line-height: 35px;
+    }
+  }
+
+  .feature_name {
+    color: $new-off-white-color;
+    position: absolute;
+    top: 54px;
+    left: 15px;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    @media screen and (min-width: 744px) {
+      font-size: 15px;
+      top: 65px;
+      left: 20px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 20px;
+    }
+  }
+
+  .feature_text {
+    max-width: 280px;
+    color: $darker-gray;
+    position: absolute;
+    top: 83px;
+    left: 15px;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    line-height: 150%;
+
+    @media screen and (min-width: 744px) {
+      max-width: 85%;
+      font-size: 14px;
+      top: 95px;
+      left: 20px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (min-width: 744px) {
+    height: 157px;
+    margin: 0;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 169px;
+  }
+}

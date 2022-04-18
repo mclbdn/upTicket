@@ -1,0 +1,283 @@
+@import "../../styles/vars";
+
+.hero_section {
+  margin-bottom: 20vh;
+  color: $new-off-white-color;
+  font-family: "Jost", sans-serif;
+
+  .hero_nav {
+    padding: 30px 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.3px solid $new-off-white-color;
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      .logo_img {
+        width: 19px;
+        height: 15px;
+
+        @media screen and (min-width: 744px) {
+          width: 25px;
+          height: 20px;
+        }
+      }
+
+      p {
+        margin-left: 3px;
+        font-size: 18px;
+
+        @media screen and (min-width: 744px) {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .nav_links_wrapper {
+      display: none;
+
+      li {
+        list-style: none;
+        margin-right: 29px;
+
+        &:last-child {
+          margin-right: 0px;
+        }
+
+        a {
+          font-weight: 500;
+          font-size: 13px;
+          color: $darker-gray;
+          text-decoration: none;
+          font-family: "Lato", sans-serif;
+
+          @media screen and (min-width: 1440px) {
+            font-size: 14px;
+          }
+        }
+
+        @media screen and (min-width: 1440px) {
+          margin-right: 48px;
+        }
+      }
+
+      .nav_btn {
+        width: 70px;
+        height: 33px;
+        border: 1px solid red;
+        text-align: center;
+        border-radius: 7px;
+      }
+
+      .login_btn {
+        border: 1px solid $darker-gray;
+        margin-right: 29px;
+
+        a {
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 31px;
+          color: $darker-gray;
+          text-decoration: none;
+          font-family: "Lato", sans-serif;
+
+          @media screen and (min-width: 1440px) {
+            font-size: 14px;
+          }
+        }
+
+        &:hover {
+          filter: drop-shadow(1px 1px 5px $darker-gray);
+        }
+
+        @media screen and (min-width: 1440px) {
+          margin-right: 48px;
+        }
+      }
+
+      .signup_btn {
+        border: 1px solid $green-color;
+
+        a {
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 31px;
+          color: $green-color;
+          text-decoration: none;
+          font-family: "Lato", sans-serif;
+
+          @media screen and (min-width: 1440px) {
+            font-size: 14px;
+          }
+        }
+
+        &:hover {
+          filter: drop-shadow(1px 1px 5px $green-color);
+        }
+      }
+
+      @media screen and (min-width: 744px) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .hamburger_menu {
+      @media screen and (min-width: 744px) {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 744px) {
+      padding: 30px 40px 30px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      padding: 30px 140px 30px;
+    }
+  }
+
+  .text_and_img_wrapper {
+    .heading_text_and_cta_wrapper {
+      h1 {
+        max-width: 283px;
+        line-height: 90%;
+        margin: 60px auto 0px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 25px;
+
+        .yellow_text {
+          color: $new-yellow-color;
+        }
+
+        @media screen and (min-width: 744px) {
+          margin: 0 0 20px;
+          font-size: 37px;
+          text-align: left;
+          max-width: 404px;
+        }
+
+        @media screen and (min-width: 1440px) {
+          margin: 0 0 30px;
+          font-size: 48px;
+          max-width: 527px;
+        }
+      }
+
+      .hero_para {
+        color: $darker-gray;
+        text-align: center;
+        margin: 10px auto 25px;
+        max-width: 280px;
+        font-size: 12px;
+        line-height: 150%;
+        font-family: "Lato", sans-serif;
+
+        @media screen and (min-width: 744px) {
+          margin: 0 0 20px;
+          text-align: left;
+          font-size: 15px;
+          max-width: 317px;
+        }
+
+        @media screen and (min-width: 1440px) {
+          margin: 0 0 30px;
+          font-size: 20px;
+          max-width: 466px;
+        }
+      }
+
+      .cta_anchor {
+        font-family: "Lato", sans-serif;
+        text-decoration: none;
+        font-size: 12px;
+        color: $black-color;
+        font-weight: 700;
+        line-height: 36px;
+        display: contents;
+
+        .cta_btn {
+          margin: 0 auto 25px;
+          text-align: center;
+          border-radius: 7px;
+          background-color: $green-color;
+          width: 135px;
+          height: 36px;
+
+          @media screen and (min-width: 744px) {
+            margin: 0;
+            width: 161px;
+            height: 43px;
+          }
+
+          @media screen and (min-width: 1440px) {
+            width: 210px;
+            height: 56px;
+          }
+        }
+
+        @media screen and (min-width: 744px) {
+          font-size: 14px;
+          line-height: 43px;
+        }
+        @media screen and (min-width: 1440px) {
+          font-size: 18px;
+          line-height: 56px;
+        }
+      }
+
+      @media screen and (min-width: 744px) {
+        margin-right: 20px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        margin-right: 0;
+      }
+    }
+
+    .hero_img {
+      margin: 0 20px;
+      height: fit-content;
+      border-radius: 7px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 7px;
+      }
+
+      @media screen and (min-width: 744px) {
+        margin: 0 auto;
+        margin: 0;
+        max-width: 60%;
+      }
+
+      @media screen and (min-width: 1440px) {
+        height: 400px;
+      }
+    }
+
+    @media screen and (min-width: 744px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 200px 40px 0;
+    }
+
+    @media screen and (min-width: 1440px) {
+      margin: 200px 140px 0;
+    }
+  }
+
+  @media screen and (min-width: 744px) {
+    margin-bottom: 30vh;
+  }
+}
