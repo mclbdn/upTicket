@@ -1,18 +1,30 @@
 import React from "react";
-import mail_icon from "../../assets/mail-icon.svg"
-import styles from "./Newsletter.module.scss"
+import styles from "./Newsletter.module.scss";
 
 const Newsletter = () => {
   return (
     <section className={styles.newsletter_section}>
-      <div className={styles.newsletter_wrapper}>
-        <img src={mail_icon} className={styles.mail_icon} alt="Mail icon"></img>
-        <h1>Sign up for our newsletter!</h1>
-        <form action="">
-          <input placeholder="Email" type="email" name="" id="" />
-          <button>Subscribe</button>
-        </form>
+      <div className={styles.cubes_container}>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
+      <h2>Get the latest updates!</h2>
+      <p className={styles.under_header_para}>We'll only inform you about the newest features. Changelog included.</p>
+      <form>
+        <label htmlFor="email">Email address</label>
+        <input type="email" name="email" id="email" required minLength={4} maxLength={128} placeholder="Email address" />
+        <button>Subscribe</button>
+      </form>
     </section>
   );
 };

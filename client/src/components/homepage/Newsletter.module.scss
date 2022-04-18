@@ -1,102 +1,254 @@
 @import "../../styles/vars";
 
 .newsletter_section {
-  .newsletter_wrapper {
-    background-color: $yellow-color;
-    margin: 60px 20px 0;
-    height: 256px;
-    position: relative;
-    border-radius: 7px;
-    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 146px;
+  width: calc(100% - 40px);
+  border: 1px solid $darker-gray;
+  border-radius: 7px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 20vh;
 
-    .mail_icon {
-      width: 45px;
-      height: 45px;
-      position: absolute;
-      top: -25px;
-      right: 20%;
+  h2 {
+    line-height: 90%;
+    margin: 15px auto 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+    color: $new-off-white-color;
+    font-family: "Jost", sans-serif;
 
-      @media screen and (min-width: 1440px) {
-        width: 55px;
-        height: 55px;
-      }
-    }
-
-    h1 {
-      padding-top: 30px;
-      font-size: 45px;
-      font-family: "Barlow", sans-serif;
-      line-height: 95%;
-      font-weight: 800;
-      color: $dark-blue-color;
-      margin-left: 18px;
-      margin-right: 18px;
-      max-width: 300px;
-
-      @media screen and (min-width: 768px) {
-        margin-left: 80px;
-        margin-right: 80px;
-        max-width: 320px;
-      }
-
-      @media screen and (min-width: 1440px) {
-        margin-left: 100px;
-        margin-right: 100px;
-        font-size: 55px;
-        max-width: 520px;
-      }
-    }
-
-    form {
-      display: flex;
-      justify-content: space-between;
-      margin: 0 20px 0;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 30px;
-
-      input[type="email"] {
-        font-family: inherit;
-        flex: 1;
-        height: 46px;
-        border-radius: 7px;
-        border: 1.62759px solid $dark-blue-color;
-        padding-left: 10px;
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      button {
-        height: 46px;
-        font-weight: 600;
-        color: $off-white-color;
-        background-color: $dark-blue-color;
-        border: none;
-        border-radius: 7px;
-        margin-left: 10px;
-        width: 104px;
-        cursor: pointer;
-      }
-
-      @media screen and (min-width: 768px) {
-        margin: 0 80px 0;
-      }
-
-       @media screen and (min-width: 1440px) {
-          margin: 0 100px 0;
-       }
-    }
-
-    @media screen and (min-width: 768px) {
-      margin: 0 40px 0;
+    @media screen and (min-width: 744px) {
+      margin-bottom: 20px;
+      font-size: 27px;
     }
 
     @media screen and (min-width: 1440px) {
-      margin: 0 140px 0;
-      height: 300px;
+      margin-bottom: 30px;
+      font-size: 40px;
     }
+  }
+
+  .under_header_para {
+    text-align: center;
+    margin: 0 auto 20px;
+    max-width: 280px;
+    font-family: "Lato", sans-serif;
+    line-height: 150%;
+    font-size: 12px;
+    color: $darker-gray;
+
+    @media screen and (min-width: 744px) {
+      margin-bottom: 30px;
+      font-size: 15px;
+      max-width: fit-content;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 20px;
+    }
+  }
+
+  form {
+    margin: 0 15px;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      border-width: 0 !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      padding: 0 !important;
+      position: absolute !important;
+      white-space: nowrap !important;
+      width: 1px !important;
+    }
+
+    input[type="email"] {
+      height: 30px;
+      font-family: "Lato", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: $darker-gray;
+      position: relative;
+      background-color: #000;
+      outline: none;
+      border: 1px solid $darker-gray;
+      border-radius: 7px;
+      width: 100%;
+      padding-left: 15px;
+
+      @media screen and (min-width: 744px) {
+        font-size: 15px;
+        height: 40px;
+        margin-bottom: 20px;
+        width: calc(100% - 460px);
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 20px;
+        height: 50px;
+        margin-bottom: 30px;
+        width: calc(100% - 794px);
+      }
+    }
+
+    button {
+      cursor: pointer;
+      width: 90px;
+      height: 30px;
+      border: none;
+      border-radius: 7px;
+      background-color: $new-yellow-color;
+      font-family: "Lato", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 20px;
+      z-index: 2;
+
+      @media screen and (min-width: 744px) {
+        margin-left: 0;
+        font-size: 14px;
+        width: 160px;
+        height: 43px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 18px;
+        width: 210px;
+        height: 56px;
+      }
+    }
+
+    @media screen and (min-width: 744px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .cubes_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    ul {
+      li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        border-radius: 7px;
+        height: 20px;
+        bottom: -150px;
+        z-index: -1;
+        animation: animate-cubes 25s linear infinite;
+
+        &:nth-child(1) {
+          width: 100px;
+          height: 100px;
+          left: 10%;
+          background-color: rgba($color: $new-off-white-color, $alpha: 0.4);
+          animation-delay: 2s;
+          animation-duration: 18s;
+        }
+
+        &:nth-child(2) {
+          width: 20px;
+          height: 20px;
+          left: 25%;
+          background-color: rgba($color: $green-color, $alpha: 0.4);
+        }
+
+        &:nth-child(3) {
+          width: 150px;
+          height: 150px;
+          right: 10%;
+          background-color: rgba($color: $new-pink-color, $alpha: 0.4);
+          animation-delay: 22s;
+        }
+
+        &:nth-child(4) {
+          width: 20px;
+          height: 20px;
+          right: 30%;
+          background-color: rgba($color: $new-yellow-color, $alpha: 0.4);
+          animation-delay: 4s;
+        }
+
+        &:nth-child(5) {
+          width: 100px;
+          height: 100px;
+          right: 20%;
+          background-color: rgba($color: $new-off-white-color, $alpha: 0.4);
+          animation-delay: 20s;
+        }
+
+        &:nth-child(6) {
+          width: 50px;
+          height: 50px;
+          left: 50%;
+          background-color: rgba($color: $green-color, $alpha: 0.4);
+          animation-delay: 6s;
+        }
+
+        &:nth-child(7) {
+          width: 150px;
+          height: 150px;
+          left: 20%;
+          background-color: rgba($color: $new-yellow-color, $alpha: 0.4);
+          animation-delay: 12s;
+        }
+
+        &:nth-child(8) {
+          width: 50px;
+          height: 50px;
+          left: 0%;
+          background-color: rgba($color: $new-pink-color, $alpha: 0.4);
+          animation-delay: 16s;
+        }
+
+        &:nth-child(9) {
+          width: 20px;
+          height: 20px;
+          right: 60%;
+          background-color: rgba($color: $green-color, $alpha: 0.4);
+          animation-delay: 22s;
+        }
+
+        &:nth-child(10) {
+          width: 100px;
+          height: 100px;
+          right: 5%;
+          background-color: rgba($color: $new-off-white-color, $alpha: 0.4);
+          animation-delay: 14s;
+        }
+
+        @keyframes animate-cubes {
+          0% {
+            transform: translateY(0) rotate(0deg);
+          }
+
+          100% {
+            transform: translateY(-1000px) rotate(720deg);
+          }
+        }
+
+      }
+    }
+  }
+
+  @media screen and (min-width: 744px) {
+    width: calc(100% - 80px);
+    height: 233px;
+    margin-bottom: 30vh;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: calc(100% - 280px);
+    height: 306px;
   }
 }

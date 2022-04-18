@@ -1,11 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./NewHero.module.scss";
+import styles from "./Hero.module.scss";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import check from "../../assets/check.svg";
 import image_placeholder from "../../assets/image_placeholder.png";
 
-const NewHero = () => {
+const Hero = () => {
   return (
     <section className={styles.hero_section}>
       <nav className={styles.hero_nav}>
@@ -55,4 +55,4 @@ const NewHero = () => {
   );
 };
 
-export default NewHero;
+export default Hero;
