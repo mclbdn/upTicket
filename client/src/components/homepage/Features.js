@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./NewFeatures.module.scss";
+import styles from "./Features.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHourglassEmpty, faDollar, faChartSimple, faEyeSlash, faScrewdriverWrench, faEarthAmerica } from "@fortawesome/free-solid-svg-icons";
 import SingleFeature from "./SingleFeature";
