@@ -42,20 +42,18 @@ main {
 
     .left_side_container {
       display: none;
-
+      
       h1 {
         color: $new-off-white-color;
         font-weight: 600;
         font-size: 27px;
         line-height: 100%;
         margin-top: 60px;
-        max-width: 37%;
+        width: 85%;
         text-align: left;
       }
 
-      @media screen and (min-width: 744px) {
-        display: block;
-      }
+      
 
       .white_vertical_line {
         position: absolute;
@@ -63,10 +61,18 @@ main {
         width: .3px;
         background-color: $new-off-white-color;
         height: 100vh;
-        left: 40%;
-        top: 0;
+        right: 0;
+        top: -126px;
+      }
+
+      @media screen and (min-width: 744px) {
+        display: block;
+        position: relative;
+        width: 39%;
       }
     }
+
+    .right_side_container {
 
     h1 {
       color: $green-color;
@@ -177,6 +183,7 @@ main {
       left: 0;
       right: 0;
     }
+      }
 
     @media screen and (min-width: 744px) {
       display: flex;
