@@ -21,23 +21,39 @@ const NewSignUpPage = () => {
           <p className={styles.under_header_para}>Manage all your tickets efficiently</p>
           <p className={styles.under_para_para}>Let's get you all set up!</p>
           <form className={styles.form}>
-            <label htmlFor="companyName" className={styles.label}>
-              Company name
-            </label>
-            <input type="text" name="companyName" id="companyName" required minLength={2} maxLength={128} placeholder="Company name" />
-            <label htmlFor="companyEmail" className={styles.label}>
-              Company email
-            </label>
-            <input type="email" name="companyEmail" id="companyEmail" required minLength={4} maxLength={128} placeholder="Company email" />
-            <label htmlFor="password" className={styles.label}>
-              Password
-            </label>
-            <input type="password" name="password" id="password" required minLength={8} maxLength={128} placeholder="Password" />
-            <label htmlFor="repeatPassword" className={styles.label}>
-              Repeat password
-            </label>
-            <input type="password" name="repeatPassord" id="repeatPassword" required minLength={8} maxLength={128} placeholder="Repeat password" />
-            <button type="submit">Create account</button>
+            <div className={styles.top_form_container}>
+              <div className={styles.left_form_container}>
+                <label htmlFor="companyName" className={styles.label}>
+                  Company name
+                </label>
+                <input type="text" name="companyName" id="companyName" required minLength={2} maxLength={128} placeholder="Company name" />
+                <label htmlFor="companyEmail" className={styles.label}>
+                  Company email
+                </label>
+                <input type="email" name="companyEmail" id="companyEmail" required minLength={4} maxLength={128} placeholder="Company email" />
+              </div>
+              <div className={styles.right_form_container}>
+                <label htmlFor="password" className={styles.label}>
+                  Password
+                </label>
+                <input type="password" name="password" id="password" required minLength={8} maxLength={128} placeholder="Password" />
+                <label htmlFor="repeatPassword" className={styles.label}>
+                  Repeat password
+                </label>
+                <input
+                  type="password"
+                  name="repeatPassord"
+                  id="repeatPassword"
+                  required
+                  minLength={8}
+                  maxLength={128}
+                  placeholder="Repeat password"
+                />
+              </div>
+            </div>
+            <div className={styles.bottom_form_container}>
+              <button type="submit">Create account</button>
+            </div>
           </form>
           <p className={styles.under_button_para}>
             Already have an account? <a href="/login">Log in</a>
