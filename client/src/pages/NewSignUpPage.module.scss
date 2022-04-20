@@ -3,6 +3,7 @@
 main {
   color: $new-off-white-color;
   font-family: "Jost", sans-serif;
+  height: 100vh;
 
   nav {
     padding: 30px 20px 0;
@@ -32,37 +33,33 @@ main {
     }
 
     @media screen and (min-width: 744px) {
-      padding: 30px 40px 60px;
+      padding: 30px 40px 0;
     }
   }
 
   .left_and_right_containers {
     display: block;
-    
 
     .left_side_container {
       display: none;
-      
+
       h1 {
         color: $new-off-white-color;
         font-weight: 600;
         font-size: 27px;
         line-height: 100%;
-        margin-top: 60px;
         width: 85%;
         text-align: left;
       }
 
-      
-
       .white_vertical_line {
         position: absolute;
         content: "";
-        width: .3px;
+        width: 0.3px;
         background-color: $new-off-white-color;
         height: 100vh;
         right: 0;
-        top: -126px;
+        top: -127px;
       }
 
       @media screen and (min-width: 744px) {
@@ -70,120 +67,176 @@ main {
         position: relative;
         width: 39%;
       }
+
+      @media screen and (min-width: 744px) {
+        margin-top: 60px;
+      }
     }
 
     .right_side_container {
+      h1 {
+        color: $green-color;
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        line-height: 100%;
+        margin-top: 60px;
 
-    h1 {
-      color: $green-color;
-      font-weight: 600;
-      font-size: 20px;
-      text-align: center;
-      line-height: 100%;
-      margin-top: 60px;
-
-      @media screen and (min-width: 744px) {
-        font-size: 27px;
-        text-align: left;
-      }
-    }
-
-    .under_header_para {
-      font-family: "Lato", sans-serif;
-      font-weight: 700;
-      line-height: 100%;
-      font-size: 12px;
-      text-align: center;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    .under_para_para {
-      font-family: "Lato", sans-serif;
-      font-size: 12px;
-      line-height: 100%;
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 15px;
-      color: $darker-gray;
-    }
-
-    form {
-      width: calc(100% - 40px);
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-
-      label {
-        border-width: 0 !important;
-        clip: rect(1px, 1px, 1px, 1px) !important;
-        height: 1px !important;
-        overflow: hidden !important;
-        padding: 0 !important;
-        position: absolute !important;
-        white-space: nowrap !important;
-        width: 1px !important;
-      }
-
-      input {
-        font-family: "Lato", sans-serif;
-        font-size: 12px;
-        font-weight: 400;
-        color: $darker-gray;
-        outline: none;
-        padding-left: 15px;
-        margin-bottom: 10px;
-        height: 30px;
-        line-height: 30px;
-        border: 1px solid $darker-gray;
-        border-radius: 7px;
-        background-color: transparent;
-
-        &:last-of-type {
-          margin-bottom: 15px;
+        @media screen and (min-width: 744px) {
+          font-size: 27px;
+          text-align: left;
+          margin-left: 31px;
+          margin-top: 25.35vh;
         }
       }
 
-      button {
-        cursor: pointer;
-        width: 100px;
-        height: 30px;
-        background-color: $new-yellow-color;
-        border: none;
-        border-radius: 7px;
+      .under_header_para {
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        line-height: 100%;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        @media screen and (min-width: 744px) {
+          font-size: 15px;
+          margin-left: 31px;
+          text-align: left;
+        }
+      }
+
+      .under_para_para {
         font-family: "Lato", sans-serif;
         font-size: 12px;
-        font-weight: 700;
+        line-height: 100%;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 15px;
+        color: $darker-gray;
+
+        @media screen and (min-width: 744px) {
+          font-size: 15px;
+          margin-left: 31px;
+          text-align: left;
+          margin-bottom: 30px;
+        }
+      }
+
+      form {
+        width: calc(100% - 40px);
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        label {
+          border-width: 0 !important;
+          clip: rect(1px, 1px, 1px, 1px) !important;
+          height: 1px !important;
+          overflow: hidden !important;
+          padding: 0 !important;
+          position: absolute !important;
+          white-space: nowrap !important;
+          width: 1px !important;
+        }
+
+        input {
+          font-family: "Lato", sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          color: $darker-gray;
+          outline: none;
+          padding-left: 15px;
+          margin-bottom: 10px;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid $darker-gray;
+          border-radius: 7px;
+          background-color: transparent;
+
+          &:last-of-type {
+            margin-bottom: 15px;
+          }
+
+          @media screen and (min-width: 744px) {
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+
+            &:last-of-type {
+              margin-bottom: 20px;
+            }
+          }
+        }
+
+        button {
+          cursor: pointer;
+          width: 100px;
+          height: 30px;
+          background-color: $new-yellow-color;
+          border: none;
+          border-radius: 7px;
+          font-family: "Lato", sans-serif;
+          font-size: 12px;
+          font-weight: 700;
+          margin: 0 auto;
+
+          @media screen and (min-width: 744px) {
+            width: 160px;
+            height: 43px;
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+
+        @media screen and (min-width: 744px) {
+          margin: 0 0 0 31px;
+          width: auto;
+        }
+      }
+
+      .under_button_para {
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        line-height: 100%;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 20px;
+        color: $darker-gray;
+
+        a {
+          color: $new-off-white-color;
+        }
+
+        @media screen and (min-width: 744px) {
+          text-align: left;
+          margin-left: 31px;
+        }
+      }
+
+      .copyright_para {
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        width: fit-content;
+        margin: 0 auto;
+        color: $darker-gray;
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+
+        @media screen and (min-width: 744px) {
+          margin: 0;
+          left: 40px;
+        }
+      }
+
+      @media screen and (min-width: 744px) {
+        flex: 1;
       }
     }
-
-    .under_button_para {
-      font-family: "Lato", sans-serif;
-      font-size: 12px;
-      line-height: 100%;
-      font-weight: 400;
-      text-align: center;
-      margin-top: 20px;
-      color: $darker-gray;
-
-      a {
-        color: $new-off-white-color;
-      }
-    }
-
-    .copyright_para {
-      font-family: "Lato", sans-serif;
-      font-size: 12px;
-      width: fit-content;
-      margin: 0 auto;
-      color: $darker-gray;
-      position: absolute;
-      bottom: 30px;
-      left: 0;
-      right: 0;
-    }
-      }
 
     @media screen and (min-width: 744px) {
       display: flex;
