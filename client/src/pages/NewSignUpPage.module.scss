@@ -119,6 +119,7 @@ main {
         }
 
         @media screen and (min-width: 1440px) {
+          margin-bottom: 30px;
           margin-top: 30px;
           font-size: 20px;
           margin-left: 36px;
@@ -200,6 +201,24 @@ main {
                 margin-bottom: 20px;
               }
             }
+
+            @media screen and (min-width: 1440px) {
+              font-size: 20px;
+              line-height: 50px;
+              height: 50px;
+              
+              &:nth-of-type(1) {
+                margin-right: 30px;
+                margin-bottom: 30px;
+              }
+            }
+          }
+
+          .left_form_container,
+          .right_form_container {
+            @media screen and (min-width: 1440px) {
+              flex-direction: row;
+            }
           }
         }
 
@@ -220,6 +239,12 @@ main {
             height: 43px;
             font-size: 14px;
             margin: 0;
+          }
+
+          @media screen and (min-width :1440px) {
+            width: 210px;
+            height: 56px;
+            font-size: 18px;
           }
         }
 
