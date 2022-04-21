@@ -52,10 +52,12 @@ const NewSignUpPage = () => {
   return (
     <main className={styles.main}>
       <nav>
-        <div className={styles.logo}>
-          <img src={check} alt="logo" draggable="false" className={styles.logo_img} />
-          <p>upTicket</p>
-        </div>
+        <a href="/">
+          <div className={styles.logo}>
+            <img src={check} alt="logo" draggable="false" className={styles.logo_img} />
+            <p>upTicket</p>
+          </div>
+        </a>
       </nav>
       <div className={styles.left_and_right_containers}>
         <div className={styles.left_side_container}>

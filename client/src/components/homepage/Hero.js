@@ -9,10 +9,12 @@ const Hero = () => {
   return (
     <section className={styles.hero_section}>
       <nav className={styles.hero_nav}>
-        <div className={styles.logo}>
-          <img src={check} alt="logo" draggable="false" className={styles.logo_img} />
-          <p>upTicket</p>
-        </div>
+        <a href="/">
+          <div className={styles.logo}>
+            <img src={check} alt="logo" draggable="false" className={styles.logo_img} />
+            <p>upTicket</p>
+          </div>
+        </a>
         <ul className={styles.nav_links_wrapper}>
           <li>
             <a href="/">Features</a>
