@@ -51,6 +51,15 @@ const NewSignUpPage = () => {
 
   return (
     <main className={styles.main}>
+      {formHasErrors ? (
+        <div className={`${styles.error_message} ${styles.slide_message}`}>
+          <p>{formHasErrors.errorMessageToShow}</p>
+        </div>
+      ) : (
+        <div className={styles.error_message}>
+          <p></p>
+        </div>
+      )}
       <nav>
         <a href="/">
           <div className={styles.logo}>

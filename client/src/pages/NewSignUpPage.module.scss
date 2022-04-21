@@ -5,6 +5,24 @@ main {
   font-family: "Jost", sans-serif;
   height: 100vh;
 
+  .error_message {
+    position: absolute;
+    top: -50px;
+    background-color: $new-pink-color;
+    color: #000;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 5px 10px;
+    border-radius: 7px;
+  }
+
+  .slide_message {
+    top: 10px;
+    transition: top 1s ease-in-out;
+  }
+
   nav {
     padding: 30px 20px 0;
 
@@ -12,7 +30,7 @@ main {
       text-decoration: none;
       color: $new-off-white-color;
       display: inline-block;
-      
+
       .logo {
         display: flex;
         align-items: center;
