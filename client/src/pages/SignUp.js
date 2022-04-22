@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
-import styles from "./SignUp.module.scss";
+import styles from "./Signup.module.scss";
 
-const SignUp = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
@@ -154,4 +154,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

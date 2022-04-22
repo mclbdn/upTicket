@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   async function verifyTokenToLogin() {
     console.log(localStorage.getItem("token"));
-    const response = await fetch("http://localhost:5500/api/ticket/companyDetails", {
+    const response = await fetch("https://upticket-server-ts.herokuapp.com/api/ticket/companyDetails", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },

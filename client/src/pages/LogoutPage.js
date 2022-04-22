@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./SingUpAndLogin.module.scss";
+import styles from "./Login.module.scss";
 
 const LogoutPage = () => {
 
