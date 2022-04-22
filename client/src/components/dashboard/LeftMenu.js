@@ -17,9 +17,16 @@ const LeftMenu = ({ children }) => {
   const isMainContent = useSelector((state) => state.isMainContent);
 
   async function logoutUser() {
-    const response = await fetch(
-      "https://upticket-server.herokuapp.com/api/logout"
-    );
+    const response = await fetch("https://upticket-server-ts.herokuapp.com/api/user/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Method": "DELETE, POST, GET, OPTIONS",
+        "ccess-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+      },
+    });
 
     if (response.status === 200) {
       localStorage.clear();
