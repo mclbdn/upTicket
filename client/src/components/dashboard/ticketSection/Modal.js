@@ -66,7 +66,7 @@ const Modal = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:1337/tickets/create", {
+      const response = await fetch("http://localhost:5500/api/ticket/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,9 +79,9 @@ const Modal = () => {
           companyId,
         }),
       });
+      console.log(response)
       const data = await response.json();
-      console.log(data.status);
-      if (data.status === "ok") {
+      if (response.status === 200) {
         getAllTickets();
         handleCloseBtn();
       }

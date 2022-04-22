@@ -10,26 +10,26 @@ const LogInPage = () => {
   async function loginUser(e) {
     e.preventDefault();
 
-    const response = await fetch(
-      "https://upticket-server.herokuapp.com/api/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:5500/api/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Method": "DELETE, POST, GET, OPTIONS",
+        "ccess-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
     const data = await response.json();
-
+    console.log(data)
     if (response.status === 200) {
-      localStorage.setItem("token", data.user)
+      localStorage.setItem("token", data.token);
       alert("Login successfull");
-      navigate("/dashboard");
+      // navigate("/dashboard");
     } else {
       alert("Please check your e-mail/password");
     }
@@ -51,23 +51,11 @@ const LogInPage = () => {
         <form onSubmit={loginUser}>
           <div className={styles.label_and_input_container}>
             <label htmlFor="email">Company Email</label>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              name="email"
-              id="email"
-            />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" />
           </div>
           <div className={styles.label_and_input_container}>
             <label htmlFor="password">Password</label>
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              name="password"
-              id="password"
-            />
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" />
           </div>
           <button type="submit">Log In</button>
         </form>

@@ -27,11 +27,13 @@ async function postRegister(req, res) {
 
 async function postLogin(req, res) {
   // Does this user exist?
+  console.log(req.body.email)
   const user = await userModel.findOne({ email: req.body.email });
-  console.log(user);
+  console.log(`$This is user: ${user}`);
 
   if (!user) {
-    res.json({ status: "ko", message: "Non-existing user" });
+    res.status(404).json({ status: "ko", message: "Non-existing user" });
+    return;
   }
 
   const isPasswordValid = await bcrypt.compare(

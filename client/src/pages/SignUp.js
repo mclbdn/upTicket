@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
-import styles from "./NewSignUpPage.module.scss";
+import styles from "./SignUp.module.scss";
 
-const NewSignUpPage = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
@@ -70,7 +70,7 @@ const NewSignUpPage = () => {
       </nav>
       <div className={styles.left_and_right_containers}>
         <div className={styles.left_side_container}>
-          <h1 className={styles.h1}>You’re only a few clicks away from creating your upTicket account </h1>
+          <h1 className={styles.h1}>You’re only a few clicks away from creating your upTicket account.</h1>
           <div className={styles.white_vertical_line}></div>
         </div>
         <div className={styles.right_side_container}>
@@ -154,4 +154,4 @@ const NewSignUpPage = () => {
   );
 };
 
-export default NewSignUpPage;
+export default SignUp;

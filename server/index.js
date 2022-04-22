@@ -11,7 +11,8 @@ require("dotenv").config();
 // Connect to the db
 mongoose.connect(process.env.MONGO_DB_URL);
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
+
 app.use(express.json());
 
 // Use auth routes

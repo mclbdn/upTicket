@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Homepage from "./pages/Homepage";
-import LogInPage from "./pages/LogInPage";
+// import LogInPage from "./pages/LogInPage";
+// import LogIn from "./pages/NewLogIn";
 import LogoutPage from "./pages/LogoutPage";
-// import SignUpPage from "./pages/SignUpPage";
-import NewSignUpPage from "./pages/NewSignUpPage";
+import SignUp from "./pages/SignUp";
 import "./styles/_base.scss";
+import NewLogIn from "./pages/NewLogIn";
 
 const App = () => {
   return (
@@ -13,9 +14,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          {/* <Route path="/signup" element={<SignUpPage />} /> */}
-          <Route path="/signup" element={<NewSignUpPage />} />
-          <Route path="/login" element={<LogInPage />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<NewLogIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/logout" element={<LogoutPage />} />
         </Routes>

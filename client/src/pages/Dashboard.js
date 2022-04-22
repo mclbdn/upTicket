@@ -22,25 +22,27 @@ const Dashboard = () => {
 
   async function verifyTokenToLogin() {
     console.log(localStorage.getItem("token"));
-    const req = await fetch("https://upticket-server.herokuapp.com/tickets/gettickets", {
+    const response = await fetch("http://localhost:5500/api/ticket/companyDetails", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
     });
 
-    const data = await req.json();
-
-    if (data.status === "ok") {
-      dispatch(setCompanyName(data.company));
-      dispatch(setCompanyId(data.company_id));
+    const data = await response.json();
+    console.log(data)
+    if (response.status === 200) {
+      dispatch(setCompanyName(data.companyName));
+      dispatch(setCompanyId(data.companyId));
     } else {
       navigate("/login");
     }
   }
 
-  // Check if token was provided so user can see the dashboard. If not, redirect him to log in
+  // Check if token was provided so user can see the dashboard. If not, redirect them to log in
   useEffect(() => {
     const token = localStorage.getItem("token");
+
+    console.log(token);
 
     if (token) {
       const user = jwtDecode(token);
