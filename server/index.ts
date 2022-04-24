@@ -4,8 +4,10 @@ import cors from "cors";
 import auth_routes from "./routes/auth.routes";
 import ticket_routes from "./routes/ticket.routes";
 import report_routes from "./routes/report.routes";
+import dotenv from "dotenv";
+dotenv.config();
 
-mongoose.connect("mongodb+srv://mclbdn:Miminitos1.@cluster0.zgee6.mongodb.net/upticket?retryWrites=true&w=majority");
+mongoose.connect(process.env.MONGO_URI as string);
 
 const app: Express = express();
 
