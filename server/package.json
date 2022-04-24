@@ -2,10 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index",
-  "typings": "./dist/index",
+  "main": "dist/index",
+  "typings": "dist/index",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "tsc-watch --onSuccess \"node .\"",
@@ -16,6 +15,12 @@
   "author": "mclbdn",
   "license": "ISC",
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.25",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
@@ -25,12 +30,6 @@
     "tsc-watch": "^5.0.3"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.13",
-    "@types/jsonwebtoken": "^8.5.8",
-    "@types/mongoose": "^5.11.97",
-    "@types/node": "^17.0.25",
     "concurrently": "^7.1.0",
     "nodemon": "^2.0.15",
     "tslint": "^6.1.3",
