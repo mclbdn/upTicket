@@ -1,6 +1,6 @@
 # upTicket
 
-### <a href="https://upticket-mclbdn.netlify.app/">Try running this website here.</a>
+### <a href="https://mclbdn-upticket.netlify.app/">Try running this website here.</a>
 
 
 Full-Stack MERN website letting users register/login/logout and create/update/delete tickets. This app is still work in progress.
