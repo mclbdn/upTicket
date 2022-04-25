@@ -10,20 +10,13 @@ import {
   setActiveTicketId,
 } from "../../../redux/actions";
 
-const SingleTicket = ({
-  ticket_id,
-  ticket_name,
-  ticket_description,
-  ticket_priority,
-  ticket_db_id,
-}) => {
+const SingleTicket = ({ ticket_id, ticket_name, ticket_description, ticket_priority, ticket_db_id }) => {
   const dispatch = useDispatch();
 
   const [bgColor, setBgColor] = useState("");
 
   // Set different color to ticket-priority div according to its priority
   useEffect(() => {
-    console.log("IS UPDATING TICKET");
     if (ticket_priority == 1) {
       setBgColor("rgba(242, 89, 75, 0.5)");
     } else if (ticket_priority == 2) {
@@ -40,7 +33,6 @@ const SingleTicket = ({
     dispatch(setIsUpdatingTicket(true));
     dispatch(setActiveTicketId(ticket_db_id));
     dispatch(setIsModalShown(true));
-    console.log(bgColor);
   };
 
   return (
@@ -50,10 +42,7 @@ const SingleTicket = ({
         <div className={styles.ticket_description}>{ticket_name}</div>
       </div>
       <div className={styles.right_side}>
-        <div
-          className={styles.ticket_priority}
-          style={{ backgroundColor: bgColor }}
-        >
+        <div className={styles.ticket_priority} style={{ backgroundColor: bgColor }}>
           P{ticket_priority}
         </div>
       </div>

@@ -217,7 +217,7 @@ export async function getCompany(req: Request, res: Response) {
 
 export async function fetchTickets(req: Request, res: Response) {
   const token = req.headers["x-access-token"] as string;
-  const companyId = req.body.companyId;
+  const companyId = req.query.companyId;
 
   if (!companyId) {
     res.status(400).json({ message: "Error. Provide companyId" });

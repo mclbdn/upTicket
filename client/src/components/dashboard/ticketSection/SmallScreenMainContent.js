@@ -14,14 +14,12 @@ const SmallScreenMainContent = () => {
 
   async function getAllTickets() {
     try {
-      const response = await fetch("https://upticket-server.herokuapp.com/tickets/all", {
-        method: "POST",
+      const response = await fetch(`https://upticket.herokuapp.com/api/ticket/fetchTickets?companyId=${companyId}`, {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
         },
-        body: JSON.stringify({
-          company_id: companyId,
-        }),
       });
 
       const data = await response.json();
@@ -63,11 +61,11 @@ const SmallScreenMainContent = () => {
           tickets.map((ticket) => {
             return (
               <SingleTicket
-                key={ticket.ticket_id}
-                ticket_id={ticket.ticket_id}
-                ticket_name={ticket.ticket_name}
-                ticket_description={ticket.ticket_description}
-                ticket_priority={ticket.ticket_priority}
+                key={ticket._id}
+                ticket_id={ticket.ticketId}
+                ticket_name={ticket.ticketName}
+                ticket_description={ticket.ticketDescription}
+                ticket_priority={ticket.ticketPriority}
                 ticket_db_id={ticket._id}
               />
             );

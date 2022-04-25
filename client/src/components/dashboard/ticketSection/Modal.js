@@ -41,18 +41,13 @@ const Modal = () => {
 
   async function getAllTickets() {
     try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/all",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            company_id: companyId,
-          }),
-        }
-      );
+      const response = await fetch(`https://upticket.herokuapp.com/api/ticket/fetchTickets?companyId=${companyId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+      });
 
       const data = await response.json();
 
@@ -66,7 +61,7 @@ const Modal = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5500/api/ticket/create", {
+      const response = await fetch("https://upticket.herokuapp.com/api/ticket/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +74,7 @@ const Modal = () => {
           companyId,
         }),
       });
-      console.log(response)
+
       const data = await response.json();
       if (response.status === 200) {
         getAllTickets();
@@ -92,23 +87,20 @@ const Modal = () => {
 
   async function handleUpdate() {
     try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/update",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            ticketName,
-            ticketDescription,
-            ticketPriority,
-            companyId,
-            ticket_id: activeTicketId,
-          }),
-        }
-      );
+      const response = await fetch("https://upticket.herokuapp.com/api/ticket/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          ticketName,
+          ticketDescription,
+          ticketPriority,
+          companyId,
+          ticketId: activeTicketId,
+        }),
+      });
 
       const data = await response.json();
       getAllTickets();
@@ -120,20 +112,17 @@ const Modal = () => {
 
   async function handleDelete() {
     try {
-      const response = await fetch(
-        "https://upticket-server.herokuapp.com/tickets/delete",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            companyId,
-            ticket_id: activeTicketId,
-          }),
-        }
-      );
+      const response = await fetch("https://upticket.herokuapp.com/api/ticket/delete", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          companyId,
+          ticketId: activeTicketId,
+        }),
+      });
 
       const data = await response.json();
       getAllTickets();

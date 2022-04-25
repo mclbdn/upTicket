@@ -21,15 +21,14 @@ const Dashboard = () => {
   const isMainContent = useSelector((state) => state.isMainContent);
 
   async function verifyTokenToLogin() {
-    console.log(localStorage.getItem("token"));
-    const response = await fetch("https://upticket-server-ts.herokuapp.com/api/ticket/companyDetails", {
+    const response = await fetch("https://upticket.herokuapp.com/api/ticket/companyDetails", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
     });
 
     const data = await response.json();
-    console.log(data)
+    
     if (response.status === 200) {
       dispatch(setCompanyName(data.companyName));
       dispatch(setCompanyId(data.companyId));
@@ -41,8 +40,6 @@ const Dashboard = () => {
   // Check if token was provided so user can see the dashboard. If not, redirect them to log in
   useEffect(() => {
     const token = localStorage.getItem("token");
-
-    console.log(token);
 
     if (token) {
       const user = jwtDecode(token);
