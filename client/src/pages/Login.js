@@ -11,7 +11,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("https://upticket-server-ts.herokuapp.com/api/user/login", {
+    const response = await fetch("https://upticket.herokuapp.com/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

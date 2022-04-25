@@ -17,7 +17,7 @@ const LeftMenu = ({ children }) => {
   const isMainContent = useSelector((state) => state.isMainContent);
 
   async function logoutUser() {
-    const response = await fetch("https://upticket-server-ts.herokuapp.com/api/user/logout", {
+    const response = await fetch("https://upticket.herokuapp.com/api/user/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

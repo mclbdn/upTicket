@@ -26,7 +26,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (!formHasErrors) {
-      const response = await fetch("https://upticket-server.herokuapp.com/api/register", {
+      const response = await fetch("https://upticket.herokuapp.com/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
