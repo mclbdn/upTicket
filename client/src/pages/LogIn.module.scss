@@ -1,14 +1,14 @@
 @import "../styles/vars";
 
 main {
-  color: $new-off-white-color;
+  color: $off-white-color;
   font-family: "Jost", sans-serif;
   height: 100vh;
 
   .error_message {
     position: absolute;
     top: -50px;
-    background-color: $new-pink-color;
+    background-color: $pink-color;
     color: #000;
     left: 0;
     right: 0;
@@ -28,7 +28,7 @@ main {
 
     a {
       text-decoration: none;
-      color: $new-off-white-color;
+      color: $off-white-color;
       display: inline-block;
 
       .logo {
@@ -72,7 +72,7 @@ main {
       display: none;
 
       h1 {
-        color: $new-off-white-color;
+        color: $off-white-color;
         font-weight: 600;
         font-size: 27px;
         line-height: 100%;
@@ -88,7 +88,7 @@ main {
         position: absolute;
         content: "";
         width: 0.3px;
-        background-color: $new-off-white-color;
+        background-color: $off-white-color;
         height: 100vh;
         right: 0;
         top: -127px;
@@ -250,7 +250,7 @@ main {
           cursor: pointer;
           width: 100px;
           height: 30px;
-          background-color: $new-yellow-color;
+          background-color: $yellow-color;
           border: none;
           border-radius: 7px;
           font-family: "Lato", sans-serif;
@@ -293,7 +293,7 @@ main {
         color: $darker-gray;
 
         a {
-          color: $new-off-white-color;
+          color: $off-white-color;
         }
 
         @media screen and (min-width: 744px) {

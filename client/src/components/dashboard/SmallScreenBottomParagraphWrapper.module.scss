@@ -9,7 +9,7 @@
 
   .bottom_paragraph {
     font-family: "Lato", sans-serif;
-    color: $new-off-white-color;
+    color: $off-white-color;
     margin: 0 auto;
     position: relative;
     width: fit-content;
@@ -19,7 +19,7 @@
     &::after {
       position: absolute;
       content: "";
-      border-top: 1px solid $new-off-white-color;
+      border-top: 1px solid $off-white-color;
       left: 0px;
       right: 0px;
       top: -20px;

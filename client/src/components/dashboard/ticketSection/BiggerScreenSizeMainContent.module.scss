@@ -3,7 +3,7 @@
 .bigger_screen_h1 {
   font-weight: 500;
   font-size: 23px;
-  color: $new-off-white-color;
+  color: $off-white-color;
   margin: 30px 0px 20px 47px;
   font-family: "Jost", sans-serif;
 
@@ -48,7 +48,7 @@
 
 .bigger_screen_white_container {
   border-radius: 8px;
-  border: 1px solid rgba($color: $new-off-white-color, $alpha: 0.6);
+  border: 1px solid rgba($color: $off-white-color, $alpha: 0.6);
   position: absolute;
   left: 47px;
   right: 40px;
@@ -65,12 +65,12 @@
       font-weight: 600;
       font-size: 13px;
       font-family: "Lato", sans-serif;
-      color: $new-off-white-color;
+      color: $off-white-color;
 
       @media screen and (min-width: 1440px) {
         font-weight: 600;
         font-size: 16px;
-        color: $new-off-white-color;
+        color: $off-white-color;
       }
     }
 

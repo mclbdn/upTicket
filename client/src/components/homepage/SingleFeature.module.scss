@@ -4,7 +4,7 @@
   position: relative;
   width: calc(100% - 40px);
   height: 134px;
-  border: 1px solid $new-off-white-color;
+  border: 1px solid $off-white-color;
   border-radius: 7px;
   margin: 0 auto 20px;
 
@@ -18,10 +18,10 @@
     line-height: 30px;
     text-align: center;
     border-radius: 7px;
-    color: $new-yellow-color;
+    color: $yellow-color;
 
     .fa_features_icon {
-      color: $new-yellow-color;
+      color: $yellow-color;
     }
 
     @media screen and (min-width: 744px) {
@@ -34,7 +34,7 @@
   }
 
   .feature_name {
-    color: $new-off-white-color;
+    color: $off-white-color;
     position: absolute;
     top: 54px;
     left: 15px;
