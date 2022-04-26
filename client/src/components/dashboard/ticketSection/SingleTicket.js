@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleTicket.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setIsModalShown,
   setTicketName,
@@ -17,12 +17,12 @@ const SingleTicket = ({ ticket_id, ticket_name, ticket_description, ticket_prior
 
   // Set different color to ticket-priority div according to its priority
   useEffect(() => {
-    if (ticket_priority == 1) {
-      setBgColor("rgba(242, 89, 75, 0.5)");
-    } else if (ticket_priority == 2) {
-      setBgColor("rgba(242, 205, 94, 0.5)");
-    } else if (ticket_priority == 3) {
-      setBgColor("rgba(92, 100, 242, 0.5)");
+    if (Number(ticket_priority) === 1) {
+      setBgColor("#FFD6FF");
+    } else if (Number(ticket_priority) === 2) {
+      setBgColor("#D9E17E");
+    } else if (Number(ticket_priority) === 3) {
+      setBgColor("#79E578");
     }
   }, [ticket_priority]);
 
@@ -38,7 +38,9 @@ const SingleTicket = ({ ticket_id, ticket_name, ticket_description, ticket_prior
   return (
     <div className={styles.single_ticket} onClick={() => handleClick()}>
       <div className={styles.left_side}>
-        <div className={styles.ticket_number}>T-{ticket_id}</div>
+        <div className={styles.ticket_number}>
+          <p>T-{ticket_id}</p>
+        </div>
         <div className={styles.ticket_description}>{ticket_name}</div>
       </div>
       <div className={styles.right_side}>

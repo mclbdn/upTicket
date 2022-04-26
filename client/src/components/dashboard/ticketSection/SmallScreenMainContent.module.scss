@@ -84,7 +84,7 @@
 
   .spinner {
     margin-bottom: 20px;
-    color: $dark-blue-color;
+    color: $black-color;
     width: 30px;
     height: 30px;
     transform: rotate(0deg);
@@ -102,6 +102,6 @@
 
   p {
     font-size: 14px;
-    color: rgba($color: $dark-blue-color, $alpha: .4);
+    color: rgba($color: $black-color, $alpha: .4);
   }
 }

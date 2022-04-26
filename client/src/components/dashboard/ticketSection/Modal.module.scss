@@ -18,11 +18,10 @@
     right: 0;
     border-radius: 8px;
     margin: 20px;
-    background-color: $off-white-color;
+    background-color: $new-off-white-color;
     padding-left: 30px;
     padding-right: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
     .btns {
       margin-bottom: 30px;
@@ -41,8 +40,8 @@
       }
 
       .submit_btn {
-        background-color: $dark-blue-color;
-        color: $off-white-color;
+        background-color: $green-color;
+        color: $black-color;
         margin-bottom: 10px;
         width: 100%;
 
@@ -52,8 +51,8 @@
       }
 
       .update_btn {
-        background-color: $dark-blue-color;
-        color: $off-white-color;
+        background-color: $green-color;
+        color: $black-color;
         margin-bottom: 10px;
         width: 45%;
 
@@ -64,8 +63,8 @@
 
       .delete_btn {
         width: 45%;
-        background-color: $red-color;
-        color: $dark-blue-color;
+        background-color: $new-pink-color;
+        color: $new-off-white-color;
         margin-bottom: 10px;
         width: 45%;
 
@@ -80,32 +79,37 @@
     }
 
     h3 {
-      color: $dark-blue-color;
+      font-family: "Jost", sans-serif;
+      font-weight: 500;
+      color: $black-color;
       text-align: center;
       margin-top: 30px;
       margin-bottom: 30px;
     }
 
     .label_and_input {
+      font-family: "Lato", sans-serif;
+      font-weight: 600;
       display: flex;
       flex-direction: column;
       margin-bottom: 10px;
 
       label {
         font-size: 16px;
-        color: $dark-blue-color;
+        color: $black-color;
         cursor: pointer;
         margin-bottom: 4px;
-        font-weight: 500;
+        font-weight: 600;
       }
 
       input {
         padding: 10px;
         line-height: 10px;
+        font-weight: 500;
         font-family: inherit;
         flex: 1 1;
         border-radius: 7px;
-        border: 1px solid rgba(41, 43, 77, 0.2);
+        border: 1px solid rgba($black-color, 0.6);
       }
 
       @media screen and (min-width: 768px) {
@@ -128,7 +132,7 @@
       top: 10px;
       width: 25px;
       height: 25px;
-      color: $dark-blue-color;
+      color: $black-color;
     }
 
     @media screen and (min-width: 768px) {

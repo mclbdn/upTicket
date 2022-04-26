@@ -20,7 +20,8 @@
       margin-right: 10px;
       text-align: center;
       line-height: 30px;
-      background-color: rgba($color: $pink-color, $alpha: 0.3);
+      color: $black-color;
+      background-color: rgba($color: $new-pink-color, $alpha: 0.3);
       height: 30px;
       width: 52.11px;
       font-size: 14px;
@@ -43,7 +44,7 @@
 
     .ticket_description {
       font-size: 14px;
-      color: $dark-blue-color;
+      color: $black-color;
       font-weight: 400;
 
       @media screen and (min-width: 768px) {
@@ -66,7 +67,7 @@
       border-radius: 8px;
       text-align: center;
       line-height: 30px;
-      color: $dark-blue-color;
+      color: $black-color;
 
       @media screen and (min-width: 768px) {
         font-size: 16px;

@@ -7,9 +7,9 @@ import {
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "./SmallScreenTopMenu.module.scss";
 import { setIsMainContent } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "./SmallScreenTopMenu.module.scss";
 
 const SmallScreenTopMenu = () => {
   const navigate = useNavigate();
@@ -35,7 +35,6 @@ const SmallScreenTopMenu = () => {
       <hr className={styles.dashboard_divider} />
       <nav className={styles.dashboard_nav}>
         <ul>
-          <div className={styles.icons}>
             <li onClick={() => dispatch(setIsMainContent(true))}>
               <FontAwesomeIcon style={{ color: isMainContent ? "#f2f4f7" : "" }} className={styles.dashboard_icon} icon={faTableColumns} />
             </li>
@@ -51,7 +50,6 @@ const SmallScreenTopMenu = () => {
                 <FontAwesomeIcon className={styles.dashboard_icon} icon={faArrowRightFromBracket} />
               </a>
             </li>
-          </div>
         </ul>
       </nav>
     </>
