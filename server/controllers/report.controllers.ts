@@ -5,7 +5,7 @@ import User from "../models/user.model";
 
 export async function getNumberOfTicketsFromLast7Days(req: Request, res: Response) {
   const token = req.headers["x-access-token"] as string;
-  const companyId = req.body.companyId;
+  const companyId = req.query.companyId;
   const dates: string[] = [];
   const data = [];
 

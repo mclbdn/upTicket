@@ -1,7 +1,7 @@
 @import "../styles/vars";
 
 .dashboard {
-  background-color: #fff;
+  background-color: $black-color;
   height: 100vh;
 
   @media screen and (min-width: 768px) {

@@ -48,7 +48,7 @@
 
 .bigger_screen_white_container {
   border-radius: 8px;
-  background-color: #fff;
+  border: 1px solid $new-off-white-color;
   position: absolute;
   left: 47px;
   right: 40px;
@@ -64,12 +64,12 @@
     p {
       font-weight: 600;
       font-size: 13px;
-      color: rgba($color: $dark-blue-color, $alpha: 0.5);
+      color: $new-off-white-color;
 
       @media screen and (min-width: 1440px) {
         font-weight: 600;
         font-size: 16px;
-        color: rgba($color: $dark-blue-color, $alpha: 0.5);
+        color: $new-off-white-color;
       }
     }
 

@@ -25,6 +25,6 @@ Full-Stack MERN website letting users register/login/logout and create/update/de
 * Add settings to dashboard 🟠
 * Redesign the whole website 🟡 
 * Add API docs 🟠
-* Use TypeScript for the server 🟡 
+* ~~Use TypeScript for the server~~ ✅
 * Redesign forms inside dashboard 🟠
 * ~~Add spinning wheel while tickets are loading~~ ✅

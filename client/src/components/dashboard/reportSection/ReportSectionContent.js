@@ -8,7 +8,7 @@ const ReportSectionContent = () => {
 
   async function getTicketsFromLast7days() {
     try {
-      const response = await fetch(`http://localhost:1337/api/last7daystickets?companyId=${companyId}`, {
+      const response = await fetch(`https://upticket.herokuapp.com/api/reports/last7daystickets?companyId=${companyId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
