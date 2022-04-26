@@ -1,11 +1,12 @@
 @import "../../styles/vars";
 
 .small_screen_welcome {
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   padding-top: 20px;
-  color: rgba($color: $dark-blue-color, $alpha: 0.5);
+  color: $new-off-white-color;
   font-size: 18px;
+  font-family: "Lato", sans-serif;
 
   span {
     color: initial;
@@ -20,7 +21,7 @@
   border-bottom: none;
   border-left: none;
   border-right: none;
-  border-top: 1px solid rgba($color: $light-blue-color, $alpha: 0.4);
+  border-top: 1px solid rgba($color: $new-off-white-color, $alpha: 0.6);
   margin: 10px 20px 20px;
 
   @media screen and (min-width: 768px) {
@@ -48,22 +49,8 @@
         cursor: pointer;
         width: 16px;
         height: 14px;
-        color: rgba($color: $dark-blue-color, $alpha: 0.5);
-      }
-
-      .username {
-        background-color: rgba($color: $blue-color, $alpha: 0.3);
-        width: 96px;
-        height: 30px;
-        border-radius: 8px;
-
-        p {
-          text-align: center;
-          line-height: 30px;
-          color: $dark-blue-color;
-          font-size: 14px;
-          font-weight: 600;
-        }
+        color: rgba($color: $new-off-white-color, $alpha: 0.6);
+        font-family: "Lato", sans-serif;
       }
     }
   }

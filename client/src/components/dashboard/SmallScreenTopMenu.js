@@ -35,38 +35,20 @@ const SmallScreenTopMenu = () => {
       <hr className={styles.dashboard_divider} />
       <nav className={styles.dashboard_nav}>
         <ul>
-          <li>
-            <div className={styles.username}>
-              <p>John</p>
-            </div>
-          </li>
           <div className={styles.icons}>
             <li onClick={() => dispatch(setIsMainContent(true))}>
-              <FontAwesomeIcon
-                style={{ color: isMainContent ? "#292b4d" : "" }}
-                className={styles.dashboard_icon}
-                icon={faTableColumns}
-              />
+              <FontAwesomeIcon style={{ color: isMainContent ? "#f2f4f7" : "" }} className={styles.dashboard_icon} icon={faTableColumns} />
             </li>
             <li onClick={() => dispatch(setIsMainContent(false))}>
-              <FontAwesomeIcon
-                className={styles.dashboard_icon}
-                icon={faChartLine}
-              />
+              <FontAwesomeIcon className={styles.dashboard_icon} icon={faChartLine} />
             </li>
             <li>
-              <FontAwesomeIcon
-                className={styles.dashboard_icon}
-                icon={faGear}
-              />
+              <FontAwesomeIcon className={styles.dashboard_icon} icon={faGear} />
             </li>
             <li>
               <a onClick={() => logoutUser()}>
                 {" "}
-                <FontAwesomeIcon
-                  className={styles.dashboard_icon}
-                  icon={faArrowRightFromBracket}
-                />
+                <FontAwesomeIcon className={styles.dashboard_icon} icon={faArrowRightFromBracket} />
               </a>
             </li>
           </div>

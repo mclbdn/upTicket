@@ -8,7 +8,7 @@ export async function getNumberOfTicketsFromLast7Days(req: Request, res: Respons
   const companyId = req.query.companyId;
   const dates: string[] = [];
   const data = [];
-
+  
   if (!companyId) {
     res.status(400).json({ message: "Error. Provide companyId." });
     return;

@@ -36,14 +36,8 @@ const LeftMenu = ({ children }) => {
 
   return (
     <div className={styles.bigger_screen_left_menu}>
-      <a
-        onClick={() => dispatch(setIsMainContent(true))}
-        style={{ color: isMainContent ? "#292b4d" : "" }}
-      >
-        <FontAwesomeIcon
-          className={styles.dashboard_icon}
-          icon={faTableColumns}
-        />
+      <a onClick={() => dispatch(setIsMainContent(true))} style={{ color: isMainContent ? "#f2f4f7" : "" }}>
+        <FontAwesomeIcon className={styles.dashboard_icon} icon={faTableColumns} />
         Dashboard
       </a>
       <a onClick={() => dispatch(setIsMainContent(false))}>
@@ -55,10 +49,7 @@ const LeftMenu = ({ children }) => {
         Settings
       </a>
       <a onClick={() => logoutUser()}>
-        <FontAwesomeIcon
-          className={styles.dashboard_icon}
-          icon={faArrowRightFromBracket}
-        />
+        <FontAwesomeIcon className={styles.dashboard_icon} icon={faArrowRightFromBracket} />
         Logout
       </a>
       {children}

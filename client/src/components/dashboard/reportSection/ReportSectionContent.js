@@ -5,13 +5,16 @@ import { useSelector, useDispatch } from "react-redux";
 const ReportSectionContent = () => {
   const [ticketsFromLast7Days, setTicketsFromLast7days] = useState(null);
   const companyId = useSelector((state) => state.companyId);
-
+  
   async function getTicketsFromLast7days() {
     try {
       const response = await fetch(`https://upticket.herokuapp.com/api/reports/last7daystickets?companyId=${companyId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Method": "DELETE, POST, GET, OPTIONS",
+          "ccess-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
           "x-access-token": localStorage.getItem("token"),
         },
       });

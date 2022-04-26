@@ -13,9 +13,6 @@ const TopContainer = () => {
           Welcome to your dashboard! <span>🎉</span>
         </h2>
       </div>
-      <div className={styles.username}>
-        <p>John</p>
-      </div>
     </div>
   );
 };
