@@ -8,6 +8,14 @@ import image_placeholder from "../../assets/image_placeholder.png";
 const Hero = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
+  const hideMobileMenu = () => {
+    if (window.innerWidth >= 744) {
+      setIsMobileMenuVisible(false);
+    }
+  };
+
+  window.addEventListener("resize", hideMobileMenu);
+
   return (
     <section className={styles.hero_section}>
       <nav className={styles.hero_nav}>
@@ -26,12 +34,12 @@ const Hero = () => {
               <a href="/">Docs</a>
             </li>
             <li>
-              <a className={styles.login_btn} href="/">
+              <a className={styles.login_btn} href="/login">
                 Log in
               </a>
             </li>
             <li>
-              <a className={styles.signup_btn} href="/">
+              <a className={styles.signup_btn} href="/signup">
                 Sign up
               </a>
             </li>

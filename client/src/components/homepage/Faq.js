@@ -47,7 +47,7 @@ const Faq = () => {
   };
 
   return (
-    <section className={styles.faq_section}>
+    <section className={styles.faq_section} id="faq">
       <h2>Have a question?</h2>
       <p className={styles.under_header_para}>Explore some of the most frequently asked questions by our community</p>
       <div className={styles.faq_options}>
