@@ -133,9 +133,88 @@
     }
 
     .hamburger_menu {
+      color: $darker-gray;
+      cursor: pointer;
+      z-index: 10;
+
       @media screen and (min-width: 744px) {
         display: none;
       }
+    }
+
+    .mobile_menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba($color: $black-color, $alpha: 0.7);
+      backdrop-filter: blur(1rem);
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform 1s ease-in-out;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        li {
+          display: inline-block;
+          margin-bottom: 15px;
+          font-family: "Lato", sans-serif;
+          font-size: 12px;
+
+          &:first-of-type {
+            margin-top: calc(30px + 16px + 15px);
+          }
+
+          &:last-of-type {
+            margin-bottom: calc(30px + 16px + 15px);
+          }
+
+          a {
+            display: inline-block;
+            color: $darker-gray;
+          }
+
+          .login_btn {
+            color: $darker-gray;
+            position: relative;
+
+            &::before {
+              content: "";
+              right: -14px;
+              left: -14px;
+              top: -7px;
+              bottom: -7px;
+              position: absolute;
+              border: 1px solid $darker-gray;
+              border-radius: 7px;
+              animation: my-animation 1s linear forwards;
+            }
+          }
+
+          .signup_btn {
+            color: $green-color;
+            position: relative;
+
+            &::before {
+              content: "";
+              right: -14px;
+              left: -14px;
+              top: -7px;
+              bottom: -7px;
+              position: absolute;
+              border: 1px solid $green-color;
+              border-radius: 7px;
+              animation: my-animation 1s linear forwards;
+            }
+          }
+        }
+      }
+    }
+
+    .show_mobile_menu {
+      transform: translateX(0);
     }
 
     @media screen and (min-width: 744px) {

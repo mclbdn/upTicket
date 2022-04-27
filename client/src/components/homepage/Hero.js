@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Hero.module.scss";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import check from "../../assets/check.svg";
 import image_placeholder from "../../assets/image_placeholder.png";
 
 const Hero = () => {
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
+
   return (
     <section className={styles.hero_section}>
       <nav className={styles.hero_nav}>
+        <div className={`${styles.mobile_menu} ${isMobileMenuVisible ? styles.show_mobile_menu : ""}`}>
+          <ul>
+            <li>
+              <a href="/">Features</a>
+            </li>
+            <li>
+              <a href="/">FAQ</a>
+            </li>
+            <li>
+              <a href="/">Team</a>
+            </li>
+            <li>
+              <a href="/">Docs</a>
+            </li>
+            <li>
+              <a className={styles.login_btn} href="/">
+                Log in
+              </a>
+            </li>
+            <li>
+              <a className={styles.signup_btn} href="/">
+                Sign up
+              </a>
+            </li>
+          </ul>
+        </div>
         <a href="/">
           <div className={styles.logo}>
             <img src={check} alt="logo" draggable="false" className={styles.logo_img} />
@@ -35,7 +63,11 @@ const Hero = () => {
             <a href="/signup">Sign up</a>
           </div>
         </ul>
-        <FontAwesomeIcon className={styles.hamburger_menu} icon={faBars} />
+        {isMobileMenuVisible ? (
+          <FontAwesomeIcon className={styles.hamburger_menu} icon={faXmark} onClick={() => setIsMobileMenuVisible(false)} />
+        ) : (
+          <FontAwesomeIcon className={styles.hamburger_menu} icon={faBars} onClick={() => setIsMobileMenuVisible(true)} />
+        )}
       </nav>
       <div className={styles.text_and_img_wrapper}>
         <div className={styles.heading_text_and_cta_wrapper}>
