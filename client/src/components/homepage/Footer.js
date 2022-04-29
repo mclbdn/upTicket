@@ -3,7 +3,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-scroll";
 import check from "../../assets/check.svg";
-import styles from "./NewFooter.module.scss";
+import styles from "./Footer.module.scss";
 
 const Footer = () => {
   return (

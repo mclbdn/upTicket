@@ -4,7 +4,7 @@ import Features from "../components/homepage/Features";
 import Faq from "../components/homepage/Faq";
 import Team from "../components/homepage/Team";
 import Newsletter from "../components/homepage/Newsletter";
-import Footer from "../components/homepage/NewFooter";
+import Footer from "../components/homepage/Footer";
 
 
 function Homepage() {
