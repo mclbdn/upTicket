@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Api from "./pages/Api";
 import Dashboard from "./pages/Dashboard";
+import Docs from "./pages/Docs";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
@@ -16,6 +18,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/docs" element={<Docs />} />
+          <Route path="/api" element={<Api />} />
         </Routes>
       </Router>
     </div>

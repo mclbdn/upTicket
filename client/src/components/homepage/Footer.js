@@ -38,10 +38,10 @@ const Footer = () => {
           <h3>Support</h3>
           <ul>
             <li>
-              <a href="/">Docs</a>
+              <a href="/docs">Docs</a>
             </li>
             <li>
-              <a href="/">API</a>
+              <a href="/api">API</a>
             </li>
           </ul>
         </div>
@@ -49,7 +49,7 @@ const Footer = () => {
           <h3>Misc.</h3>
           <ul>
             <li>
-              <a href="https://github.com/mclbdn/upTicket" target="_blank">
+              <a rel="noreferrer" href="https://github.com/mclbdn/upTicket" target="_blank">
                 Star us on Github <FontAwesomeIcon icon={faGithub} style={{ color: "000" }} />
               </a>
             </li>
@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
         <div className={styles.links_sections}>
           <p className={styles.logo_para}>
-            <img src={check} alt="logo image" draggable="false" className={styles.logo_img} />
+            <img src={check} alt="logo" draggable="false" className={styles.logo_img} />
             upTicket
           </p>
           <ul className={styles.logo_ul}>

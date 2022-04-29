@@ -38,7 +38,7 @@ const Hero = () => {
               </Link>
             </li>
             <li>
-              <a href="/">Docs</a>
+              <a href="/docs">Docs</a>
             </li>
             <li>
               <a className={styles.login_btn} href="/login">
@@ -75,7 +75,7 @@ const Hero = () => {
             </Link>
           </li>
           <li>
-            <a href="/">Docs</a>
+            <a href="/docs">Docs</a>
           </li>
           <div className={`${styles.nav_btn} ${styles.login_btn}`}>
             <a href="/login">Log in</a>
