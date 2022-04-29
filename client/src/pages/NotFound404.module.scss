@@ -1,0 +1,126 @@
+@import "../styles/vars";
+
+main {
+  height: 100vh;
+
+  nav {
+    padding: 30px 20px 0;
+
+    a {
+      text-decoration: none;
+      color: $off-white-color;
+      display: inline-block;
+
+      .logo {
+        display: flex;
+        align-items: center;
+
+        .logo_img {
+          width: 19px;
+          height: 15px;
+
+          @media screen and (min-width: 744px) {
+            width: 25px;
+            height: 20px;
+          }
+        }
+
+        p {
+          margin-left: 3px;
+          font-size: 18px;
+
+          @media screen and (min-width: 744px) {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 744px) {
+      padding: 30px 40px 0;
+    }
+
+    @media screen and (min-width: 1440px) {
+      padding: 30px 140px 0;
+    }
+  }
+
+  .h1_and_button {
+    margin: 0 auto;
+    position: absolute;
+    width: fit-content;
+    top: calc(50% - 43px);
+    left: 20px;
+    right: 20px;
+
+    h1 {
+      width: fit-content;
+      color: $off-white-color;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+
+      @media screen and (min-width: 744px) {
+        font-size: 27px;
+        margin-bottom: 20px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .cta_anchor {
+      font-family: "Lato", sans-serif;
+      text-decoration: none;
+      font-size: 12px;
+      color: $black-color;
+      font-weight: 700;
+      line-height: 36px;
+      display: contents;
+
+      .cta_btn {
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 7px;
+        background-color: $green-color;
+        width: 135px;
+        height: 36px;
+
+        @media screen and (min-width: 744px) {
+          width: 161px;
+          height: 43px;
+        }
+
+        @media screen and (min-width: 1440px) {
+          width: 210px;
+          height: 56px;
+        }
+      }
+
+      @media screen and (min-width: 744px) {
+        font-size: 14px;
+        line-height: 43px;
+      }
+      @media screen and (min-width: 1440px) {
+        font-size: 18px;
+        line-height: 56px;
+      }
+    }
+
+    @media screen and (min-width: 744px) {
+      left: 40px;
+      right: 40px;
+      top: calc(50% - 58.5px);
+    }
+
+    @media screen and (min-width: 1440px) {
+      top: calc(50% - 88px);
+      left: 140px;
+      right: 140px;
+    }
+  }
+}
