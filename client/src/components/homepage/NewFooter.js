@@ -1,6 +1,7 @@
 import React from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-scroll";
 import check from "../../assets/check.svg";
 import styles from "./NewFooter.module.scss";
 
@@ -12,16 +13,24 @@ const Footer = () => {
           <h3>Links</h3>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="hero-section" smooth="easeInOutQuart" duration={1000}>
+                Home
+              </Link>
             </li>
             <li>
-              <a href="/">Features</a>
+              <Link to="features-section" smooth="easeInOutQuart" duration={1000}>
+                Features
+              </Link>
             </li>
             <li>
-              <a href="/">FAQ</a>
+              <Link to="faq-section" smooth="easeInOutQuart" duration={1000}>
+                FAQ
+              </Link>
             </li>
             <li>
-              <a href="/">Team</a>
+              <Link to="team-section" smooth="easeInOutQuart" duration={1000}>
+                Team
+              </Link>
             </li>
           </ul>
         </div>

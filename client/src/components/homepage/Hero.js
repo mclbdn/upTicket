@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./Hero.module.scss";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-scroll";
 import check from "../../assets/check.svg";
 import image_placeholder from "../../assets/image_placeholder.png";
+import styles from "./Hero.module.scss";
 
 const Hero = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
@@ -17,18 +18,24 @@ const Hero = () => {
   window.addEventListener("resize", hideMobileMenu);
 
   return (
-    <section className={styles.hero_section}>
+    <section className={styles.hero_section} id="hero-section">
       <nav className={styles.hero_nav}>
         <div className={`${styles.mobile_menu} ${isMobileMenuVisible ? styles.show_mobile_menu : ""}`}>
           <ul>
             <li>
-              <a href="/">Features</a>
+              <Link to="features-section" smooth="easeInOutQuart" duration={1000}>
+                Features
+              </Link>
             </li>
             <li>
-              <a href="/">FAQ</a>
+              <Link to="faq-section" smooth="easeInOutQuart" duration={1000}>
+                FAQ
+              </Link>
             </li>
             <li>
-              <a href="/">Team</a>
+              <Link to="team-section" smooth="easeInOutQuart" duration={1000}>
+                Team
+              </Link>
             </li>
             <li>
               <a href="/">Docs</a>
@@ -53,13 +60,19 @@ const Hero = () => {
         </a>
         <ul className={styles.nav_links_wrapper}>
           <li>
-            <a href="/">Features</a>
+            <Link to="features-section" smooth="easeInOutQuart" duration={1000}>
+              Features
+            </Link>
           </li>
           <li>
-            <a href="/">FAQ</a>
+            <Link to="faq-section" smooth="easeInOutQuart" duration={1000}>
+              FAQ
+            </Link>
           </li>
           <li>
-            <a href="/">Team</a>
+            <Link to="team-section" smooth="easeInOutQuart" duration={1000}>
+              Team
+            </Link>
           </li>
           <li>
             <a href="/">Docs</a>

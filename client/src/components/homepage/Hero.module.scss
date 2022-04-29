@@ -58,6 +58,7 @@
           font-size: 13px;
           color: $darker-gray;
           text-decoration: none;
+          cursor: pointer;
           font-family: "Lato", sans-serif;
 
           @media screen and (min-width: 1440px) {
@@ -182,6 +183,7 @@
           a {
             display: inline-block;
             color: $darker-gray;
+            cursor: pointer;
           }
 
           .login_btn {

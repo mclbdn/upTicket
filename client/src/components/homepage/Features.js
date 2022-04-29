@@ -39,7 +39,7 @@ const Features = () => {
   ];
 
   return (
-    <section className={styles.features_section} id="features">
+    <section className={styles.features_section} id="features-section">
       <h2>Modern features for modern companies</h2>
       <p className={styles.under_header_para}>Use time-tested technologies and keep up with the fast-paced world</p>
       <div className={styles.tablet_layout}>

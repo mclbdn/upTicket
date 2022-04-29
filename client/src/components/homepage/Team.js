@@ -18,7 +18,7 @@ const Team = () => {
   };
 
   return (
-    <section className={styles.team_section} id="team">
+    <section className={styles.team_section} id="team-section">
       <h2>Meet the team</h2>
       <p className={styles.under_header_para}>We are, therefore we build</p>
       <div className={styles.team_options}>
