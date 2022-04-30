@@ -46,6 +46,7 @@ main {
   }
 
   .container_404 {
+    z-index: -1;
     display: flex;
     align-items: center;
     position: absolute;
@@ -114,6 +115,10 @@ main {
         background-color: $green-color;
         width: 135px;
         height: 36px;
+
+        &:hover {
+          background-color: $green-color-darker;
+        }
 
         @media screen and (min-width: 744px) {
           width: 161px;

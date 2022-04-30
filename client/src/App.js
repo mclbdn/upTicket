@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Api from "./pages/Api";
 import NotFound404 from "./pages/NotFound404";
 import Dashboard from "./pages/Dashboard";
-import Docs from "./pages/Docs";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
@@ -19,8 +17,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/docs" element={<Docs />} />
-          <Route path="/api" element={<Api />} />
+          <Route path="/docs" element={<NotFound404 />} />
+          <Route path="/api" element={<NotFound404 />} />
           <Route path="*" element={<NotFound404 />} />
         </Routes>
       </Router>
