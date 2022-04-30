@@ -108,6 +108,10 @@
       margin-left: 20px;
       z-index: 2;
 
+      &:hover {
+        background-color: $yellow-color-darker;
+      }
+
       @media screen and (min-width: 744px) {
         margin-left: 0;
         font-size: 14px;

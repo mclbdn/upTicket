@@ -316,6 +316,10 @@
           width: 135px;
           height: 36px;
 
+          &:hover {
+            background-color: $green-color-darker;
+          }
+
           @media screen and (min-width: 744px) {
             margin: 0;
             width: 161px;

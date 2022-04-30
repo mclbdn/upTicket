@@ -28,6 +28,10 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+
+    &:hover {
+      background-color: $green-color-darker;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -67,7 +71,7 @@
 .small_screen_tickets_wrapper {
   overflow: scroll;
   height: 50%;
-  
+
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -102,6 +106,6 @@
 
   p {
     font-size: 14px;
-    color: rgba($color: $black-color, $alpha: .4);
+    color: rgba($color: $black-color, $alpha: 0.4);
   }
 }

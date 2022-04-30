@@ -29,6 +29,10 @@
     border-radius: 8px;
     cursor: pointer;
 
+    &:hover {
+      background-color: $green-color-darker;
+    }
+
     @media screen and (min-width: 1440px) {
       font-size: 18px;
       width: 223px;

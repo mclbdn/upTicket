@@ -45,6 +45,10 @@
         margin-bottom: 10px;
         width: 100%;
 
+        &:hover {
+          background-color: $green-color-darker;
+        }
+
         @media screen and (min-width: 768px) {
           margin-bottom: 0px;
         }
@@ -56,6 +60,10 @@
         margin-bottom: 10px;
         width: 45%;
 
+        &:hover {
+          background-color: $green-color-darker;
+        }
+
         @media screen and (min-width: 768px) {
           margin-bottom: 0px;
         }
@@ -63,10 +71,14 @@
 
       .delete_btn {
         width: 45%;
-        background-color: $pink-color;
+        background-color: $red-color;
         color: $off-white-color;
         margin-bottom: 10px;
         width: 45%;
+
+        &:hover {
+          background-color: $red-color-darker;
+        }
 
         @media screen and (min-width: 768px) {
           margin-bottom: 0px;

@@ -258,6 +258,10 @@ main {
           font-weight: 700;
           margin: 0 auto;
 
+          &:hover {
+            background-color: $yellow-color-darker;
+          }
+
           @media screen and (min-width: 744px) {
             width: 160px;
             height: 43px;
