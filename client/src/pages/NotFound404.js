@@ -1,5 +1,6 @@
 import React from "react";
 import check from "../assets/check.svg";
+import text_404 from "../assets/404.svg";
 import styles from "./NotFound404.module.scss";
 
 const NotFound404 = () => {
@@ -13,6 +14,9 @@ const NotFound404 = () => {
           </div>
         </a>
       </nav>
+      <div className={styles.container_404}>
+        <img src={text_404} alt="404 decorative text"  />
+      </div>
       <div className={styles.h1_and_button}>
         <h1>
           Oh, no! This page
