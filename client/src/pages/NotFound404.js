@@ -15,7 +15,7 @@ const NotFound404 = () => {
         </a>
       </nav>
       <div className={styles.container_404}>
-        <img src={text_404} alt="404 decorative text"  />
+        <img src={text_404} alt="404 decorative text" />
       </div>
       <div className={styles.h1_and_button}>
         <h1>
@@ -27,6 +27,7 @@ const NotFound404 = () => {
         </a>
       </div>
       <div className={styles.main_content_wrapper}></div>
+      <p className={styles.copyright_para}>©upTicket 2022</p>
     </main>
   );
 };
