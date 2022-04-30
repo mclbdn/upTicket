@@ -4,6 +4,9 @@ import text_404 from "../assets/404.svg";
 import styles from "./NotFound404.module.scss";
 
 const NotFound404 = () => {
+  const date = new Date();
+  const currentYear = date.getFullYear();
+
   return (
     <main>
       <nav>
@@ -27,7 +30,7 @@ const NotFound404 = () => {
         </a>
       </div>
       <div className={styles.main_content_wrapper}></div>
-      <p className={styles.copyright_para}>©upTicket 2022</p>
+      <p className={styles.copyright_para}>©upTicket {currentYear}</p>
     </main>
   );
 };

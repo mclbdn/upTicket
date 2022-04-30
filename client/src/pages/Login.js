@@ -8,6 +8,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const date = new Date();
+  const currentYear = date.getFullYear();
+
   const loginUser = async (e) => {
     e.preventDefault();
 
@@ -101,7 +104,7 @@ const Login = () => {
           <p className={styles.under_button_para}>
             Don't have an account? <a href="/signup">Register</a>
           </p>
-          <p className={styles.copyright_para}>©upTicket 2022</p>
+          <p className={styles.copyright_para}>©upTicket {currentYear}</p>
         </div>
       </div>
     </main>

@@ -11,6 +11,9 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formHasErrors, setFormHasErrors] = useState(null);
 
+   const date = new Date();
+   const currentYear = date.getFullYear();
+
   useEffect(() => {
     if (password !== confirmPassword) {
       setFormHasErrors({
@@ -147,7 +150,7 @@ const Signup = () => {
           <p className={styles.under_button_para}>
             Already have an account? <a href="/login">Log in</a>
           </p>
-          <p className={styles.copyright_para}>©upTicket 2022</p>
+          <p className={styles.copyright_para}>©upTicket {currentYear}</p>
         </div>
       </div>
     </main>

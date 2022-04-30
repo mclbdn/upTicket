@@ -3,6 +3,9 @@ import check from "../assets/check.svg";
 import styles from "./Logout.module.scss";
 
 const Logout = () => {
+   const date = new Date();
+   const currentYear = date.getFullYear();
+
   return (
     <main className={styles.main}>
       <nav>
@@ -28,7 +31,7 @@ const Logout = () => {
           <p className={styles.under_button_para}>
             Got more work to do? <a href="/login">Log in</a>
           </p>
-          <p className={styles.copyright_para}>©upTicket 2022</p>
+          <p className={styles.copyright_para}>©upTicket {currentYear}</p>
         </div>
       </div>
     </main>
