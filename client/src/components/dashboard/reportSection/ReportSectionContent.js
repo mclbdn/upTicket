@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import { useSelector, useDispatch } from "react-redux";
+import styles from "./ReportSection.module.scss";
 
 const ReportSectionContent = () => {
   const [ticketsFromLast7Days, setTicketsFromLast7days] = useState(null);
   const companyId = useSelector((state) => state.companyId);
-  
+
   async function getTicketsFromLast7days() {
     try {
       const response = await fetch(`https://upticket.herokuapp.com/api/reports/last7daystickets?companyId=${companyId}`, {
@@ -37,8 +38,8 @@ const ReportSectionContent = () => {
   }, []);
 
   return (
-    <>
-      <h1>Reports</h1>
+    <main>
+      <h1 className={styles.h1}>Reports</h1>
       {ticketsFromLast7Days && (
         <BarChart
           width={1000}
@@ -59,7 +60,7 @@ const ReportSectionContent = () => {
           <Bar dataKey="numOfTickets" fill="#8884d8" />
         </BarChart>
       )}
-    </>
+    </main>
   );
 };
 

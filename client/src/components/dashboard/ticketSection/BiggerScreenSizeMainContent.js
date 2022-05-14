@@ -49,7 +49,7 @@ const BiggerScreenSizeMainContent = () => {
         <div className={styles.bigger_screen_fields_description}>
           <div className={styles.fields_description_left}>
             <p className={styles.ticket_num}>Ticket #</p>
-            <p>Description of the issue</p>
+            <p>Issue Name</p>
           </div>
           <div className={styles.fields_description_right}>
             <p>Priority</p>

@@ -1,0 +1,16 @@
+@import "../../../styles/vars";
+
+main {
+  h1 {
+    font-weight: 500;
+    font-size: 23px;
+    color: $off-white-color;
+    margin: 30px 0px 20px 47px;
+    font-family: "Jost", sans-serif;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 25px;
+      margin: 52px 0px 26px 48px;
+    }
+  }
+}
