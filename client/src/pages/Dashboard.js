@@ -13,7 +13,8 @@ import BiggerScreenSizeMainContent from "../components/dashboard/ticketSection/B
 import SmallScreenMainContent from "../components/dashboard/ticketSection/SmallScreenMainContent";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompanyName, setCompanyId } from "../redux/actions";
-import ReportSectionContent from "../components/dashboard/reportSection/ReportSectionContent";
+import BigReportSectionContent from "../components/dashboard/reportSection/BigReportSectionContent";
+import SmallReportSectionContent from "../components/dashboard/reportSection/SmallReportSectionContent";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Dashboard = () => {
     });
 
     const data = await response.json();
-    
+
     if (response.status === 200) {
       dispatch(setCompanyName(data.companyName));
       dispatch(setCompanyId(data.companyId));
@@ -60,9 +61,9 @@ const Dashboard = () => {
       <LeftMenu>
         <BiggerScreenBottomParagraphWrapper />
       </LeftMenu>
-      <OffWhiteContainer>{isMainContent ? <BiggerScreenSizeMainContent /> : <ReportSectionContent />}</OffWhiteContainer>
+      <OffWhiteContainer>{isMainContent ? <BiggerScreenSizeMainContent /> : <BigReportSectionContent />}</OffWhiteContainer>
       <SmallScreenTopMenu />
-      {isMainContent && <SmallScreenMainContent />}
+      {isMainContent ? <SmallScreenMainContent /> : <SmallReportSectionContent />}
       <Modal />
       <SmallScreenBottomParagraphWrapper />
     </main>

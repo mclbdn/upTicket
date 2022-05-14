@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { useSelector, useDispatch } from "react-redux";
-import styles from "./ReportSection.module.scss";
+import { useSelector } from "react-redux";
+import styles from "./SmallReportSectionContent.module.scss";
 
 const ReportSectionContent = () => {
   const [ticketsFromLast7Days, setTicketsFromLast7days] = useState(null);
@@ -39,27 +39,28 @@ const ReportSectionContent = () => {
 
   return (
     <main>
-      <h1 className={styles.h1}>Reports</h1>
-      {ticketsFromLast7Days && (
-        <BarChart
-          width={1000}
-          height={300}
-          data={ticketsFromLast7Days}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="numOfTickets" fill="#8884d8" />
-        </BarChart>
-      )}
+      <div className={styles.chart_container}>
+        {ticketsFromLast7Days && (
+          <BarChart
+            width={1000}
+            height={300}
+            data={ticketsFromLast7Days}
+            margin={{
+              top: 0,
+              right: 30,
+              left: 0,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="numOfTickets" fill="#86FF85" />
+          </BarChart>
+        )}
+      </div>
     </main>
   );
 };

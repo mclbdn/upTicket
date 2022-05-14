@@ -1,11 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRightFromBracket,
-  faChartLine,
-  faGear,
-  faTableColumns,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, faChartLine, faGear, faTableColumns } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import styles from "./LeftMenu.module.scss";
 import { setIsMainContent } from "../../redux/actions";
@@ -40,7 +35,7 @@ const LeftMenu = ({ children }) => {
         <FontAwesomeIcon className={styles.dashboard_icon} icon={faTableColumns} />
         Dashboard
       </a>
-      <a onClick={() => dispatch(setIsMainContent(false))}>
+      <a onClick={() => dispatch(setIsMainContent(false))} style={{ color: isMainContent ? "" : "#f2f4f7" }}>
         <FontAwesomeIcon className={styles.dashboard_icon} icon={faChartLine} />
         Report
       </a>
