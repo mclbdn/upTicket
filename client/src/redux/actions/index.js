@@ -68,3 +68,9 @@ export const setIsMainContent = (bool) => {
   };
 };
 
+export const setTicketsFromLast7Days = (tickets) => {
+  return {
+    type: "SETTICKETSFROMLAST7DAYS",
+    payload: tickets,
+  };
+};

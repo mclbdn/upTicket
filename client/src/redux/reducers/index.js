@@ -9,7 +9,7 @@ import isUpdatingTicketReducer from "./isUpdatingTicketReducer";
 import activeTicketIdReducer from "./activeTicketIdReducer";
 import ticketsReducer from "./ticketsReducer";
 import isMainContentReducer from "./isMainContentReducer";
-
+import ticketsFromLast7DaysReducer from "./ticketsFromLast7DaysReducer";
 
 const allReducers = combineReducers({
   companyName: companyNameReducer,
@@ -22,7 +22,7 @@ const allReducers = combineReducers({
   activeTicketId: activeTicketIdReducer,
   tickets: ticketsReducer,
   isMainContent: isMainContentReducer,
-  
+  ticketsFromLast7Days: ticketsFromLast7DaysReducer,
 });
 
 export default allReducers;

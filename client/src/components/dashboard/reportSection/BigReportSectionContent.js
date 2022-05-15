@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setTicketsFromLast7Days } from "../../../redux/actions";
 import styles from "./BigReportSectionContent.module.scss";
 
 const ReportSectionContent = () => {
-  const [ticketsFromLast7Days, setTicketsFromLast7days] = useState(null);
+  const dispatch = useDispatch();
   const companyId = useSelector((state) => state.companyId);
+  const ticketsFromLast7Days = useSelector((state) => state.ticketsFromLast7Days);
 
   async function getTicketsFromLast7days() {
     try {
@@ -21,7 +23,7 @@ const ReportSectionContent = () => {
       });
 
       const data = await response.json();
-      setTicketsFromLast7days(data.data);
+      dispatch(setTicketsFromLast7Days(data.data));
     } catch (error) {
       console.log(error);
     }
