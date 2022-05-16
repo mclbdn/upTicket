@@ -41,7 +41,7 @@ const ReportSectionContent = () => {
 
   return (
     <main>
-      <h1 className={styles.h1}>Reports</h1>
+      <h1 className={styles.report_h1}>Reports</h1>
       <div className={styles.chart_container}>
         {ticketsFromLast7Days && (
           <ResponsiveContainer width="100%" height="50%">

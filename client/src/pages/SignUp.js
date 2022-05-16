@@ -54,7 +54,7 @@ const Signup = () => {
 
   return (
     <main className={styles.main}>
-      {formHasErrors ? (
+      {/* {formHasErrors ? (
         <div className={`${styles.error_message} ${styles.slide_message}`}>
           <p>{formHasErrors.errorMessageToShow}</p>
         </div>
@@ -62,7 +62,7 @@ const Signup = () => {
         <div className={styles.error_message}>
           <p></p>
         </div>
-      )}
+      )} */}
       <nav>
         <a href="/">
           <div className={styles.logo}>
@@ -77,7 +77,16 @@ const Signup = () => {
           <div className={styles.white_vertical_line}></div>
         </div>
         <div className={styles.right_side_container}>
-          <h1 className={styles.h1}>Register</h1>
+          {formHasErrors ? (
+            <div className={`${styles.error_message} ${styles.slide_message}`}>
+              <p>{formHasErrors.errorMessageToShow}</p>
+            </div>
+          ) : (
+            <div className={styles.error_message}>
+              <p></p>
+            </div>
+          )}
+          <h1 className={styles.signup_h1}>Register</h1>
           <p className={styles.under_header_para}>Manage all your tickets efficiently</p>
           <p className={styles.under_para_para}>Let's get you all set up!</p>
           <form onSubmit={registerUser} className={styles.form}>

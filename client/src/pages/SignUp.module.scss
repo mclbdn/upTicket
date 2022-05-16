@@ -5,24 +5,6 @@ main {
   font-family: "Jost", sans-serif;
   height: 100vh;
 
-  .error_message {
-    position: absolute;
-    top: -50px;
-    background-color: $pink-color;
-    color: #000;
-    left: 0;
-    right: 0;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 5px 10px;
-    border-radius: 7px;
-  }
-
-  .slide_message {
-    top: 10px;
-    transition: top 1s ease-in-out;
-  }
-
   nav {
     padding: 30px 20px 0;
 
@@ -106,7 +88,35 @@ main {
     }
 
     .right_side_container {
-      h1 {
+      position: relative;
+
+      .error_message {
+        position: absolute;
+        top: -150px;
+        background-color: $pink-color;
+        color: #000;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 5px 10px;
+        border-radius: 7px;
+
+        @media screen and (min-width:744px) {
+          top: -100px;
+        }
+      }
+
+      .slide_message {
+        top: -90px;
+        transition: top 1s ease-in-out;
+
+        @media screen and (min-width: 744px) {
+          top: -40px;
+        }
+      }
+
+      .signup_h1 {
         color: $green-color;
         font-weight: 600;
         font-size: 20px;
