@@ -106,6 +106,34 @@ main {
     }
 
     .right_side_container {
+      position: relative;
+
+      .spinner {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -90px;
+        margin: 0 auto;
+        color: $off-white-color;
+        width: 30px;
+        height: 30px;
+        transform: rotate(0deg);
+        animation: spinning-animation 1.5s linear infinite;
+
+        @keyframes spinning-animation {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @media screen and (min-width:744px) {
+          top: -40px;
+        }
+      }
+
       h1 {
         color: $green-color;
         font-weight: 600;
