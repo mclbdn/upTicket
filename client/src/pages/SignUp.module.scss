@@ -5,6 +5,8 @@ main {
   font-family: "Jost", sans-serif;
   height: 100vh;
 
+  
+
   nav {
     padding: 30px 20px 0;
 
@@ -102,7 +104,7 @@ main {
         padding: 5px 10px;
         border-radius: 7px;
 
-        @media screen and (min-width:744px) {
+        @media screen and (min-width: 744px) {
           top: -100px;
         }
       }
@@ -320,27 +322,6 @@ main {
         }
       }
 
-      .copyright_para {
-        font-family: "Lato", sans-serif;
-        font-size: 12px;
-        width: fit-content;
-        margin: 0 auto;
-        color: $darker-gray;
-        position: absolute;
-        bottom: 30px;
-        left: 0;
-        right: 0;
-
-        @media screen and (min-width: 744px) {
-          margin: 0;
-          left: 40px;
-        }
-
-        @media screen and (min-width: 1440px) {
-          left: 140px;
-        }
-      }
-
       @media screen and (min-width: 744px) {
         flex: 1;
       }
@@ -354,6 +335,27 @@ main {
 
     @media screen and (min-width: 1440px) {
       width: calc(100% - 280px);
+    }
+  }
+
+  .copyright_para {
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    width: fit-content;
+    margin: 0 auto;
+    color: $darker-gray;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+
+    @media screen and (min-width: 744px) {
+      margin: 0;
+      left: 40px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      left: 140px;
     }
   }
 }

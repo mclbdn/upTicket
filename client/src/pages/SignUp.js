@@ -54,15 +54,6 @@ const Signup = () => {
 
   return (
     <main className={styles.main}>
-      {/* {formHasErrors ? (
-        <div className={`${styles.error_message} ${styles.slide_message}`}>
-          <p>{formHasErrors.errorMessageToShow}</p>
-        </div>
-      ) : (
-        <div className={styles.error_message}>
-          <p></p>
-        </div>
-      )} */}
       <nav>
         <a href="/">
           <div className={styles.logo}>
@@ -159,9 +150,9 @@ const Signup = () => {
           <p className={styles.under_button_para}>
             Already have an account? <a href="/login">Log in</a>
           </p>
-          <p className={styles.copyright_para}>©upTicket {currentYear}</p>
         </div>
       </div>
+      <p className={styles.copyright_para}>©upTicket {currentYear}</p>
     </main>
   );
 };
