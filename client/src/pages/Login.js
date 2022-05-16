@@ -112,9 +112,9 @@ const Login = () => {
           <p className={styles.under_button_para}>
             Don't have an account? <a href="/signup">Register</a>
           </p>
-          <p className={styles.copyright_para}>©upTicket {currentYear}</p>
         </div>
       </div>
+      <p className={styles.copyright_para}>©upTicket {currentYear}</p>
     </main>
   );
 };
