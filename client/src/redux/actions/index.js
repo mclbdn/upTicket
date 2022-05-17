@@ -81,3 +81,10 @@ export const setIsLoggingIn = (bool) => {
     payload: bool,
   };
 };
+
+export const setEmail = (email) => {
+  return {
+    type: "SETEMAIL",
+    payload: email,
+  };
+};

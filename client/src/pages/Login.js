@@ -4,14 +4,15 @@ import check from "../assets/check.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSlash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsLoggingIn } from "../redux/actions";
+import { setIsLoggingIn, setEmail } from "../redux/actions";
 import styles from "./Login.module.scss";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggingIn = useSelector((state) => state.isLoggingIn);
-  const [email, setEmail] = useState("");
+  const email = useSelector((state) => state.email);
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const date = new Date();
@@ -81,7 +82,7 @@ const Login = () => {
                 </label>
                 <input
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => dispatch(setEmail(e.target.value))}
                   type="email"
                   name="companyEmail"
                   id="companyEmail"

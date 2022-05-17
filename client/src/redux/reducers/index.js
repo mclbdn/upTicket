@@ -11,6 +11,7 @@ import ticketsReducer from "./ticketsReducer";
 import isMainContentReducer from "./isMainContentReducer";
 import ticketsFromLast7DaysReducer from "./ticketsFromLast7DaysReducer";
 import isLoggingInReducer from "./isLoggingInReducer";
+import emailReducer from "./emailReducer";
 
 const allReducers = combineReducers({
   companyName: companyNameReducer,
@@ -25,6 +26,7 @@ const allReducers = combineReducers({
   isMainContent: isMainContentReducer,
   ticketsFromLast7Days: ticketsFromLast7DaysReducer,
   isLoggingIn: isLoggingInReducer,
+  email: emailReducer,
 });
 
 export default allReducers;
