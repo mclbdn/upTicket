@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
-import { setEmail } from "../redux/actions";
+import { setEmail, setPassword } from "../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Signup.module.scss";
 
@@ -10,8 +10,9 @@ const Signup = () => {
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
   const email = useSelector((state) => state.email);
+  const password = useSelector((state) => state.password);
   // const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formHasErrors, setFormHasErrors] = useState(null);
 
@@ -47,6 +48,7 @@ const Signup = () => {
 
       if (response.status === 200) {
         dispatch(setEmail(""));
+        dispatch(setPassword(""));
         navigate("/login");
       } else {
         setFormHasErrors({
@@ -123,7 +125,7 @@ const Signup = () => {
                 </label>
                 <input
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => dispatch(setPassword(e.target.value))}
                   type="password"
                   name="password"
                   id="password"
