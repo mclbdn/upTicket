@@ -95,3 +95,10 @@ export const setPassword = (password) => {
     payload: password,
   };
 };
+
+export const setConfirmPassword = (confirmPassword) => {
+  return {
+    type: "SETCONFIRMPASSWORD",
+    payload: confirmPassword,
+  };
+};

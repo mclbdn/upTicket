@@ -13,6 +13,7 @@ import ticketsFromLast7DaysReducer from "./ticketsFromLast7DaysReducer";
 import isLoggingInReducer from "./isLoggingInReducer";
 import emailReducer from "./emailReducer";
 import passwordReducer from "./passwordReducer";
+import setConfirmPasswordReducer from "./setConfirmPasswordReducer";
 
 const allReducers = combineReducers({
   companyName: companyNameReducer,
@@ -29,6 +30,7 @@ const allReducers = combineReducers({
   isLoggingIn: isLoggingInReducer,
   email: emailReducer,
   password: passwordReducer,
+  confirmPassword: setConfirmPasswordReducer,
 });
 
 export default allReducers;

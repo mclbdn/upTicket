@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
-import { setEmail, setPassword, setCompanyName } from "../redux/actions";
+import { setEmail, setPassword, setCompanyName, setConfirmPassword } from "../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Signup.module.scss";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [companyName, setCompanyName] = useState("");
+
   const companyName = useSelector((state) => state.companyName);
   const email = useSelector((state) => state.email);
   const password = useSelector((state) => state.password);
+  const confirmPassword = useSelector((state) => state.confirmPassword);
 
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [formHasErrors, setFormHasErrors] = useState(null);
 
   const date = new Date();
@@ -47,6 +47,7 @@ const Signup = () => {
       });
 
       if (response.status === 200) {
+        dispatch(setConfirmPassword(""));
         dispatch(setEmail(""));
         dispatch(setPassword(""));
         navigate("/login");
@@ -139,7 +140,7 @@ const Signup = () => {
                 </label>
                 <input
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={(e) => dispatch(setConfirmPassword(e.target.value))}
                   type="password"
                   name="repeatPassord"
                   id="repeatPassword"
