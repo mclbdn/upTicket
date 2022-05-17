@@ -102,3 +102,10 @@ export const setConfirmPassword = (confirmPassword) => {
     payload: confirmPassword,
   };
 };
+
+export const setFormHasErrors = (obj) => {
+  return {
+    type: "SETFORMHASERRORS",
+    payload: obj,
+  };
+};

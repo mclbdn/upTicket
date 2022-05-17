@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
-import { setEmail, setPassword, setCompanyName, setConfirmPassword } from "../redux/actions";
+import { setEmail, setPassword, setCompanyName, setConfirmPassword, setFormHasErrors } from "../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Signup.module.scss";
 
@@ -13,20 +13,21 @@ const Signup = () => {
   const email = useSelector((state) => state.email);
   const password = useSelector((state) => state.password);
   const confirmPassword = useSelector((state) => state.confirmPassword);
-
-  const [formHasErrors, setFormHasErrors] = useState(null);
+  const formHasErrors = useSelector((state) => state.formHasErrors);
 
   const date = new Date();
   const currentYear = date.getFullYear();
 
   useEffect(() => {
     if (password !== confirmPassword) {
-      setFormHasErrors({
-        hasAnError: true,
-        errorMessageToShow: "Passwords must be matching.",
-      });
+      dispatch(
+        setFormHasErrors({
+          hasAnError: true,
+          errorMessageToShow: "Passwords must be matching.",
+        })
+      );
     } else {
-      setFormHasErrors(null);
+      dispatch(setFormHasErrors(null));
     }
   }, [password, confirmPassword]);
 
@@ -52,10 +53,12 @@ const Signup = () => {
         dispatch(setPassword(""));
         navigate("/login");
       } else {
-        setFormHasErrors({
-          hasAnError: true,
-          errorMessageToShow: "This e-mail is already registered.",
-        });
+        dispatch(
+          setFormHasErrors({
+            hasAnError: true,
+            errorMessageToShow: "This e-mail is already registered.",
+          })
+        );
       }
     }
   };

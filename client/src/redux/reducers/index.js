@@ -14,6 +14,7 @@ import isLoggingInReducer from "./isLoggingInReducer";
 import emailReducer from "./emailReducer";
 import passwordReducer from "./passwordReducer";
 import setConfirmPasswordReducer from "./setConfirmPasswordReducer";
+import formHasErrorsReducer from "./formHasErrorsReducer";
 
 const allReducers = combineReducers({
   companyName: companyNameReducer,
@@ -31,6 +32,7 @@ const allReducers = combineReducers({
   email: emailReducer,
   password: passwordReducer,
   confirmPassword: setConfirmPasswordReducer,
+  formHasErrors: formHasErrorsReducer,
 });
 
 export default allReducers;
