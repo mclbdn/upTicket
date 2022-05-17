@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
-import { setEmail, setPassword } from "../redux/actions";
+import { setEmail, setPassword, setCompanyName } from "../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Signup.module.scss";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [companyName, setCompanyName] = useState("");
+  // const [companyName, setCompanyName] = useState("");
+  const companyName = useSelector((state) => state.companyName);
   const email = useSelector((state) => state.email);
   const password = useSelector((state) => state.password);
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formHasErrors, setFormHasErrors] = useState(null);
 
@@ -95,7 +95,7 @@ const Signup = () => {
                 </label>
                 <input
                   value={companyName}
-                  onChange={(e) => setCompanyName(e.target.value)}
+                  onChange={(e) => dispatch(setCompanyName(e.target.value))}
                   type="text"
                   name="companyName"
                   id="companyName"
