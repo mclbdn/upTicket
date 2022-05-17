@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
+import { setEmail } from "../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Signup.module.scss";
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
-  const [email, setEmail] = useState("");
+  const email = useSelector((state) => state.email);
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formHasErrors, setFormHasErrors] = useState(null);
 
-   const date = new Date();
-   const currentYear = date.getFullYear();
+  const date = new Date();
+  const currentYear = date.getFullYear();
 
   useEffect(() => {
     if (password !== confirmPassword) {
@@ -42,6 +46,7 @@ const Signup = () => {
       });
 
       if (response.status === 200) {
+        dispatch(setEmail(""));
         navigate("/login");
       } else {
         setFormHasErrors({
@@ -102,7 +107,7 @@ const Signup = () => {
                 </label>
                 <input
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => dispatch(setEmail(e.target.value))}
                   type="email"
                   name="companyEmail"
                   id="companyEmail"
