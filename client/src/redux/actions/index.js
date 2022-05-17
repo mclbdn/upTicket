@@ -74,3 +74,10 @@ export const setTicketsFromLast7Days = (tickets) => {
     payload: tickets,
   };
 };
+
+export const setIsLoggingIn = (bool) => {
+  return {
+    type: "SETISLOGGINGIN",
+    payload: bool,
+  };
+};

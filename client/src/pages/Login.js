@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSlash } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLoggingIn } from "../redux/actions";
 import styles from "./Login.module.scss";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const isLoggingIn = useSelector((state) => state.isLoggingIn);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +20,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    setIsLoggingIn(true);
+    dispatch(setIsLoggingIn(true));
 
     const response = await fetch("https://upticket.herokuapp.com/api/user/login", {
       method: "POST",
@@ -35,7 +38,7 @@ const Login = () => {
 
     const data = await response.json();
 
-    setIsLoggingIn(false);
+    dispatch(setIsLoggingIn(false));
 
     if (response.status === 200) {
       localStorage.setItem("token", data.token);
