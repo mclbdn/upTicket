@@ -88,3 +88,10 @@ export const setEmail = (email) => {
     payload: email,
   };
 };
+
+export const setPassword = (password) => {
+  return {
+    type: "SETPASSWORD",
+    payload: password,
+  };
+};

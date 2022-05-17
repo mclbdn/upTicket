@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import check from "../assets/check.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSlash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsLoggingIn, setEmail } from "../redux/actions";
+import { setIsLoggingIn, setEmail, setPassword } from "../redux/actions";
 import styles from "./Login.module.scss";
 
 const Login = () => {
@@ -12,8 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const isLoggingIn = useSelector((state) => state.isLoggingIn);
   const email = useSelector((state) => state.email);
-  // const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const password = useSelector((state) => state.password);
 
   const date = new Date();
   const currentYear = date.getFullYear();
@@ -98,7 +97,7 @@ const Login = () => {
                 </label>
                 <input
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => dispatch(setPassword(e.target.value))}
                   type="password"
                   name="password"
                   id="password"
